@@ -1,17 +1,28 @@
 <div class="footer fixed-bottom">
-  <a href="#">
+  <a href="#" class="footer-items">
     <div class="d-flex flex-column align-items-center">
-      <i class="fas fa-plus"></i>
-      <p>Item 1</p>
+      <i class="fas fa-search"></i>
+      <p>Browse</p>
     </div>
   </a>
-  <%= link_to "*", id: "cocktails-img" do %>
-    <%= image_tag "no-straws.png", size: "30x30"%>
+    <a href="#" class="footer-items">
+    <div class="d-flex flex-column align-items-center">
+      <i class="fas fa-users"></i>
+      <p>Friends</p>
+    </div>
+  </a>
+  <%= link_to "#", class: "footer-items d-flex flex-column align-items-center" do %>
+    <%= image_tag "no-straws.png", size: "22x22"%>
+    <p>Challenges</p>
   <% end %>
-  <a href="#">
+  <a href="#" class="footer-items">
     <div class="d-flex flex-column align-items-center">
-      <i class="far fa-heart"></i>
-      <p>Favorites</p>
+      <i class="fas fa-chart-line"></i>
+      <p>Statistic</p>
     </div>
   </a>
+  <%= link_to "#", class: "footer-items d-flex flex-column align-items-center" do %>
+    <%= image_tag "no-straws.png", size: "22x22"%>
+    <p>Profile</p>
+  <% end %>
 </div>
