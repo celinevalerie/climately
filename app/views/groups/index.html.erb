@@ -1,0 +1,11 @@
+<h1>All my groups</h1>
+<% @groups.each do |group| %>
+  <ul>
+    <li><%= group.completed %></li>
+    <li><%= group.difficulty %></li>
+    <li><%= group.impact %></li>
+    <li><%= group.duration %></li>
+    <li><%= group.exceptions %></li>
+    <li><%= group.points %></li>
+  </ul>
+<% end %>
