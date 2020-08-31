@@ -1,0 +1,41 @@
+.footer {
+    background: white;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    color: $blackgreen;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-links a {
+    color: grey;
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    opacity: 1;
+  }
+
+  .footer .fas {
+    font-size: 22px;
+  }
+
+  .footer .far {
+    font-size: 22px;
+  }
+
+  .footer p {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
+
+.footer-items {
+  width: 60px; 
+}
