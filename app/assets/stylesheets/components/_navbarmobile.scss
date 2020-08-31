@@ -8,18 +8,20 @@
     color: $blackgreen;
   }
 
-  .footer-links {
+  .footer-items {
     display: flex;
     align-items: center;
+    color: $blackgreen;
   }
 
-  .footer-links a {
+  .footer-items a {
     color: grey;
     opacity: 0.8;
     text-decoration: none;
   }
-  .footer-links a:hover {
+  .footer-items:hover {
     opacity: 1;
+    text-decoration: none;
   }
 
   .footer .fas {
