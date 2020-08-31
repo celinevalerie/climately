@@ -1,0 +1,43 @@
+.footer {
+    background: white;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    color: $blackgreen;
+  }
+
+  .footer-items {
+    display: flex;
+    align-items: center;
+    color: $blackgreen;
+  }
+
+  .footer-items a {
+    color: grey;
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  .footer-items:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .footer .fas {
+    font-size: 22px;
+  }
+
+  .footer .far {
+    font-size: 22px;
+  }
+
+  .footer p {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
+
+.footer-items {
+  width: 60px; 
+}

@@ -11,3 +11,51 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+h1 {
+    font-size: 30px;
+    font-weight: bold; 
+  }
+
+h2 {
+    font-size: 20px; 
+  }
+
+p {
+  font-size: 16px; 
+}
+
+.secondary-text {
+  font-size: 16px; 
+  font-style: italic;
+}
+
+body {
+  color: $blackgreen;
+}
+
+.page-title {
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.white {
+  color: white; 
+}
+
+.green {
+  color: $darkgreen;
+}
+
+.page-subtitle {
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.main-container {
+  padding: 10px; 
+}
+
+.centered {
+  text-align: center;
+}

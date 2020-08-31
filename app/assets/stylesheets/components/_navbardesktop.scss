@@ -1,0 +1,31 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.navbar {
+  background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
+}
+
+.nav-link {
+  font-size: 10px;
+}
+
+.active h1 {
+  margin-left: 10px;
+  color: white;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.nav-item:hover {
+  text-decoration: none;
+}
