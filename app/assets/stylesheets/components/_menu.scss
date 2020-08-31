@@ -1,0 +1,13 @@
+.nav {
+    height: 5vh;
+  }
+  
+  .nav-item {
+    font-size: 16px;
+  }
+  
+  .nav-pills .nav-link.active {
+    border-bottom: 2px solid darkgreen;
+    background: none;
+    color: darkgreen;
+  }
