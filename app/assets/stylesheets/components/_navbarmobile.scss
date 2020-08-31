@@ -1,4 +1,4 @@
-.footer {
+.navbar-mobile {
     background: white;
     border-top: 1px solid lightgrey;
     display: flex;
@@ -24,15 +24,15 @@
     text-decoration: none;
   }
 
-  .footer .fas {
+  .navbar-mobile .fas {
     font-size: 22px;
   }
 
-  .footer .far {
+  .navbar-mobile .far {
     font-size: 22px;
   }
 
-  .footer p {
+  .navbar-mobile p {
     font-size: 12px;
     padding: 0;
     margin: 0;
@@ -40,4 +40,10 @@
 
 .footer-items {
   width: 60px; 
+}
+
+@include media-breakpoint-between(sm,xl) {
+  .navbar-mobile {
+  display: none;
+  }
 }
