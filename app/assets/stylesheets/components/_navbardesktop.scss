@@ -3,6 +3,10 @@
   background: white;
 }
 
+.navbar h2 {
+  font-weight: bolder;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -16,7 +20,8 @@
 }
 
 .nav-link {
-  font-size: 10px;
+  font-size: 20px;
+  font-weight: bold; 
 }
 
 .active h1 {

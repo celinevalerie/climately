@@ -1,4 +1,8 @@
-<nav class="nav nav-pills nav-justified mb-2 mt-2">
-  <%= link_to "List", root_path, class: "nav-item nav-link #{@underline_index ? 'active' : ''}" %>
-  <%= link_to "Add", root_path, class: "nav-item nav-link #{@underline_new ? 'active' : ''}" %>
+<div class="menu-container">
+<nav class="menu menu-pills d-flex align-items-center justify-content-around">
+  <%= link_to "Food", root_path, class: "menu-item menu-link active" %>
+  <%= link_to "Mobility", root_path, class: "menu-item menu-link #{@underline_new ? 'active' : ''}" %>
+  <%= link_to "Waste", root_path, class: "menu-item menu-link #{@underline_new ? 'active' : ''}" %>
+  <%= link_to "Others", root_path, class: "menu-item menu-link #{@underline_new ? 'active' : ''}" %>
 </nav>
+</div>

@@ -1,13 +1,39 @@
-.nav {
+.menu {
     height: 5vh;
+    font-weight: bold; 
   }
   
-  .nav-item {
+  .menu-item {
     font-size: 16px;
+    padding: 5px 20px; 
+    color: $lightgreen;
+    border-radius: 20px;
   }
   
-  .nav-pills .nav-link.active {
-    border-bottom: 2px solid darkgreen;
-    background: none;
-    color: darkgreen;
+  .menu-pills .menu-link.active {
+    background-color: $darkgreen;
+    color: $light-gray;
+    margin: 0px;
+  }
+
+  .menu-link:hover {
+    text-decoration: none; 
+    color: $darkgreen;
+  }
+
+  .menu-container {
+    margin: 20px auto;
+  }
+
+
+  @include media-breakpoint-down(xs) {
+    .menu-container {
+      width: 90vh; 
+    }
+  }
+
+  @include media-breakpoint-between(sm,xl) {
+    .menu-container {
+      width: 70vh;
+    }
   }
