@@ -29,3 +29,9 @@
 .nav-item:hover {
   text-decoration: none;
 }
+
+@include media-breakpoint-down(xs) {
+  .navbar {
+  display: none;
+  }
+}
