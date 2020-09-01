@@ -9,6 +9,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, :user_name, presence: true
+  validates :first_name, :last_name, :user_name, :photo , :points, presence: true
   validates :user_name, uniqueness: true
 end
