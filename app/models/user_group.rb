@@ -1,5 +1,5 @@
 class UserGroup < ApplicationRecord
   belongs_to :group
   belongs_to :user
-  validates :participation, inclusion: { in:[true, false] }
+  validates :participating, inclusion: [true, false]
 end
