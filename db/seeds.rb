@@ -8,7 +8,6 @@
 
 require 'json'
 require 'open-uri'
-require 'byebug'
 
 @challenge = Challenge.new(
   name: 'Meat-Free Challenge', 
@@ -29,7 +28,6 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   points: 626, 
   challenge: @challenge)
 @group.save
-
 
 @user1 = User.new(
   email: 'samira.eilinger@climately.io',
@@ -70,6 +68,7 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   user: @user1, 
   friend: @user2
 )
+@friendship.save
 
 @challenge = Challenge.new(
   name: 'Plastic Bottles', 
