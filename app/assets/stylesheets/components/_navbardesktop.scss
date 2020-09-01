@@ -21,7 +21,7 @@
 
 .nav-link {
   font-size: 20px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .active h1 {
@@ -35,15 +35,24 @@
   text-decoration: none;
 }
 
+.nav-item li {
+  padding: 30px 0px 0px 0px;
+}
+
 .nav-links {
-  color: white; 
-  font-size: 18px; 
+  color: white;
+  font-size: 18px;
+  margin: 150px 25px 0px 0px;
 }
 
 .nav-links:hover {
   color: white;
   opacity: 0.8;
-  text-decoration: none; 
+  text-decoration: none;
+}
+
+.navbar-nav {
+  padding: 15px 25px 0px 0px;
 }
 
 @include media-breakpoint-down(xs) {
