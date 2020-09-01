@@ -59,3 +59,17 @@ body {
 .centered {
   text-align: center;
 }
+
+@include media-breakpoint-down(xs) {
+  .page-title {
+  display: none;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .page-subtitle {
+  display: none;
+  }
+}
+
+

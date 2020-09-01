@@ -1,11 +1,103 @@
-.button{
+.button-small{
   color: white;
   background-color: $darkgreen;
   border-radius: 4px;
-  width: 10%;
-  height:50px;
-  font-size: 18px;
-  padding: 12px 28px;
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+.button-large{
+  color: white;
+  background-color: $darkgreen;
+  border-radius: 4px;
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+.button-small-secondary{
+  color: $darkgreen;
+  background-color: white;
+  border-radius: 4px;
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+.button-large-secondary{
+  color: $darkgreen;
+  background-color: white;
+  border-radius: 4px;
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
+
+.button a {
+  color: white;
+  padding: 12px 22px;
+}
+
+.button a:hover {
+  text-decoration: none; 
+}
+
+.button input {
+  color: white;
+  padding: 12px 22px;
+}
+
+.button input:hover {
+  text-decoration: none; 
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: scale(1.01) perspective(1px);
+}
+
+.button-secondary a {
+  color: $darkgreen;
+  padding: 12px 22px;
+}
+
+.button-secondary a:hover {
+  text-decoration: none; 
+}
+
+.button-secondary input {
+  color: $darkgreen;
+  padding: 12px 22px;
+}
+
+.button-secondary input:hover {
+  text-decoration: none; 
+}
+
+.button-secondary:hover {
+  opacity: 0.9;
+  transform: scale(1.01) perspective(1px);
+}
+
+.bg-green {
+  background-color: $darkgreen;
+  padding: 20px;
 }

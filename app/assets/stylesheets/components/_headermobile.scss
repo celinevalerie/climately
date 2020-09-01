@@ -1,0 +1,21 @@
+  .header h2 {
+    font-weight: bolder;
+    margin-right: 40%;
+  }
+
+  .header .navbar-brand img {
+    width: 40px;
+    margin: 0 10px;
+  }
+  
+  .header {
+    background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
+    display: flex;
+    align-items: center;
+  }
+
+  @include media-breakpoint-between(sm,xl) {
+    .header {
+    display: none;
+    }
+  }
