@@ -1,5 +1,5 @@
 
-class UsersController < ApplicationController
+class ProfilesController < ApplicationController
     def show
       set_user
     end
