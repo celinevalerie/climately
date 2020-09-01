@@ -26,10 +26,10 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { loadDynamicBannerText } from '../components/banner';
+// import { loadDynamicBannerText } from '../components/banner';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your JS functions here
-  // [...]
-  loadDynamicBannerText();
-});
+// document.addEventListener('turbolinks:load', () => {
+//   // Call your JS functions here
+//   // [...]
+//   loadDynamicBannerText();
+// });
