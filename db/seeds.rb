@@ -68,7 +68,7 @@
   difficulty: 7,
   impact: 5,
   duration: 14, 
-  exceptions: 2 
+  exceptions: 2, 
   points: 326, 
   challenge: @challenge)
 @group.save
