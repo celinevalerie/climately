@@ -35,6 +35,17 @@
   text-decoration: none;
 }
 
+.nav-links {
+  color: white; 
+  font-size: 18px; 
+}
+
+.nav-links:hover {
+  color: white;
+  opacity: 0.8;
+  text-decoration: none; 
+}
+
 @include media-breakpoint-down(xs) {
   .navbar {
   display: none;
