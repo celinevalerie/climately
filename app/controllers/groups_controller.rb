@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def show
-    set_user
+    set_group
   end
 
   def index

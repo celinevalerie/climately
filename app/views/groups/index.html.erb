@@ -1,13 +1,13 @@
-<h1>All my groups</h1>
+<h1 class="page-title">My groups</h1>
+<h2 class="page-subtitle">Find an overview about all your groups</h2>
 <% @groups.each do |group| %>
+  <h4>Challenge: <%= link_to group.challenge.name, group_path(group) %></h4>
   <ul>
-    <li><%= group.completed %></li>
-    <li><%= group.difficulty %></li>
-    <li><%= group.impact %></li>
-    <li><%= group.duration %></li>
-    <li><%= group.exceptions %></li>
-    <li><%= group.points %></li>
+    <li>Participating? <%= group.completed %></li>
+    <li>Difficulty: <%= group.difficulty %></li>
+    <li>Impact: <%= group.impact %></li>
+    <li>Duration: <%= group.duration %></li>
+    <li>Exceptions: <%= group.exceptions %></li>
+    <li>Points: <%= group.points %></li>
   </ul>
 <% end %>
-
-
