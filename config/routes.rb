@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
+
   root to: 'pages#home'
-  put '/users/:id', to: 'users#update', as: 'update_user'
   
-  resources :users, only: [:show, :edit, :update]
+  resources :profiles, only: [:show, :edit, :update]
+
   resources :challenges, only: [:show, :index]
 
   resources :groups, only: [:show, :index, :new, :create] do

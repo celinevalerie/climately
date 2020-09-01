@@ -33,3 +33,4 @@ import "bootstrap";
 //   // [...]
 //   loadDynamicBannerText();
 // });
+
