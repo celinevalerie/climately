@@ -1,4 +1,4 @@
 class Challenge < ApplicationRecord
   has_many :groups
-  validates :name, :description, :icon
+  validates :name, :description, presence: true
 end
