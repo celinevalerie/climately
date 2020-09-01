@@ -42,5 +42,23 @@ html {
 
 .range {
   padding: 0px 15px 15px 0px;
-}
+} 
 
+// @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
+//   .container{
+//     width: 100%;
+//     display: block;
+//     margin-bottom: 20px;
+//   }
+// }
+
+
+//.container-fluid{
+//}
+
+// @media (max-width:900px) {
+//   .container {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
