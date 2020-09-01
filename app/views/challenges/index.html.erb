@@ -1,7 +1,7 @@
 <% @challenges.each do |challenge| %>
   <ul>
     <li>
-    <%= challenge.name %>
+    <%= link_to challenge.name, new_group_path %>
     <%= challenge.description %>
     </li>
   </ul>

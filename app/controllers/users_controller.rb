@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     set_user
   end
