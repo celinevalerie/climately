@@ -1,7 +1,9 @@
 class Group < ApplicationRecord
-  belongs_to :challenge, dependent: :destroy
-  has_many :groups, through: :users_groups
+  belongs_to :challenge
+  has_many :users, through: :users_groups
+  has_many :users_groups
 
-  validates :completed, :difficulty, :impact, :duration, :exceptions, presence: true
-  validates_inclusion_of :difficulty, :in => 1..10
+  validates :difficulty, :impact, :duration, :exceptions, presence: true
+  validates :difficulty, :inclusion => 1..10
+  validates :completed, inclusion: [true, false]
 end
