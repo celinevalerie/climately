@@ -26,6 +26,8 @@ def self.find_for_facebook_oauth(auth)
      user.password = Devise.friendly_token[0,20]  # Fake password for validation
      user.save
    end
+  return user
+ end
   validates :first_name, :last_name, :user_name, :photo , :points, presence: true
   validates :user_name, uniqueness: true
 end
