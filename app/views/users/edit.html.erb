@@ -1,4 +1,4 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, as: :user, method: :put, url: update_user_path(@user) do |f| %>
   <%= f.input :user_name %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
