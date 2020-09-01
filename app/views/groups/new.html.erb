@@ -1,4 +1,4 @@
-<%= simple_form_for @group do |f| %>
+<%= simple_form_for @group, as: :group, method: :post, url: groups_path do |f| %>
   <%= f.input :difficulty %>
   <%= f.input :impact %>
   <%= f.input :duration %>

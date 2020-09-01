@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:id])
-
     if @group.save
       redirect_to group_path(@group)
     else

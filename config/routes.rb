@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  put '/users/:id', to: 'users#update', as: 'update_user'
 
   resources :users, only: [:show, :edit, :update]
   resources :challenges, only: [:show, :index]
