@@ -1,5 +1,11 @@
 <h1 class="page-title"> <%= @group.challenge.name %> </h1>
 <h2 class="page-subtitle">Find an overview about all your groups</h2>
+
+<div style="text-align: center;">
+  <%= cl_image_tag(current_user.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
+</div>
+
+
 <ul>
   <li><%= @group.completed %></li>
   <li><%= @group.difficulty %></li>
