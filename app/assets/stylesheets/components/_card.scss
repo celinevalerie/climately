@@ -58,6 +58,13 @@ html {
   border-radius: 4px;
 }
 
+.profile-card {
+  width: 600px;
+  height: 115px;
+}
+
+
+
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
 //   .container{
 //     width: 100%;
