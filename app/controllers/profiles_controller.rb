@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
       set_user
   
       if @user.update(user_params)
-        redirect_to user_path(@user)
+        redirect_to profile_path(@user)
       else
         render :new
       end
