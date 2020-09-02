@@ -52,7 +52,11 @@ Devise.setup do |config|
   info_fields: 'email, first_name, last_name',
   image_size: 'square',  # 50x50, guaranteed ratio
   secure_image_url: true
-  # Configure parameters from the request object used for authentication. Each entry
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],
+  scope: 'email',
+  info_fields: 'email, first_name, last_name',
+  image_size: 'square',  # 50x50, guaranteed ratio
+  secure_image_url: true# Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
   # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
