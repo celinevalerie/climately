@@ -26,11 +26,9 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { loadDynamicBannerText } from '../components/banner';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
-// document.addEventListener('turbolinks:load', () => {
-//   // Call your JS functions here
-//   // [...]
-//   loadDynamicBannerText();
-// });
+document.addEventListener('turbolinks:load', () => {
+  initChatroomCable();
+});
 

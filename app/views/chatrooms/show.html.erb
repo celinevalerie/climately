@@ -1,16 +1,14 @@
-<h1>#<%= @chatroom.name %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.user_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
+<div class="chatroom">
+  <h1><%= @group.challenge.name %></h1>
+  <div>
+    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+      <% @chatroom.messages.each do |message| %>
+        <%= render message %>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<%= simple_form_for [@group, @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-<% end %>
+    <%= simple_form_for [@group, @chatroom, @message ], url: group_chatroom_messages_path(@group, @chatroom), remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+    <% end %>
+  </div>
+</div>
