@@ -20,6 +20,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def completed
+    @group = Group.find(params[:id])
+    @group.update_attribute(:completed, 'true')
+    flash[:notice] = "Yey"
+    # redirect_to
+  end
+
   private
 
   def set_group
