@@ -137,13 +137,16 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   name: 'No Cars', 
   description: 'Carbon emissions include a number of different chemicals and particulates that are produced when fuel is burned in an engine. Some of the major substances found in a car’s exhaust include carbon dioxide, ozone, and carbon monoxide. Other chemicals often found in exhaust gasses include benzene and nitrogen oxides. Many of these chemicals serve an important purpose in different parts of the atmosphere, but they can have bad consequences when human beings inhale them directly.',
 )
+@challenge.save
 
 @challenge = Challenge.new(
   name: 'Plastic-free Veggies', 
   description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated.  An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. That is equivalent to the amount of oil in our Strategic Oil Reserve. When used for bags, it is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
 )
+@challenge.save
 
 @challenge = Challenge.new(
   name: 'Go Vegan', 
   description: 'The U.N. believes that a global shift toward plant-based food is vital if we are to combat the worst effects of climate change. Globally, animal agriculture is responsible for more greenhouse gases than all the world’s transportation systems combined.',
 )
+@challenge.save
