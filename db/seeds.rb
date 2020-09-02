@@ -9,6 +9,16 @@
 require 'json'
 require 'open-uri'
 
+
+Message.delete_all
+Friendship.delete_all
+UserGroup.delete_all
+Group.delete_all
+Chatroom.delete_all
+Challenge.delete_all
+User.delete_all
+
+
 @challenge = Challenge.new(
   name: 'Go Vegetarian', 
   description: 'Environmental vegetarianism is the practice of vegetarianism when motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Livestock as a whole is estimated to be responsible for around 18% of global greenhouse gas emissions.',
@@ -19,6 +29,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
 
 @challenge.save
 
+@chatroom = Chatroom.create
+
 @group = Group.new(
   completed: false,
   difficulty: 10,
@@ -26,7 +38,9 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   duration: 21, 
   exceptions: 2, 
   points: 626, 
-  challenge: @challenge)
+  challenge: @challenge,
+  chatroom_id: @chatroom.id
+  )
 @group.save
 
 @user1 = User.new(
@@ -79,6 +93,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
 @challenge.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
 @challenge.save
 
+@chatroom = Chatroom.create
+
 @group = Group.new(
   completed: false,
   difficulty: 7,
@@ -86,7 +102,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   duration: 14, 
   exceptions: 2, 
   points: 326, 
-  challenge: @challenge)
+  challenge: @challenge,
+  chatroom: @chatroom )
 @group.save
 
 @user1 = User.new(
