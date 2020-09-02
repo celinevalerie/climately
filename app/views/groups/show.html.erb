@@ -1,6 +1,10 @@
 <h1 class="page-title"> <%= @group.challenge.name %> </h1>
 <h2 class="page-subtitle">Find an overview about all your groups</h2>
 
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <div class="banner-container">
     <%= image_tag "banner.png", style:"width:100%;"%>
       <div class="button button-large button-flex">
