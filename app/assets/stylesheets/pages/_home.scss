@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.banner {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("homepage2.jpeg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: $blackgreen;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: $blackgreen;
+    opacity: .8;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+  .btn {
+    padding: 15px 50px;
+  }
+}
