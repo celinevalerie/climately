@@ -1,13 +1,39 @@
 <h1 class="page-title">My challenges</h1>
 <h2 class="page-subtitle">Find an overview about all your challenges</h2>
-<% @groups.each do |group| %>
-  <h4>Challenge: <%= link_to group.challenge.name, group_path(group) %></h4>
-  <ul>
-    <li>Participating? <%= group.completed %></li>
-    <li>Difficulty: <%= group.difficulty %></li>
-    <li>Impact: <%= group.impact %></li>
-    <li>Duration: <%= group.duration %></li>
-    <li>Exceptions: <%= group.exceptions %></li>
-    <li>Points: <%= group.points %></li>
-  </ul>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @groups.each do |group| %>
+      <div class="col-12 col-md-6 col-xl-4 px-2 mb-3">
+        <div class="card">
+          <div class="col card-col-img">
+            <%= cl_image_tag(current_user.photo.key, class: "card-img") %>
+          </div>
+          <div class="col card-b">
+            <div class="card-body">
+              <p class="industrycard mb-0"><strong><%= link_to group.challenge.name, group_path(group) %></strong></p>
+              <p class="card-text"> <%= group.challenge.description %> </p>
+            </div>
+            <div class="row range card-range">
+              <div class="col">
+              <%= image_tag("difficulty.png", size: "17x14")%>
+              <label for="exampleRangeDifficulty">Difficulty</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                </div>
+              </div>
+              <div class="col">
+              <%= image_tag("world.png", size: "14x14")%>
+              <label for="exampleRangeImpact">Impact</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:50%; height:5px; color:white;">.</div>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+ </div>
+</div>
+
