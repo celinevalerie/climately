@@ -16,8 +16,10 @@
   #messages {
     padding: 0 1rem;
     padding-top: 1rem;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     max-height: calc(100vh - 70px - 65px - 71px);
+    max-width: 100%;
   }
   
   #new_message {
@@ -27,4 +29,23 @@
     .form-group {
       margin-bottom: 0;
     }
+  }
+
+  .chat-form {
+    display: flex; 
+
+  }
+
+  .typing-field {
+    flex-grow: auto; 
+  }
+
+  .form-group {
+    display: flex; 
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+  .form-group input {
+    height: 40px;
   }

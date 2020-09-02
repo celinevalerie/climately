@@ -8,3 +8,12 @@
       color: $gray-500;
     }
   }
+
+  #message_photo {
+    display: hidden; 
+  }
+
+  .chat-img {
+    max-height: 400px; 
+    max-width: 300px;
+  }
