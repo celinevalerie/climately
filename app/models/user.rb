@@ -28,6 +28,6 @@ def self.find_for_facebook_oauth(auth)
    end
   return user
  end
-  validates :first_name, :last_name, :user_name, :photo , :points, presence: true
+  validates :first_name, :last_name, presence: true
   validates :user_name, uniqueness: true
 end
