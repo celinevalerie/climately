@@ -36,6 +36,7 @@ gem 'gemoji'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
