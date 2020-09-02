@@ -1,11 +1,32 @@
 .form-title{
   font-size: 25px;
+  margin-bottom: 1%;
 }
 
-.form-desc{
+.form-desc p{
   margin-left: 150px;
   margin-right: 150px;
-  display: flex;
-  justify-content: center;
-  padding: 15px 90px 15px 90px;
+  margin-bottom: 1px;
+  text-align: center;
+ /*  padding: 15px 90px 15px 90px;
+  position: absolute; */ 
 }
+
+.dif {
+  width: 150px;
+  margin: 20px;
+  float: left;
+  text-align: center;
+}
+
+.len {
+  width: 300px;
+  padding: 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+
+/*  .formbutton {
+   position: absolute;
+ } */
