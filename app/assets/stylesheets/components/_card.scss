@@ -18,6 +18,10 @@ html {
 
 .card-body p {
   font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .card-range label {
@@ -42,7 +46,17 @@ html {
 
 .range {
   padding: 0px 15px 15px 0px;
-} 
+}
+
+.slider {
+  background-color: #CEDFD9;
+  border-radius: 4px;
+}
+
+.slider-value {
+  background-color: $lightgreen;
+  border-radius: 4px;
+}
 
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
 //   .container{

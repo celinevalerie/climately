@@ -1,11 +1,39 @@
 <h1 class="page-title">Challenges</h1>
 <h2 class="page-subtitle">Get started and add a challenge!</h2>
 
-<% @challenges.each do |challenge| %>
-  <ul>
-    <li>
-    <%= link_to challenge.name, challenge_path(challenge) %>
-    <%= challenge.description %>
-    </li>
-  </ul>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @challenges.each do |challenge| %>
+      <div class="col-12 col-md-6 col-xl-4 px-2 mb-3">
+        <div class="card">
+          <div class="col card-col-img">
+            <%= cl_image_tag(current_user.photo.key, class: "card-img") %>
+          </div>
+          <div class="col card-b">
+            <div class="card-body">
+              <p class="industrycard mb-0"><strong><%= link_to challenge.name, challenge_path(challenge) %></strong></p>
+              <p class="card-text"><%= challenge.description %></p>
+            </div>
+            <div class="row range card-range">
+              <div class="col">
+              <%= image_tag("difficulty.png", size: "17x14")%>
+              <label for="exampleRangeDifficulty">Difficulty</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:75%; height:5px; color:white;"></div>
+                </div>
+              </div>
+              <div class="col">
+              <%= image_tag("world.png", size: "14x14")%>
+              <label for="exampleRangeImpact">Impact</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:50%; height:5px; color:white;"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
