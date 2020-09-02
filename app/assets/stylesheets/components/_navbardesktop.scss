@@ -16,12 +16,14 @@
 }
 
 .navbar {
+  display: flex; 
+  align-items: center;
   background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
 }
 
 .nav-link {
   font-size: 20px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .active h1 {
@@ -35,15 +37,25 @@
   text-decoration: none;
 }
 
+.nav-item .avatar {
+  margin: 0px;
+}
+
+.nav-item {
+  padding: 0px 0px 0px 0px;
+  height: 20px;
+}
+
 .nav-links {
-  color: white; 
-  font-size: 18px; 
+  color: white;
+  font-size: 18px;
+  margin: 0px 25px 0px 0px;
 }
 
 .nav-links:hover {
   color: white;
   opacity: 0.8;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 @include media-breakpoint-down(xs) {

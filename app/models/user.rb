@@ -17,6 +17,7 @@ def self.find_for_facebook_oauth(auth)
    user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
    user_params = user_params.to_h
 
+
    user = User.find_by(provider: auth.provider, uid: auth.uid)
    user ||= User.find_by(email: auth.info.email) # User did a regular sign up in the past.
    if user
@@ -29,5 +30,6 @@ def self.find_for_facebook_oauth(auth)
   return user
  end
   validates :first_name, :last_name, presence: true
+
   validates :user_name, uniqueness: true
 end

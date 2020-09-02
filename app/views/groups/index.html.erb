@@ -1,5 +1,5 @@
-<h1 class="page-title">My groups</h1>
-<h2 class="page-subtitle">Find an overview about all your groups</h2>
+<h1 class="page-title">My challenges</h1>
+<h2 class="page-subtitle">Find an overview about all your challenges</h2>
 <% @groups.each do |group| %>
   <h4>Challenge: <%= link_to group.challenge.name, group_path(group) %></h4>
   <ul>
