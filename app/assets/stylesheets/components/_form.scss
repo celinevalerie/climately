@@ -1,32 +1,31 @@
 .form-title{
   font-size: 25px;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
 }
 
 .form-desc p{
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-bottom: 1px;
+  margin-bottom: 5%;
   text-align: center;
- /*  padding: 15px 90px 15px 90px;
-  position: absolute; */ 
+  text-align: justify;
+  text-align-last: center;
 }
 
-.dif {
-  width: 150px;
-  margin: 20px;
-  float: left;
-  text-align: center;
+.firstscale{
+text-align-last: start;
+font-size: 14px;
 }
 
-.len {
-  width: 300px;
-  padding: 30px;
-  margin: 5px;
+.secondscale{
+  text-align-last: start;
   font-size: 14px;
 }
 
+.card-range label {
+  font-size: 14px;
+}
 
-/*  .formbutton {
-   position: absolute;
- } */
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+}
