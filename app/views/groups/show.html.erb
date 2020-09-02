@@ -1,20 +1,54 @@
 <h1 class="page-title"> <%= @group.challenge.name %> </h1>
 <h2 class="page-subtitle">Find an overview about all your groups</h2>
 
+<div class="banner-container">
+    <%= image_tag "banner.png", style:"width:100%;"%>
+      <div class="button button-large button-flex">
+          <%= link_to "+ 10'000 points", root_path %>
+      </div>
+</div>
+
 <div style="text-align: center;">
   <%= cl_image_tag(current_user.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
 </div>
 
+<div class="container-icon">
+  <div style="padding: 12px 0px;">
+    <%= image_tag("difficulty.png", size: "25x25")%>
+                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                  </div>
+  </div>
+  <div style="padding: 12px 0px;">
+    <%= image_tag("world.png", size: "25x25")%>
+                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                  </div>
+  </div>
+  <div style="padding: 12px 0px;">
+    <%= image_tag("duration.png", size: "25x25")%>
+                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                  </div>
+  </div>
+  <div style="padding: 12px 0px;">
+    <%= image_tag("hurdles.png", size: "25x25")%>
+                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                  </div>
+  </div>
+</div>
 
-<ul>
-  <li><%= @group.completed %></li>
-  <li><%= @group.difficulty %></li>
-  <li><%= @group.impact %></li>
-  <li><%= @group.duration %></li>
-  <li><%= @group.exceptions %></li>
-  <li><%= @group.points %></li>
-</ul>
 
+  <div class="button button-large" style="margin: 20px auto;">
+        <%= link_to 'Chatroom', root_path %>
+  </div>
 
-<%= link_to "Go back to list", groups_path %>
+  <div class="button-secondary button-large-secondary" style="margin: 20px auto;">
+        <%= link_to "Go back to list", groups_path %>
+  </div>
 
