@@ -1,6 +1,99 @@
 <h1 class="page-title">My Profile</h1>
 
-<%= current_user.first_name %>
-<%= @user.email %>
+<div class="banner-container">
+    <%= image_tag "banner.png", style:"width:100%;"%>
+      <div class="button button-large button-flex">
+          <%= link_to "+ 10'000 points", root_path %>
+      </div>
+</div>
+
+<div style="text-align: center">
+  <div style= "margin: 30px">
+    <%= cl_image_tag(current_user.photo.key, style: "width: 150px; height: 150px; border-radius: 100px;") %>
+  </div>
+
+  <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
+    <p><strong>Name:</strong>  <%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p><strong>username:</strong>  <%= current_user.user_name %></p>
+    <p><strong>E-Mail:</strong> <%= @user.email %></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @users_groups.each do |users_group| %>
+      <div class="col-12 col-md-6 col-xl-4 px-2 mb-3">
+        <div class="card">
+          <div class="col card-col-img">
+            <%= cl_image_tag(current_user.photo.key, class: "card-img") %>
+          </div>
+          <div class="col card-b">
+            <div class="card-body">
+              <p class="industrycard mb-0"><strong><%= link_to users_group.group.challenge.name, challenge_path(users_group.group.challenge) %></strong></p>
+              <p class="card-text"><%= users_group.group.challenge.description %></p>
+            </div>
+            <div class="row range card-range">
+              <div class="col">
+              <%= image_tag("difficulty.png", size: "17x14")%>
+              <label for="exampleRangeDifficulty">Difficulty</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:75%; height:5px; color:white;"></div>
+                </div>
+              </div>
+              <div class="col">
+              <%= image_tag("world.png", size: "14x14")%>
+              <label for="exampleRangeImpact">Impact</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:50%; height:5px; color:white;"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<h1 class="page-title" style="border-bottom: 1px solid #5ACCB3; margin: 40px;">Archive</h1>
+
+<div class="container" style="filter: opacity(50%)">
+  <div class="row">
+    <% @users_groups.each do |users_group| %>
+      <div class="col-12 col-md-6 col-xl-4 px-2 mb-3">
+        <div class="card">
+          <div class="col card-col-img">
+            <%= cl_image_tag(current_user.photo.key, class: "card-img") %>
+          </div>
+          <div class="col card-b">
+            <div class="card-body">
+              <p class="industrycard mb-0"><strong><%= link_to users_group.group.challenge.name, challenge_path(users_group.group.challenge) %></strong></p>
+              <p class="card-text"><%= users_group.group.challenge.description %></p>
+            </div>
+            <div class="row range card-range">
+              <div class="col">
+              <%= image_tag("difficulty.png", size: "17x14")%>
+              <label for="exampleRangeDifficulty">Difficulty</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:75%; height:5px; color:white;"></div>
+                </div>
+              </div>
+              <div class="col">
+              <%= image_tag("world.png", size: "14x14")%>
+              <label for="exampleRangeImpact">Impact</label>
+                <div class="slider">
+                  <div class="slider-value" style="width:50%; height:5px; color:white;"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 
 <%= link_to "Edit profile", edit_profile_path(@user) %>
