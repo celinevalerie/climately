@@ -107,7 +107,7 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   exceptions: 2, 
   points: 326, 
   challenge: @challenge,
-  chatroom: @chatroom )
+  chatroom: @chatroom ) 
 @group.save
 
 @user1 = User.new(
@@ -189,3 +189,15 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
 file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/Component_5_dybpya.png')
 @challenge.photo.attach(io: file, filename: 'Component_5_dybpya.png', content_type: 'image/png')
 @challenge.save
+
+@admin = User.new(
+  email: 'admin@climately.io',
+  password: '123456',
+  first_name: 'Climately',
+  last_name: 'Admin',
+  user_name: 'climatelyadmin',
+  admin: true,
+  points: 100)
+  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
+  @admin.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
+@admin.save
