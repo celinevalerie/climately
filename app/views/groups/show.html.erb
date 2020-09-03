@@ -1,5 +1,5 @@
 <h1 class="page-title"> <%= @group.challenge.name %> </h1>
-<h2 class="page-subtitle">Find an overview about all your groups</h2>
+<h2 class="page-subtitle">Your challenge lasts 2 more days</h2>
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
@@ -17,28 +17,28 @@
 </div>
 
 <div class="container-icon">
-  <div style="padding: 12px 0px;">
+  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("difficulty.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
                   <div class="slider">
                     <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div style="padding: 12px 0px;">
+  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("world.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
                   <div class="slider">
                     <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div style="padding: 12px 0px;">
+  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("duration.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration</label>
                   <div class="slider">
                     <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div style="padding: 12px 0px;">
+  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("hurdles.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
                   <div class="slider">
