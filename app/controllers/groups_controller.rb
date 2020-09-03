@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = policy_scope(Group)
+    # @groups = Group.includes(:chats, :challenges)
   end
 
   def new
