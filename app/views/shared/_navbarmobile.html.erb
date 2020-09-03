@@ -1,28 +1,35 @@
 <div class="navbar-mobile fixed-bottom">
-  <a href="#" class="footer-items">
+  <%= link_to root_path, class: "footer-items" do %>
     <div class="d-flex flex-column align-items-center">
       <i class="fas fa-search"></i>
-      <p>Browse</p>
+      <p>Home</p>
     </div>
-  </a>
-    <a href="#" class="footer-items">
+  <% end %>
+  <%= link_to root_path, class: "footer-items" do %>
     <div class="d-flex flex-column align-items-center">
       <i class="fas fa-users"></i>
       <p>Friends</p>
     </div>
-  </a>
-  <%= link_to "#", class: "footer-items d-flex flex-column align-items-center" do %>
+  <% end %>
+  <%= link_to challenges_path, class: "footer-items d-flex flex-column align-items-center" do %>
     <%= cl_image_tag "Layer_12_nwffji", size: "22x22"%>
     <p>Challenges</p>
   <% end %>
-  <a href="#" class="footer-items">
+  <%= link_to groups_path, class: "footer-items" do %>
     <div class="d-flex flex-column align-items-center">
       <i class="fas fa-chart-line"></i>
-      <p>Statistic</p>
+      <p>Dashboard</p>
     </div>
-  </a>
-  <%= link_to "#", class: "footer-items d-flex flex-column align-items-center" do %>
-    <%= cl_image_tag "blank-profile-picture-973460_640_fctahx", class: "profile-small"%>
-    <p>Profile</p>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to profile_path(current_user), class: "footer-items d-flex flex-column align-items-center" do %>
+      <%= cl_image_tag "blank-profile-picture-973460_640_fctahx", class: "profile-small"%>
+      <p>Profile</p>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "footer-items d-flex flex-column align-items-center" do %>
+      <%= cl_image_tag "blank-profile-picture-973460_640_fctahx", class: "profile-small"%>
+      <p>Login</p>
+    <% end %>
   <% end %>
 </div>

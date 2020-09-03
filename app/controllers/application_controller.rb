@@ -20,7 +20,8 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
+    session[:return_to] ||= request.referer
     flash[:alert] = "You are not authorized to perform this action."
-    redirect_to(root_path)
+    redirect_to session.delete(:return_to)
   end
 end
