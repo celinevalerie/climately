@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.update_attribute(:completed, 'true')
     flash[:notice] = "Yey"
-    # redirect_to
+    # redirect_to @group
   end
 
   private
