@@ -9,7 +9,7 @@
 
 <div style="text-align: center">
   <div style= "margin: 30px">
-    <%= cl_image_tag(@user.photo.key, style: "width: 150px; height: 150px; border-radius: 100px;") %>
+    <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-large'%>
   </div>
 
   <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
