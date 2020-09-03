@@ -1,4 +1,3 @@
-
 class ProfilesController < ApplicationController
     def show
       set_user
@@ -23,6 +22,7 @@ class ProfilesController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+      authorize @user, policy_class: UserPolicy
     end
 
     def user_params
