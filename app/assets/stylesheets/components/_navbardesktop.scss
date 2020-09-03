@@ -16,6 +16,8 @@
 }
 
 .navbar {
+  height: 8vh;
+  min-height: 50px;
   display: flex; 
   align-items: center;
   background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
@@ -56,6 +58,10 @@
   color: white;
   opacity: 0.8;
   text-decoration: none;
+}
+
+.dropdown-item {
+  font-size: 12px;
 }
 
 @include media-breakpoint-down(xs) {
