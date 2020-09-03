@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    @groups = Group.includes(:chats, :challenges)
   end
 
   def new
