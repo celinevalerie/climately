@@ -1,5 +1,7 @@
+<h1 class="page-title">Chat</h1>
+<h2 class="page-subtitle">Let your friends know about temptations and failures.</h2>
+
 <div class="chatroom">
-  <h1><%= @group.challenge.name %></h1>
   <div>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
@@ -9,10 +11,14 @@
 
     <%= simple_form_for [@group, @chatroom, @message ], url: group_chatroom_messages_path(@group, @chatroom) do |f| %>
       <div class="d-flex align-item-center">
-        <%= f.input :content, label: false, placeholder: "Message...", wrapper_html: { class: 'flex-grow-1 px-3' } %>
+        <%= f.input :content, label: false, placeholder: "Message...", wrapper_html: { class: 'flex-grow-1 pr-3' } %>
         <%= f.button :submit, "Send", class: 'button button-small px-3' %>
       </div>
-        <%= f.input :photo, label: false,wrapper_html: { class: 'px-3' } %>
+        <%= f.input :photo, label: false,wrapper_html: { class: 'pr-3' } %>
     <% end %>
   </div>
 </div>
+
+  <div class="button-secondary button-large-secondary" style="margin: 20px auto;">
+        <%= link_to "Go back to list", groups_path %>
+  </div>
