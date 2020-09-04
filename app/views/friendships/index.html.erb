@@ -1,18 +1,18 @@
-<h1 class="page-title"><%= @user.first_name %>'s friends:</h1>
+<h1 class="page-title-friends"><%= @user.first_name %>'s friends:</h1>
 
 <div class="container">
   <div class="row">
     <% @friends.each do |friend| %>
-      <div class="col-12 col-md-6 col-xl-4 px-2 mb-3">
+      <div class="col-12 px-2 mb-3">
         <div class="card">
-          <div class="col card-col-img">
+          <div class="card-col-pic d-flex">
           <% if friend.photo.present? %>
-            <%= cl_image_tag(friend.photo.key, class: "avatar ml-auto mr-auto") %>
+            <%= cl_image_tag(friend.photo.key, class: "avatar") %>
           <% end %>
           </div>
-          <div class="col card-b">
+          <div class="card-b">
             <div class="card-body">
-              <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong> <%= link_to "Add friends", root_path%></p>
+              <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong> 
               <p class="card-text"><%= friend.user_name %></p>
             </div>
           </div>
@@ -23,10 +23,10 @@
       </div>
     <% end %>
   </div>
+  
     <div class="button button-large ml-auto mr-auto">
       <%= link_to 'Invite Friends', root_path %>
     </div>
-  </div>
 </div>
 
 
