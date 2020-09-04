@@ -1,5 +1,12 @@
-<h1 class="page-title">Sign up</h1>
-<h2 class="page-subtitle">Welcome back, please sign in to continue!</h2>
+<body>
+  <div class="signup-form">
+  		<h2>Log in</h2>
+  		<p class="hint-text">Welcome back, please sign in to continue!</p>
+      <div class="social-btn text-center">
+      <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), class:"btn btn-primary btn-lg "%>
+          <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), class:"btn btn-danger btn-lg "%>
+  		</div>
+  		<div class="or-seperator"><b>or</b></div>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -12,10 +19,16 @@
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
-
+  <div class="pt-3">
+  </div>
+  <div class="button-small ">
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <% end %>
+  </div>
+    </form>
+  
+<br>
+  
+  <%= render "devise/shared/links" %>

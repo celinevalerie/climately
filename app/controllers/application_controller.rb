@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :resource_name, :resource, :devise_mapping, :resource_class
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :devise_controller?
@@ -13,7 +14,18 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :user_name, :photo])
     devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name, :last_name, :phone])
   end
-
+  def resource_name
+  :user
+  end
+ def resource
+  @resource ||= User.new
+ end
+ def resource_class
+  User
+ end
+ def devise_mapping
+  @devise_mapping ||= Devise.mappings[:user]
+ end
   private
 
   def skip_pundit?

@@ -23,7 +23,7 @@
           </div>
           <div class="col card-b">
             <div class="card-body">
-              <p class="industrycard mb-0"><strong><%= link_to challenge.name, challenge_path(challenge) %></strong></p>
+              <p class="industrycard mb-0"><strong><%= link_to challenge.name, new_challenge_group_path(challenge) %></strong></p>
               <p class="card-text"><%= challenge.description %></p>
             </div>
             <div class="row range card-range">

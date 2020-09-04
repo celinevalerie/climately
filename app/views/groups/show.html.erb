@@ -21,28 +21,28 @@
     <%= image_tag("difficulty.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
                   <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    <div class="slider-value" style="width:<%= @group.difficulty.fdiv(10)*100 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("world.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
                   <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    <div class="slider-value" style="width:<%= @group.impact.fdiv(10)*10 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("duration.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration</label>
                   <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    <div class="slider-value" style="width:<%= @group.duration.fdiv(10)*10 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("hurdles.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
                   <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    <div class="slider-value" style="width:<%= @group.exceptions.fdiv(10)*100 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
 </div>

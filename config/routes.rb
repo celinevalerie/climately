@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resources :friendships, only: [:index]
   end
 
-  resources :challenges, only: [:show, :index]
+  resources :challenges, only: [:show, :index] do
+    resources :groups, only: [:new, :create]
+  end
 
-  resources :groups, only: [:show, :index, :new, :create] do
+  resources :groups, only: [:show, :index] do
     member do
       post "completed"
     end
