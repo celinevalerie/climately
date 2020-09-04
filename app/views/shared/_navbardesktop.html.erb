@@ -13,10 +13,13 @@
     <ul class="navbar-nav d-flex align-items-center">
       <% if user_signed_in? %>
         <li class="nav-item active d-flex align-items-center">
-          <%= link_to "My Challenges", groups_path, class: "nav-links" %>
+          <%= link_to "Challenges", challenges_path, class: "nav-links" %>
         </li>
         <li class="nav-item active d-flex align-items-center">
-          <%= link_to "My Friends", profile_friendships_path(current_user) , class: "nav-links" %>
+          <%= link_to "Groups", groups_path, class: "nav-links" %>
+        </li>
+        <li class="nav-item active d-flex align-items-center">
+          <%= link_to "Friends", profile_friendships_path(current_user) , class: "nav-links" %>
         </li>
         <li class="nav-item dropdown d-flex align-items-center">
           <% if current_user.photo.present? %>

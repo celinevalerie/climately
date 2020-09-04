@@ -14,7 +14,9 @@
         <%= f.input :content, label: false, placeholder: "Message...", wrapper_html: { class: 'flex-grow-1 pr-3' } %>
         <%= f.button :submit, "Send", class: 'button button-small px-3' %>
       </div>
-        <%= f.input :photo, label: false,wrapper_html: { class: 'pr-3' } %>
+      <div class="cr-img">
+        <%= f.input :photo, label: false, wrapper_html: { class: 'photofield pr-3' } %>
+      </div>
     <% end %>
   </div>
 </div>

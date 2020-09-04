@@ -28,6 +28,11 @@ font-size: 14px;
 	transition: all 0.4s;
 	box-shadow: none;
 }
+
+.cr-img .form-control {
+  border-color: white;
+}
+
 .form-control:focus {
 	border-color: #5cb85c;
 }
