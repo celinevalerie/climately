@@ -44,6 +44,20 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/C
   )
 @group.save
 
+@chatroom = Chatroom.create
+
+@group1 = Group.new(
+  completed: false,
+  difficulty: 10,
+  impact: 8,
+  duration: 21, 
+  exceptions: 2, 
+  points: 626, 
+  challenge: @challenge,
+  chatroom_id: @chatroom.id
+  )
+@group.save
+
 @user1 = User.new(
   email: 'samira.eilinger@climately.io',
   password: '123456',
@@ -70,6 +84,12 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/C
 @users_group = UserGroup.new(
   participating: true,
   group: @group,
+  user: @user1)
+@users_group.save
+
+@users_group = UserGroup.new(
+  participating: true,
+  group: @group1,
   user: @user1)
 @users_group.save
 

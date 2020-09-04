@@ -88,6 +88,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (2.0.2)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
@@ -251,6 +254,9 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    turbolinks_render (0.9.20)
+      rails (>= 5.2.0)
+      turbolinks-source (~> 5.1)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -288,6 +294,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   cloudinary (~> 1.16.0)
   devise
+  devise_invitable (~> 2.0.0)
   dotenv-rails
   font-awesome-sass
   gemoji
@@ -308,6 +315,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
+  turbolinks_render
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

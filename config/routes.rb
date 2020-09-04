@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'friendship/index'
   get 'friend/index'
   devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' },
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks', invitations: 'users/invitations' }
+    
   root to: 'pages#home'
 
   resources :profiles, only: [:show, :edit, :update] do
