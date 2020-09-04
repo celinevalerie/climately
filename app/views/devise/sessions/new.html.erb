@@ -1,12 +1,13 @@
 <body>
   <div class="signup-form">
   		<h2>Log in</h2>
-  		<p class="hint-text">Login with your social media account or email address</p>
+  		<p class="hint-text">Welcome back, please sign in to continue!</p>
       <div class="social-btn text-center">
       <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), class:"btn btn-primary btn-lg "%>
           <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), class:"btn btn-danger btn-lg "%>
   		</div>
   		<div class="or-seperator"><b>or</b></div>
+
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,

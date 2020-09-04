@@ -63,6 +63,12 @@ html {
   height: 115px;
 }
 
+.friend-card {
+  margin: auto;
+  max-width: 100%;
+  border-radius: 4px;
+  height: fit-content;
+}
 
 
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho

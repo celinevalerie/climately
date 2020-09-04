@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand d-flex align-items-center" do %>
+  <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
   <%= cl_image_tag("no-straws-white_esdvml") %>
     <h2 class="white mb-0 ml-2"> CLIMATELY</h2>
   <% end %>
@@ -16,12 +16,14 @@
           <%= link_to "My Challenges", groups_path, class: "nav-links" %>
         </li>
         <li class="nav-item active d-flex align-items-center">
-          <%= link_to "My Friends", "#" , class: "nav-links" %>
+          <%= link_to "My Friends", profile_friendships_path(current_user) , class: "nav-links" %>
         </li>
         <li class="nav-item dropdown d-flex align-items-center">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/celinevalerie", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag current_user.photo.key, :gravity=>"faces", :crop=>"fill", class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
+            <%= link_to "View Profile", profile_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_profile_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

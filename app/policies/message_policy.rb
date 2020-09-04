@@ -1,10 +1,10 @@
 class MessagePolicy < ApplicationPolicy
-  class Scope < Scope
-    def create? 
-      @group = Group.where("chat_id = #{record.chatroom.id}")
-      @group.users.include?(user) or user.admin?
-    end
+  def create? 
+    @group = record.chatroom.group
+    @group.users.include?(user) or user.admin?
+  end
 
+  class Scope < Scope
     def resolve
       scope.all
     end
