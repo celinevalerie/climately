@@ -44,6 +44,12 @@ html {
   padding: 5px;
 }
 
+.card-col-pic {
+  max-width: 60%;
+  max-height: 60%;
+  padding: 5%;
+}
+
 .range {
   padding: 0px 15px 15px 0px;
 }
@@ -70,6 +76,12 @@ html {
   height: fit-content;
 }
 
+.page-title-friends {
+  padding-top: 10%;
+  padding-bottom: 3% ;
+  display: flex;
+  justify-content: center;
+}
 
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
 //   .container{
@@ -89,3 +101,4 @@ html {
 //     flex-direction: column;
 //   }
 // }
+
