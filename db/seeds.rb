@@ -85,6 +85,13 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/C
 )
 @friendship.save
 
+@friendship = Friendship.new(
+  user: @user2, 
+  friend: @user1
+)
+@friendship.save
+
+
 @challenge = Challenge.new(
   name: 'Plastic Bottles', 
   description: "Almost all plastic is derived from materials (like ethylene and propylene) made from fossil fuels (mostly oil and gas). The process of extracting and transporting those fuels, then manufacturing plastic creates billions of tonnes of greenhouse gases. For example, 4% of the world's annual petroleum production is diverted to making plastic, and another 4% gets burned in the refining process. But how we manage all the plastic that then goes into circulation is equally troubling. Of the almost 3 million tonnes of plastic that Australia produces each year, 95% is discarded after a single use. Less than 12% is recycled, which leaves a staggering amount to be disposed of - in landfills or incinerated.",
