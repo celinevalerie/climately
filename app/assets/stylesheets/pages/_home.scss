@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .hpcontainer {
-  background-image: image-url("homepage2.png");
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%), image-url("homepage2.png");
   text-align: center;
 }
 
@@ -62,16 +62,37 @@
   font-size: 30px;
 }
 
-/* .hpicons {
-  margin-bottom: 50%;
-} */
-// .quote {
-//   text-align: center;
-//   margin: 100px 200px;
-//   font-size: 20px;
-//   font-style: italic;
-//   color: #272727;
-// }
+.quote {
+  text-align: center;
+  padding: 10%;
+  font-size: 16px;
+  font-style: italic;
+  color: #272727;
+  margin-bottom: 10%;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: $blackgreen;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: $blackgreen;
+}
 
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
 //   padding: 20px;
