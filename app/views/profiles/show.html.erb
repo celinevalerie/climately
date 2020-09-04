@@ -9,12 +9,12 @@
 
 <div style="text-align: center">
   <div style= "margin: 30px">
-    <%= cl_image_tag(current_user.photo.key, style: "width: 150px; height: 150px; border-radius: 100px;") %>
+    <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-large'%>
   </div>
 
   <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
-    <p><strong> <%= current_user.first_name %> <%= current_user.last_name %></strong></p>
-    <p><%= current_user.user_name %></p>
+    <p><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
+    <p><%= @user.user_name %></p>
     <p><%= @user.email %></p>
   </div>
 </div>
@@ -29,7 +29,7 @@
       <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
         <div class="card profile-card">
           <div class="col card-col-img">
-            <%= cl_image_tag(current_user.photo.key, class: "card-img") %>
+            <%= cl_image_tag(users_group.group.challenge.photo.key, class: "card-img") %>
           </div>
           <div class="col card-b">
             <div class="card-body">
@@ -97,5 +97,6 @@
     <% end %>
   </div>
 </div>
+
 
 

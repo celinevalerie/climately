@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    authorize @message
 
     if @message.save
       ChatroomChannel.broadcast_to(
@@ -17,8 +18,6 @@ class MessagesController < ApplicationController
     end
   end
   
-
-
   private
   def message_params
     params.require(:message).permit(:content, :group_id, :chatroom_id, :photo)

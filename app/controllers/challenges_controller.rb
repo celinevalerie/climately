@@ -5,13 +5,14 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
   end
 
   private
 
   def set_user
     @challenge = Challenge.find(params[:id])
+    authorize @challenge
   end
 
   def user_params
