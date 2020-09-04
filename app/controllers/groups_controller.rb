@@ -10,17 +10,26 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @group = Group.new(params[:id])
+    @challenge = Challenge.find(params[:challenge_id])
+    @group = Group.new
     authorize @group
   end
 
   def create
-    @group = Group.new(params[:id])
+    @challenge = Challenge.find(params[:challenge_id])
+    @group = Group.new(group_params)
+    @group.challenge = @challenge
     @chatroom = Chatroom.new
+    @chatroom.save
     @group.chatroom = @chatroom
     authorize @group
+    @group.difficulty = @group.challenge.default_difficulty - @group.exceptions
+    @group.impact = @group.challenge.default_impact * @group.duration
+    @users_group = UserGroup.new(group: @group, user: current_user)
+    @users_group.group = @group
+    @users_group.save
     if @group.save
-      redirect_to group_path(@group)
+      redirect_to groups_path
     else
       render :new
     end
@@ -40,6 +49,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:completed, :difficulty, :impact, :duration, :exeptions, :points)
+    params.require(:group).permit(:completed, :difficulty, :impact, :duration, :exceptions, :points)
   end
 end

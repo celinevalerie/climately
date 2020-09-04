@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_115802) do
+ActiveRecord::Schema.define(version: 2020_09_04_122855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 2020_09_03_115802) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.integer "difficulty"
     t.integer "impact"
     t.integer "duration"
     t.integer "exceptions"
-    t.integer "points"
+    t.integer "points", default: 0
     t.bigint "challenge_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_115802) do
   end
 
   create_table "user_groups", force: :cascade do |t|
-    t.boolean "participating"
+    t.boolean "participating", default: true
     t.bigint "group_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
