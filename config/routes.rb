@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
 
-  resources :challenges, only: [:show, :index]
+  resources :challenges, only: [:show, :index] do
+    resources :groups, only: [:new, :create]
+  end
 
-  resources :groups, only: [:show, :index, :new, :create] do
+  resources :groups, only: [:show, :index] do
     member do
       post "completed"
     end

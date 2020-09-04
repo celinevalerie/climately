@@ -1,7 +1,12 @@
 class ProfilesController < ApplicationController
     def show
       set_user
-      @users_groups = UserGroup.where("user_id = #{@user.id}")
+      @users_groups = @user.user_groups
+      @group = []
+      @users_groups.each do |users_group|
+        @group << users_group.group
+      end
+      @group.select { |group| group.completed == true }
     end
 
     def edit
