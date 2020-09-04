@@ -25,14 +25,28 @@ User.delete_all
   default_impact: 7
 )
 
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/Component_5_dybpya.png')
-@challenge.photo.attach(io: file, filename: 'Component_5_dybpya.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_47_igxyy4.png')
+@challenge.photo.attach(io: file, filename: 'Group_47_igxyy4.png', content_type: 'image/png')
 
 @challenge.save
 
 @chatroom = Chatroom.create
 
 @group = Group.new(
+  completed: false,
+  difficulty: 10,
+  impact: 8,
+  duration: 21, 
+  exceptions: 2, 
+  points: 626, 
+  challenge: @challenge,
+  chatroom_id: @chatroom.id
+  )
+@group.save
+
+@chatroom = Chatroom.create
+
+@group1 = Group.new(
   completed: false,
   difficulty: 10,
   impact: 8,
@@ -75,6 +89,12 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/C
 
 @users_group = UserGroup.new(
   participating: true,
+  group: @group1,
+  user: @user1)
+@users_group.save
+
+@users_group = UserGroup.new(
+  participating: true,
   group: @group,
   user: @user2)
 @users_group.save
@@ -100,8 +120,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/C
   default_impact: 7
   )
 
-file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-@challenge.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/Plastic2_zc3lmp.png')
+@challenge.photo.attach(io: file, filename: 'Plastic2_zc3lmp.png', content_type: 'image/png')
 @challenge.save
 
 @chatroom = Chatroom.create
@@ -168,8 +188,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   default_difficulty: 8,
   default_impact: 6
   )
-  file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/Component_8_ldexne.png')
-  @challenge.photo.attach(io: file, filename: 'Component_8_ldexne.png', content_type: 'image/png')
+  file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Component_14_vcxgpw.png')
+  @challenge.photo.attach(io: file, filename: 'Component_14_vcxgpw.png', content_type: 'image/png')
 @challenge.save
 
 @challenge = Challenge.new(
@@ -180,8 +200,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   default_impact: 3
   )
 
-  file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/Component_3_hsosm5.png')
-  @challenge.photo.attach(io: file, filename: 'Component_3_hsosm5.png', content_type: 'image/png')
+  file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_49_uv8nre.png')
+  @challenge.photo.attach(io: file, filename: 'Group_49_uv8nre.png', content_type: 'image/png')
 
 @challenge.save
 
@@ -193,8 +213,8 @@ file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/b
   default_impact: 9
   )
 
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1598886172/Component_5_dybpya.png')
-@challenge.photo.attach(io: file, filename: 'Component_5_dybpya.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_48_bxx7ll.png')
+@challenge.photo.attach(io: file, filename: 'Group_48_bxx7ll.png', content_type: 'image/png')
 @challenge.save
 
 @admin = User.new(

@@ -6,12 +6,14 @@ class User < ApplicationRecord
   has_many :groups, through: :user_groups
   has_many :friendships
   has_many :friends, through: :friendships
+  has_many :invitations, class_name: self.to_s, as: :invited_by
   has_one_attached :photo
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-def self.find_for_facebook_oauth(auth)
+
+  def self.find_for_facebook_oauth(auth)
    user_params = auth.slice("provider", "uid")
    user_params.merge! auth.info.slice("email", "first_name", "last_name")
    user_params[:facebook_picture_url] = auth.info.image
@@ -30,9 +32,9 @@ def self.find_for_facebook_oauth(auth)
      user.save
    end
   return user
- end
+  end
   
- def self.find_for_google_oauth2(auth)
+  def self.find_for_google_oauth2(auth)
     user_params = auth.slice("provider", "uid")
     user_params.merge! auth.info.slice("email", "first_name", "last_name")
     user_params[:token] = auth.credentials.token
@@ -50,7 +52,7 @@ def self.find_for_facebook_oauth(auth)
       user.save
     end
    return user
- end
+  end
   #validates :first_name, :last_name, presence: true
 
   validates :user_name, uniqueness: true
