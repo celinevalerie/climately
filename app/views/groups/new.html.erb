@@ -1,4 +1,4 @@
-<h1 class="page-title">Customize Challenge</h1>
+<h1 class="page-title pb-4">Customize Challenge</h1>
 
 <div class="banner-container">
     <%= image_tag "banner.png", style:"width:100%;"%>
@@ -45,7 +45,7 @@
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
   </div>
     <%= f.input :exceptions, as: :range, input_html: { step: 1, min:"0", max:"10", class:"custom-range", style:"border: white;"}, label: false, min:"0", max:"10"  %>
-    <div class="button-large" style="margin: 1px auto;">
+    <div class="button button-large" style="margin: 1px auto;">
       <%= f.button :submit, input_html: { stlye:"color:white;" } %>
     </div>
   <% end %>
