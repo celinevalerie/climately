@@ -1,5 +1,3 @@
-import {sortChallenges} from '../components/sortchallenges';
-
 const toggleActiveClass = ((event) => {
     const child = event.currentTarget.parentElement.children;
     Array.from(child).forEach((item) => {
@@ -10,7 +8,6 @@ const toggleActiveClass = ((event) => {
 
   const toggleActiveOnClick = (menuitem) => {
     menuitem.addEventListener('click', toggleActiveClass);
-    menuitem.addEventListener('click', sortChallenges);
   };
 
 const activateMenuBar = () => {

@@ -9,7 +9,11 @@
 
 <div style="text-align: center">
   <div style= "margin: 30px">
-    <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-large'%>
+    <% if @user.photo.present?%>
+      <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-large'%>
+    <% else %>
+       <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-large" %>
+    <% end %>
   </div>
 
   <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">

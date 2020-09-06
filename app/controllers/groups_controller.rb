@@ -23,12 +23,12 @@ class GroupsController < ApplicationController
     @chatroom.save
     @group.chatroom = @chatroom
     authorize @group
-    @group.difficulty = @group.challenge.default_difficulty - @group.exceptions
-    @group.impact = @group.challenge.default_impact * @group.duration
+    @group.difficulty = @group.challenge.default_difficulty * (@group.duration.fdiv(100))
+    @group.impact = @group.challenge.default_impact - (@group.exceptions.fdiv(100))
     @users_group = UserGroup.new(group: @group, user: current_user)
     @users_group.group = @group
-    @users_group.save
     if @group.save
+      @users_group.save
       redirect_to groups_path
     else
       render :new
