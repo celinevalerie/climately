@@ -11,6 +11,10 @@ class GroupPolicy < ApplicationPolicy
     return true
   end
 
+  def completed?
+    return true
+  end
+
   def create?
     return true
   end
