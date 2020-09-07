@@ -15,38 +15,44 @@
   <%= @challenge.description %>
 </div>
 
-<div class="container-icon">
-  <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
-    <%= image_tag("difficulty.png", size: "25x25")%>
-                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
-                  <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
-                  </div>
-  </div>
-  <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
-    <%= image_tag("world.png", size: "25x25")%>
-                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
-                  <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
-                  </div>
-  </div>
-</div>
-
-
-<div class="container-slider">
-  <%= simple_form_for [@challenge, @group] do |f| %>
-  <div style="padding: 12px 0px; width:80vh;">
-    <%= image_tag("duration.png", size: "25x25")%>
-    <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">How many weeks do you want to do the challenge?</label>
-  </div>
-    <%= f.input :duration, as: :range, input_html: { step: 7, min: 7, max: 182, class:"custom-range", style:"border: white; width: 80vh;" }, label: false %>
-  <div style="padding: 12px 0px; width:80vh;">
-    <%= image_tag("hurdles.png", size: "25x25")%>
-    <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">How many exceptions a week are allowed?</label>
-  </div>
-    <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white; width: 80vh;"}, label: false, min: 0, max: 7  %>
-    <div class="button button-large" style="margin: 1px auto;">
-      <%= f.button :submit, input_html: { stlye:"color:white;" } %>
+<div data-controller="slider">
+  <div class="container-icon">
+    <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
+      <%= image_tag("difficulty.png", size: "25x25")%>
+                  <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
+                    <div class="slider">
+                      <div data-target="slider.difficulty" class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    </div>
     </div>
-  <% end %>
+    <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
+      <%= image_tag("world.png", size: "25x25")%>
+                  <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
+                    <div class="slider">
+                      <div data-target="slider.impact" class="slider-value" style="width:75%; height:5px; color:white;">.</div>
+                    </div>
+    </div>
+  </div>
+
+
+  <div class="container-slider">
+    <%= simple_form_for([@challenge, @group], remote: true) do |f| %>
+    <div style="padding: 12px 0px; width:80vh;">
+      <%= image_tag("duration.png", size: "25x25")%>
+      <label style="font-size: 15px; padding: 0px 0px 5px 10px;">How many weeks do you want to do the challenge?</label>
+    </div>
+    <div data-action="click->slider#calculateImpact" data-id="0">
+      <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white; width: 80vh;"}, label: false %>
+    </div>
+    <div style="padding: 12px 0px; width:80vh;">
+      <%= image_tag("hurdles.png", size: "25x25")%>
+      <label style="font-size: 15px; padding: 0px 0px 5px 10px;">How many exceptions a week are allowed?</label>
+    </div>
+    <div data-action="click->slider#calculateDifficulty" data-id="0">
+      <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white; width: 80vh;"}, label: false, min: 0, max: 7  %>
+    </div>
+      <div class="button button-large" style="margin: 1px auto;">
+        <%= f.button :submit, input_html: { stlye:"color:white;" } %>
+      </div>
+    <% end %>
+  </div>
 </div>
