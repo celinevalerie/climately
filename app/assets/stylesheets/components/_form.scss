@@ -38,7 +38,8 @@ font-size: 14px;
 	border-color: $darkgreen;
 }
 .signup-form {
-	width: 480px;
+	width: 80%;
+	max-width: 480px;
 	margin: 0 auto;
 	padding: 30px 0;
 }
