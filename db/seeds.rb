@@ -114,7 +114,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 
 @challenge = Challenge.new(
   name: 'Plastic Bottles', 
-  description: "Do you know that it takes 450 years until a plastic bottle decompose. Plastic bottles that don’t end up in landfills end up polluting our oceans, killing our environment, injuring and killing marine animals. Its believed the Great Pacific Garbage patch covers a surface area of 1.6 million square kilometers which is three times the size of France. Help to safe the nature.",
+  description: "Do you know that it takes 450 years until a plastic bottle decompose. Plastic bottles that don’t end up in landfills, end up polluting our oceans, killing our environment, injuring and killing marine animals. It's believed the Great Pacific Garbage patch covers a surface area of 1.6 million square kilometers which is three times the size of France. Help to safe the nature.",
   category: 'Waste',
   default_difficulty: 7,
   default_impact: 7
