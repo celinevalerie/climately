@@ -1,7 +1,9 @@
 
 <body>
   <div class="signup-form">
-  <h1 class="page-title">Create an Account</h1>
+    <div style="text-align: center;">
+      <h1 class="col-12 px-2 mb-3">Create an Account</h1>
+    </div>
   <p class="centered">Sign up with your social media account or email address</p>
   		<div class="social-btn text-center">
         <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), class:"btn btn-primary btn-lg"%>
