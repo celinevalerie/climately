@@ -5,6 +5,23 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = policy_scope(Group).select {|group|group.users.include?(current_user)}
+    if params.has_key?(:status)
+      @usergroups = []
+      @groups.each do | group |
+        @usergroups << group.user_groups.select {|usergroup| usergroup.status == params[:status]}
+      end
+      @usergroups.flatten!
+      @status = params[:status]
+    else
+      @usergroups = []
+      @groups.each do | group |
+        @usergroups << group.user_groups.select {|usergroup| usergroup.status == 'active'}
+      end
+      @usergroups.flatten!
+      @status = 'active'
+    end
+
     @groups = policy_scope(Group)
     # @groups = Group.includes(:chats, :challenges, :users)
   end

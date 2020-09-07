@@ -6,8 +6,8 @@
   .menu-item {
     font-size: 16px;
     padding: 5px 20px; 
-    color: $lightgreen;
-    border-radius: 20px;
+    color: $darkgreen;
+    border-radius: 4px;
   }
 
   .menu-item a:hover {
@@ -23,6 +23,7 @@
   .menu-link:hover {
     text-decoration: none; 
     color: $darkgreen;
+    transform: scale(1.01) perspective(1px);
   }
 
   .menu-container {
