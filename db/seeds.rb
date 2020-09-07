@@ -19,7 +19,7 @@ User.delete_all
 
 @challenge = Challenge.new(
   name: 'Go Vegetarian', 
-  description: 'Environmental vegetarianism is the practice of vegetarianism when motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Livestock as a whole is estimated to be responsible for around 18% of global greenhouse gas emissions.',
+  description: 'Environmental vegetarianism is the practice of vegetarianism motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Choosing a vegetarian diet will help you contribute to the reduction of pollution and you will also improve your health!.',
   category: 'Food',
   default_difficulty: 8,
   default_impact: 7
@@ -114,7 +114,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 
 @challenge = Challenge.new(
   name: 'Plastic Bottles', 
-  description: "Almost all plastic is derived from materials (like ethylene and propylene) made from fossil fuels (mostly oil and gas). The process of extracting and transporting those fuels, then manufacturing plastic creates billions of tonnes of greenhouse gases. For example, 4% of the world's annual petroleum production is diverted to making plastic, and another 4% gets burned in the refining process. But how we manage all the plastic that then goes into circulation is equally troubling. Of the almost 3 million tonnes of plastic that Australia produces each year, 95% is discarded after a single use. Less than 12% is recycled, which leaves a staggering amount to be disposed of - in landfills or incinerated.",
+  description: "Do you know that it takes 450 years until a plastic bottle decompose. Plastic bottles that don’t end up in landfills, end up polluting our oceans, killing our environment, injuring and killing marine animals. It's believed the Great Pacific Garbage patch covers a surface area of 1.6 million square kilometers which is three times the size of France. Help to safe the nature.",
   category: 'Waste',
   default_difficulty: 7,
   default_impact: 7
@@ -183,7 +183,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 
 @challenge = Challenge.new(
   name: 'No Cars', 
-  description: 'Carbon emissions include a number of different chemicals and particulates that are produced when fuel is burned in an engine. Some of the major substances found in a car’s exhaust include carbon dioxide, ozone, and carbon monoxide. Other chemicals often found in exhaust gasses include benzene and nitrogen oxides. Many of these chemicals serve an important purpose in different parts of the atmosphere, but they can have bad consequences when human beings inhale them directly.',
+  description: 'Car emissions include several different chemicals and particulates that are produced when fuel is burned in an engine. Car pollution is one of the major causes of global warming. We have other possibilities, we could use our bikes and also stay fit. Using public transfer helps to fight against global warming. Let`s start! ',
   category: 'Mobility',
   default_difficulty: 8,
   default_impact: 6
@@ -207,7 +207,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 
 @challenge = Challenge.new(
   name: 'Go Vegan', 
-  description: 'The U.N. believes that a global shift toward plant-based food is vital if we are to combat the worst effects of climate change. Globally, animal agriculture is responsible for more greenhouse gases than all the world’s transportation systems combined.',
+  description: 'Did you know animal agriculture is responsible for more greenhouse gases than all the world’s transportation systems combined? Crazy right! You’ve probably heard that it takes a lot of water to produce meat. In actual fact, it takes 2,500 gallons to make just one pound of meat. On the other hand, it only takes 25 gallons of our valuable water to grow one pound of wheat. Let`s go vegan!.',
   category: 'Food',
   default_difficulty: 9,
   default_impact: 9
