@@ -6,6 +6,10 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = policy_scope(Challenge)
+    respond_to do |format|
+      format.html
+      format.json { render json: { challenges: @challenges } }
+    end
   end
 
   private

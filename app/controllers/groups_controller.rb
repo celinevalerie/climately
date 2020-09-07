@@ -23,8 +23,13 @@ class GroupsController < ApplicationController
     @chatroom.save
     @group.chatroom = @chatroom
     authorize @group
-    @group.difficulty = @group.challenge.default_difficulty * (@group.duration.fdiv(100))
-    @group.impact = @group.challenge.default_impact - (@group.exceptions.fdiv(100))
+    if @group.exceptions > @group.challenge.default_difficulty
+      flash[:notice] = "This is too easy"
+    else
+      @group.difficulty = @group.challenge.default_difficulty - @group.exceptions
+    end
+    @group.impact = (@group.challenge.default_impact * @group.duration)
+    @group.points = @group.difficulty * @group.impact
     @users_group = UserGroup.new(group: @group, user: current_user)
     @users_group.group = @group
     if @group.save
