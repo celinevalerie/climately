@@ -36,6 +36,8 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'gemoji'
 gem 'pundit'
 gem 'turbolinks_render'
+gem 'letter_opener', group: :development
+gem 'pg_search', '~> 2.3.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

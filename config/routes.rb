@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     
   root to: 'pages#home'
 
-  resources :profiles, only: [:show, :edit, :update] do
-    resources :friendships, only: [:index]
+  resources :profiles, only: [:index, :show, :edit, :update] do
+    resources :friendships, only: [:index, :create]
   end
 
   resources :challenges, only: [:show, :index] do

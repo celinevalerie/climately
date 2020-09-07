@@ -1,5 +1,5 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
-
+<h1 class="page-title"><%= t "devise.invitations.edit.header" %></h1>
+<div class="signup-form">
 <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :invitation_token %>
@@ -13,3 +13,4 @@
     <%= f.button :submit, t("devise.invitations.edit.submit_button") %>
   </div>
 <% end %>
+</div>
