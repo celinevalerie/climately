@@ -5,7 +5,13 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = policy_scope(Challenge)
+    if params.has_key?(:category)
+      @challenges = policy_scope(Challenge).where(category: params[:category])
+      @category = params[:category]
+    else
+      @challenges = policy_scope(Challenge)
+      @category = 'All'
+    end
     respond_to do |format|
       format.html
       format.json { render json: { challenges: @challenges } }

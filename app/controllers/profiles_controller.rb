@@ -7,7 +7,13 @@ class ProfilesController < ApplicationController
       @users_groups.each do |users_group|
         @group << users_group.group
       end
-      @group.select { |group| group.completed == true }
+      if params.has_key?(:status)
+        @group = @group.delete_if {|t| t.completed == false}
+        @status = 'completed'
+      else
+        @group = @group.delete_if {|t| t.completed == true}
+        @status = 'active'
+      end
     end
 
     def edit

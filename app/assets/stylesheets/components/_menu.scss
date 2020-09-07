@@ -9,6 +9,10 @@
     color: $lightgreen;
     border-radius: 20px;
   }
+
+  .menu-item a:hover {
+    text-decoration: none;
+  }
   
   .menu-pills .menu-link.active {
     background-color: $darkgreen;

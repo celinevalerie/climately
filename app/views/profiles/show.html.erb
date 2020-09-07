@@ -27,18 +27,25 @@
         <%= link_to "Edit", edit_profile_path(@user) %>
   </div>
 
+<div class="menu-container">
+  <nav class="menu menu-pills d-flex align-items-center justify-content-around">
+    <%= link_to 'Active', profile_path, class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}"%>
+    <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}"%>
+  </nav>
+</div>
+
 <div class="container">
   <div class="row">
-    <% @users_groups.each do |users_group| %>
+    <% @group.each do |group| %>
       <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
         <div class="card profile-card">
           <div class="col card-col-img">
-            <%= cl_image_tag(users_group.group.challenge.photo.key, class: "card-img") %>
+            <%= cl_image_tag(group.challenge.photo.key, class: "card-img") %>
           </div>
           <div class="col card-b">
             <div class="card-body">
-              <p class="card-title mb-0"><strong><%= link_to users_group.group.challenge.name, challenge_path(users_group.group.challenge) %></strong></p>
-              <p class="card-text"><%= users_group.group.challenge.description %></p>
+              <p class="card-title mb-0"><strong><%= link_to group.challenge.name, challenge_path(group.challenge) %></strong></p>
+              <p class="card-text"><%= group.challenge.description %></p>
             </div>
             <div class="row range card-range">
               <div class="col">
@@ -62,47 +69,3 @@
     <% end %>
   </div>
 </div>
-
-
-<h1 class="page-title" style="border-bottom: 1px solid #5ACCB3; margin: 40px;">Archive</h1>
-
-
-  <div class="container" style="filter: opacity(50%)">
-    <div class="row">
-      <% @group.each do |group| %>
-        <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
-          <div class="card profile-card">
-            <div class="col card-col-img">
-              <%= cl_image_tag(group.challenge.photo.key, class: "card-img") %>
-            </div>
-            <div class="col card-b">
-              <div class="card-body">
-                <p class="industrycard mb-0"><strong><%= link_to group.challenge.name, challenge_path(group.challenge) %></strong></p>
-                <p class="card-text"><%= group.challenge.description %></p>
-              </div>
-              <div class="row range card-range">
-                <div class="col">
-                <%= image_tag("difficulty.png", size: "17x14")%>
-                <label for="exampleRangeDifficulty">Difficulty</label>
-                  <div class="slider">
-                    <div class="slider-value" style="width:75%; height:5px; color:white;"></div>
-                  </div>
-                </div>
-                <div class="col">
-                <%= image_tag("world.png", size: "14x14")%>
-                <label for="exampleRangeImpact">Impact</label>
-                  <div class="slider">
-                    <div class="slider-value" style="width:50%; height:5px; color:white;"></div>
-                  </div>
-                </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-
-
-
