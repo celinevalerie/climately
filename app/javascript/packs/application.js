@@ -27,11 +27,9 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { activateMenuBar } from '../components/menubar';
 
 document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
- // activateMenuBar();
 });
 
 

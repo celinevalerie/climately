@@ -3,11 +3,11 @@
 
 <div class="menu-container">
   <nav class="menu menu-pills d-flex align-items-center justify-content-around">
-    <div class = "menu-item menu-link active">All</div>
-    <div class = "menu-item menu-link">Food</div>
-    <div class = "menu-item menu-link">Mobility</div>
-    <div class = "menu-item menu-link">Waste</div>
-    <div class = "menu-item menu-link">Others</div>
+    <%= link_to 'All', challenges_path, class: "menu-item menu-link #{@category == 'All' ? 'active' : ''}"%>
+    <%= link_to 'Food', challenges_path(category: 'Food'), class: "menu-item menu-link #{@category == 'Food' ? 'active' : ''}"%>
+    <%= link_to 'Mobility', challenges_path(category: 'Mobility'), class: "menu-item menu-link #{@category == 'Mobility' ? 'active' : ''}"%>
+    <%= link_to 'Waste', challenges_path(category: 'Waste'), class: "menu-item menu-link #{@category == 'Waste' ? 'active' : ''}"%>
+    <%= link_to 'Other', challenges_path(category: 'Other'), class: "menu-item menu-link #{@category == 'Other' ? 'active' : ''}"%>
   </nav>
 </div>
 
