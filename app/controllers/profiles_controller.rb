@@ -2,11 +2,12 @@ class ProfilesController < ApplicationController
     def show
       set_user
       @users_groups = @user.user_groups
-      @group = []
+
+      @group_completed = []
       @users_groups.each do |users_group|
-        @group << users_group.group
+        @group_completed << users_group.group
       end
-      @group.select { |group| group.completed == true }
+      @group_completed.select { |group| group.completed == true }
     end
 
     def edit
