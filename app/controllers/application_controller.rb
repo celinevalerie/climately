@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
  end
  def devise_mapping
   @devise_mapping ||= Devise.mappings[:user]
+ end   
+  
+ def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
  end
   private
 
