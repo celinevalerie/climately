@@ -1,8 +1,51 @@
-<h1 class="page-title-friends"><%= @user.first_name %>'s friends:</h1>
+<h1 class="page-title">Friends</h1>
+<p class="centered">Invite or find friends and save the world together</p>
 
+  <div class="button button-large mr-auto ml-auto mb-4">
+    <%= link_to 'Invite Friends', new_user_invitation_path %>
+  </div>
+
+<p class="centered">Your Friends:</p>
 <div class="container">
   <div class="row">
     <% @friends.each do |friend| %>
+      <div class="col-12 px-2 mb-3">
+        <div class="card">
+          <div class="friendcard">
+            <div class="card-col-pic d-flex">
+            <% if friend.photo.present? %>
+              <%= cl_image_tag(friend.photo.key, class: "avatar") %>
+            <% end %>
+            </div>
+            <div class="card-b">
+              <div class="card-body">
+                <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong> 
+                <p class="card-text"><%= friend.user_name %></p>
+              </div>
+            </div>
+            <div class="points mr-4 d-flex flex-column align-items-center">
+              <p class="mb-0"><%= friend.points %> Points</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+<p class="centered">Find people you know:</p>
+
+<%= form_tag profile_friendships_path(@user), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a user"
+  %>
+  <%= submit_tag "Search", class: "button button-small mt-4 mb-4 mr-auto ml-auto" %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <% @nonfriends.each do |friend| %>
       <div class="col-12 px-2 mb-3">
         <div class="card">
           <div class="card-col-pic d-flex">
@@ -18,15 +61,20 @@
           </div>
           <div class="points mr-4 d-flex flex-column align-items-center">
             <p class="mb-0"><%= friend.points %> Points</p>
+            <% if current_user.friends.include?(friend)%>
+            <div class="button-large-secondary ml-auto mr-auto">
+              You are friends already
+            </div>
+            <% else %>
+            <div class="button button-large ml-auto mr-auto">
+              <%= link_to 'Add as friend', profile_friendships_path(:friend_id => friend.id), method: :post %>
+            </div>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  
-    <div class="button button-large ml-auto mr-auto">
-      <%= link_to 'Invite Friends', new_user_invitation_path %>
-    </div>
 </div>
 
 

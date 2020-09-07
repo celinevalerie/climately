@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
     def show
       set_user
       @users_groups = @user.user_groups

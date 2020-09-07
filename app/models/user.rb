@@ -53,7 +53,14 @@ class User < ApplicationRecord
     end
    return user
   end
-  #validates :first_name, :last_name, presence: true
-
+  #validates 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :first_name, :last_name, :user_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+  
+  # validates :first_name, :last_name, presence: true
   validates :user_name, uniqueness: true
 end
