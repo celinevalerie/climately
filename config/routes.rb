@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :profiles, only: [:index, :show, :edit, :update] do
+    member do
+      get 'social'
+    end
     resources :friendships, only: [:index, :create]
   end
 

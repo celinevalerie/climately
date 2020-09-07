@@ -1,0 +1,34 @@
+<h1 class="page-title">Profile details</h1>
+<p class="centered">Please complete your profile</p>
+<div class="signup-form">
+<div class="form-inputs">
+<%= simple_form_for @user, as: :user, method: :put, url: profile_path(@user) do |f| %>
+
+<% if @user.user_name == nil%>
+  <%= f.input :user_name %>
+<% end %>
+<% if @user.first_name == '' %>
+  <%= f.input :first_name %>
+<% end %>
+<% if @user.last_name == ''%>
+  <%= f.input :last_name %>
+<% end %>
+<% if @user.photo.present? == false %>
+  <div class="cr-img">
+  <%= f.input :photo %>
+  </div>
+<% end %>
+
+  <div class="button button-small">
+  <%= f.button :submit, value:"Save", data: { disable_with: false } %>
+  </div>
+<% end %>
+
+</div>
+</div>
+</div>
+</div>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>

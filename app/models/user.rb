@@ -29,6 +29,8 @@ class User < ApplicationRecord
    else
      user = User.new(user_params)
      user.password = Devise.friendly_token[0,20]  # Fake password for validation
+     user.first_name = 'first name'
+     user.last_name = 'last name'
      user.save
    end
   return user
@@ -36,11 +38,10 @@ class User < ApplicationRecord
   
   def self.find_for_google_oauth2(auth)
     user_params = auth.slice("provider", "uid")
-    user_params.merge! auth.info.slice("email", "first_name", "last_name")
+    user_params.merge! auth.info.slice("email")
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     user_params = user_params.to_h
-
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
     user ||= User.find_by(email: auth.info.email) # User did a regular sign up in the past.
@@ -48,11 +49,16 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
+      file = URI.open(auth.info.image)
+      user.photo.attach(io: file, filename: 'unnamed.jpeg', content_type: 'image/jpeg')
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
+      user.first_name = 'first name'
+      user.last_name = 'last name'
       user.save
     end
    return user
   end
+
   #validates 
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -61,6 +67,6 @@ class User < ApplicationRecord
       tsearch: { prefix: true }
     }
   
-  # validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, presence: true
   validates :user_name, uniqueness: true
 end
