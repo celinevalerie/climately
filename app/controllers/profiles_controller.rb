@@ -20,13 +20,23 @@ class ProfilesController < ApplicationController
       set_user
     end
 
+    def social
+      set_user
+      if @user.first_name == "first name"
+        @user.first_name = ''
+      end 
+      if @user.last_name == "last name"
+        @user.last_name = ''
+      end 
+    end
+
     def update
       set_user
 
       if @user.update(user_params)
         redirect_to profile_path(@user)
       else
-        render :new
+        render :edit
       end
     end
 
