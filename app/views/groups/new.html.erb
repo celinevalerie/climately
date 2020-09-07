@@ -1,4 +1,4 @@
-<h1 class="page-title">Customize Challenge</h1>
+<h1 class="page-title pb-4">Customize Challenge</h1>
 
 <div class="banner-container">
     <%= image_tag "banner.png", style:"width:100%;"%>
@@ -11,19 +11,19 @@
   <%= cl_image_tag( @challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
 </div>
 
-<div style="width:400px; margin: 50px auto; font-size: 15px; text-align: center;">
+<div style="width:80vh; margin: 50px auto; font-size: 15px; text-align: center;">
   <%= @challenge.description %>
 </div>
 
 <div class="container-icon">
-  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
+  <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
     <%= image_tag("difficulty.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
                   <div class="slider">
                     <div class="slider-value" style="width:75%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
+  <div style="padding: 12px 0px; width:80vh; margin: 10px auto;">
     <%= image_tag("world.png", size: "25x25")%>
                 <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
                   <div class="slider">
@@ -35,17 +35,17 @@
 
 <div class="container-slider">
   <%= simple_form_for [@challenge, @group] do |f| %>
-  <div style="padding: 12px 0px; width:300px;">
+  <div style="padding: 12px 0px; width:80vh;">
     <%= image_tag("duration.png", size: "25x25")%>
-                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration</label>
+    <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">How many weeks do you want to do the challenge?</label>
   </div>
-    <%= f.input :duration, as: :range, input_html: { step: 1, min:"0", max:"10", class:"custom-range", style:"border: white;" }, label: false %>
-  <div style="padding: 12px 0px; width:300px;">
+    <%= f.input :duration, as: :range, input_html: { step: 7, min: 7, max: 182, class:"custom-range", style:"border: white; width: 80vh;" }, label: false %>
+  <div style="padding: 12px 0px; width:80vh;">
     <%= image_tag("hurdles.png", size: "25x25")%>
-                <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
+    <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">How many exceptions a week are allowed?</label>
   </div>
-    <%= f.input :exceptions, as: :range, input_html: { step: 1, min:"0", max:"10", class:"custom-range", style:"border: white;"}, label: false, min:"0", max:"10"  %>
-    <div class="button-large" style="margin: 1px auto;">
+    <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white; width: 80vh;"}, label: false, min: 0, max: 7  %>
+    <div class="button button-large" style="margin: 1px auto;">
       <%= f.button :submit, input_html: { stlye:"color:white;" } %>
     </div>
   <% end %>

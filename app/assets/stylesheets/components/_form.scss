@@ -28,12 +28,14 @@ font-size: 14px;
 	transition: all 0.4s;
 	box-shadow: none;
 }
-.form-control:focus {
-	border-color: #5cb85c;
+
+.cr-img .form-control {
+  border-color: white;
+  padding: 0;
 }
-.form-control, .btn {
-	border-radius: 50px;
-	outline: none !important;
+
+.form-control:focus {
+	border-color: $darkgreen;
 }
 .signup-form {
 	margin: 0 auto;
@@ -69,12 +71,6 @@ font-size: 14px;
 .signup-form .form-group {
 	margin-bottom: 20px;
 }
-.signup-form .btn {
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: bold;
-	text-align: center;
-}
 .signup-btn {
 	text-align: center;
 	border-color: #5cb85c;
@@ -107,8 +103,8 @@ font-size: 14px;
 .social-btn .btn {
 	color: #fff;
 	margin: 10px 0 0 15px;
-	font-size: 15px;
-	border-radius: 50px;
+	font-size: 16px;
+	border-radius: 4px;
 	font-weight: normal;
 	border: none;
 	transition: all 0.4s;

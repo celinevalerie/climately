@@ -1,7 +1,7 @@
 <body>
   <div class="signup-form">
-  		<h2>Log in</h2>
-  		<p class="hint-text">Welcome back, please sign in to continue!</p>
+  <h1 class="page-title">Login</h1>
+  <p class="centered">Welcome back! Please sign in to continue.</p>
       <div class="social-btn text-center">
       <%= link_to "Facebook", omniauth_authorize_path(resource_name, :facebook), class:"btn btn-primary btn-lg "%>
           <%= link_to "Google", omniauth_authorize_path(resource_name, :google_oauth2), class:"btn btn-danger btn-lg "%>
@@ -17,11 +17,13 @@
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean, label_html: { class: "rememberme" } if devise_mapping.rememberable? %>
+   
+    <%= f.input :remember_me, as: :boolean, label_html: { class: "rememberme" }if devise_mapping.rememberable? %>
   </div>
+     
   <div class="pt-3">
   </div>
-  <div class="button-small ">
+  <div class="button button-small ">
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>

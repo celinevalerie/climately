@@ -31,6 +31,6 @@ import { activateMenuBar } from '../components/menubar';
 
 document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
-  activateMenuBar();
+ // activateMenuBar();
 });
 
