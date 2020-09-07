@@ -82,19 +82,17 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 @user2.save
 
 @users_group = UserGroup.new(
-  participating: true,
   group: @group,
   user: @user1)
 @users_group.save
 
 @users_group = UserGroup.new(
-  participating: true,
   group: @group1,
   user: @user1)
 @users_group.save
 
 @users_group = UserGroup.new(
-  participating: true,
+  status: 'completed',
   group: @group,
   user: @user2)
 @users_group.save
@@ -160,13 +158,12 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 @user2.save
 
 @users_group = UserGroup.new(
-  participating: false,
+  status: 'active',
   group: @group,
   user: @user1)
 @users_group.save
 
 @users_group = UserGroup.new(
-  participating: true,
   group: @group,
   user: @user2)
 @users_group.save

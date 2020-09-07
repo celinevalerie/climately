@@ -1,6 +1,6 @@
 class UserGroup < ApplicationRecord
   belongs_to :group
   belongs_to :user
-  validates :participating, inclusion: [true, false]
-  validates :participating, presence: true
+  validates :status, inclusion: ["invited", "active", "completed", "failed"]
+  validates :status, presence: true
 end
