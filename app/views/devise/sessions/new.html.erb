@@ -17,8 +17,10 @@
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean, label_html: { class: "rememberme" } if devise_mapping.rememberable? %>
+   
+    <%= f.input :remember_me, as: :boolean, label_html: { class: "rememberme" }if devise_mapping.rememberable? %>
   </div>
+     
   <div class="pt-3">
   </div>
   <div class="button button-small ">
