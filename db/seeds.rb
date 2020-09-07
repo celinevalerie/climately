@@ -19,7 +19,7 @@ User.delete_all
 
 @challenge = Challenge.new(
   name: 'Go Vegetarian', 
-  description: 'Environmental vegetarianism is the practice of vegetarianism when motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Livestock as a whole is estimated to be responsible for around 18% of global greenhouse gas emissions.',
+  description: 'Environmental vegetarianism is the practice of vegetarianism motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Choosing a vegetarian diet will help you contribute to the reduction of pollution and you will also improve your health!.',
   category: 'Food',
   default_difficulty: 8,
   default_impact: 7
