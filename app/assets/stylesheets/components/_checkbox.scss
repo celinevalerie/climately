@@ -23,6 +23,20 @@
     border: 1px solid $lightgreen;
   }
 
+  .checkbox-secondary-long{
+    color: $lightgreen;
+    background-color: white;
+    border-radius: 4px;
+    width: 160px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+    border: 1px solid $lightgreen;
+    margin-top: 5px;
+  }
+
   .checkbox .fas {
     font-size: 18px;
   }
@@ -56,5 +70,22 @@
   .button-container p {
     font-size: 10px;
     text-align: center;
-    margin-bottom: 2px; 
+  }
+
+  .days {
+    color: $darkgreen;
+    font-size: 22px;
+  }
+
+  .day-border-right {
+    border-right: 1px solid $darkgreen;
+  }
+
+  .celebration-bg {
+    height: 120px;
+    border-radius: 4px;
+  }
+
+  .points-button {
+    margin-right: 40px;
   }
