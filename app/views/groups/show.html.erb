@@ -1,10 +1,6 @@
 <h1 class="page-title"> <%= @group.challenge.name %> </h1>
 <h2 class="page-subtitle">Your challenge lasts 2 more days</h2>
 
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
 <div class="banner-container">
       <div>
         <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px; margin: 50px") %>
@@ -38,16 +34,16 @@
 </div>
 
 <% if flash[:notice] %>
-  <div class="alert alert-warning alert-dismissible fade show" role="alert" style="height: 300px;">
-    <h4 style="border-bottom: 1px solid;">Challenge completed!</h4>
-    <div class="button button-large">
+  <div class="alert alert-dark alert-dismissible fade show" role="alert" style="height: 300px; padding: 20px; text-align: center;">
+    <%= image_tag("tick.png", size: "100x100")%>
+    <p>Congratulations</p>
+    <p>You made the world a better place</p>
+    <div class="button button-large" style="background-color: #facc48; margin: 20px auto;">
           <%= "+ #{@group.points}'000 points" %>
     </div>
-    <p><strong>Holy guacamole!</strong> You did an amazing job!</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-    <%= cl_image_tag(@group.challenge.photo.key, size: "100x100")%>
   </div>
 <% end %>
 
