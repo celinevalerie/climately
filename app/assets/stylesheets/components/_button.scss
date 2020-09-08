@@ -77,25 +77,25 @@
   transform: scale(1.01) perspective(1px);
 }
 
-.button-secondary a {
+.button-large-secondary a {
   color: $darkgreen;
   padding: 12px 22px;
 }
 
-.button-secondary a:hover {
+.button-large-secondary a:hover {
   text-decoration: none;
 }
 
-.button-secondary input {
+.button-large-secondary input {
   color: $darkgreen;
   padding: 12px 22px;
 }
 
-.button-secondary input:hover {
+.button-large-secondary input:hover {
   text-decoration: none;
 }
 
-.button-secondary:hover {
+.button-large-secondary:hover {
   opacity: 0.9;
   transform: scale(1.01) perspective(1px);
 }

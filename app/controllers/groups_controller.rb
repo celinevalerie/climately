@@ -5,18 +5,18 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = policy_scope(Group).select {|group|group.users.include?(current_user)}
+    @groups = policy_scope(Group)
     if params.has_key?(:status)
       @usergroups = []
       @groups.each do | group |
-        @usergroups << group.user_groups.select {|usergroup| usergroup.status == params[:status]}
+        @usergroups << group.user_groups.select {|usergroup| usergroup.status == params[:status] && usergroup.user == current_user}
       end
       @usergroups.flatten!
       @status = params[:status]
     else
       @usergroups = []
       @groups.each do | group |
-        @usergroups << group.user_groups.select {|usergroup| usergroup.status == 'active'}
+        @usergroups << group.user_groups.select {|usergroup| usergroup.status == 'active' && usergroup.user == current_user}
       end
       @usergroups.flatten!
       @status = 'active'
@@ -47,11 +47,11 @@ class GroupsController < ApplicationController
     end
     @group.impact = (@group.challenge.default_impact * @group.duration)
     @group.points = @group.difficulty * @group.impact
-    @users_group = UserGroup.new(group: @group, user: current_user)
+    @users_group = UserGroup.new(group: @group, user: current_user, status: 'active')
     @users_group.group = @group
     if @group.save
       @users_group.save
-      redirect_to groups_path
+      redirect_to new_group_user_group_path(@group)
     else
       render :new
     end
