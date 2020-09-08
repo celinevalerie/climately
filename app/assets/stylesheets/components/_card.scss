@@ -106,38 +106,31 @@ html {
   padding: 2%;
 }
 
-// .friend-card {
-//   margin: auto;
-//   max-width: 100%;
-//   border-radius: 4px;
-//   height: fit-content;
-// }
+.friendbutton {
+  flex: 50%;
+  text-align: right;
+}
 
-/* .friendcard {
-  margin-left: 40%;
-  margin-right: 40%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  height: fit-content;
-} */
+.miniform {
+  padding: 250px;
+}
 
-// @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
-//   .container{
-//     width: 100%;
-//     display: block;
-//     margin-bottom: 20px;
-//   }
-// }
+@include media-breakpoint-down(md) {
+  .miniform {
+    margin-bottom: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+}
 
-
-//.container-fluid{
-//}
-
-// @media (max-width:900px) {
-//   .container {
-//     display: flex;
-//     flex-direction: column;
-//   }
-// }
-
+@include media-breakpoint-between(lg,xl) {
+  .miniform {
+    margin-bottom: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+}

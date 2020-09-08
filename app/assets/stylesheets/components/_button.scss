@@ -24,6 +24,20 @@
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
+.button-medium{
+  color: white;
+  background-color: $lightgreen;
+  border-radius: 4px;
+  width: 129px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+  float: right;
+}
+
 .button-small-secondary{
   color: $lightgreen;
   background-color: white;
