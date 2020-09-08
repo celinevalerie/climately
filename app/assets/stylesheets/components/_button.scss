@@ -1,6 +1,6 @@
 .button-small{
   color: white;
-  background-color: $darkgreen;
+  background-color: $lightgreen;
   border-radius: 4px;
   width: 80px;
   height: 40px;
@@ -13,7 +13,7 @@
 
 .button-large{
   color: white;
-  background-color: $darkgreen;
+  background-color: $lightgreen;
   border-radius: 4px;
   width: 180px;
   height: 40px;
@@ -25,7 +25,7 @@
 }
 
 .button-small-secondary{
-  color: $darkgreen;
+  color: $lightgreen;
   background-color: white;
   border-radius: 4px;
   width: 80px;
@@ -38,7 +38,7 @@
 }
 
 .button-large-secondary{
-  color: $darkgreen;
+  color: $lightgreen;
   background-color: white;
   border-radius: 4px;
   width: 180px;
@@ -78,7 +78,7 @@
 }
 
 .button-secondary a {
-  color: $darkgreen;
+  color: $lightgreen;
   padding: 12px 22px;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .button-secondary input {
-  color: $darkgreen;
+  color: $lightgreen;
   padding: 12px 22px;
 }
 
@@ -101,6 +101,6 @@
 }
 
 .bg-green {
-  background-color: $darkgreen;
+  background-color: $lightgreen;
   padding: 20px;
 }
