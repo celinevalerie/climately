@@ -73,3 +73,18 @@ body {
 }
 
 
+
+@include media-breakpoint-up(xs) {
+  .clear { 
+    clear: both; 
+    height: 12vh; 
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .clear { 
+    clear: both; 
+    height: 8vh; 
+  }
+}
+
