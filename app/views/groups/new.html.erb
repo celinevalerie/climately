@@ -1,23 +1,14 @@
 <h1 class="page-title pb-4">Customize Challenge</h1>
+<h2 class="page-subtitle"><%= @challenge.name %></h2>
 
-<div class="banner-container">
-    <%= image_tag "banner.png", style:"width:100%;"%>
-      <div class="button button-large button-flex">
-          <%= link_to "+ 10'000 points", root_path %>
+<div class="banner-container" style="padding: 30px">
+      <div style="font-size: 15px; text-align: center; margin: 30px; background: #facc48;color: white; border-radius: 4px; padding: 20px;">
+        <%= @challenge.description %>
       </div>
 </div>
-
-<div style="text-align: center;">
-  <%= cl_image_tag( @challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
-</div>
-
-
 
 <div data-controller="slider" class="container-icon">
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
-      <div style="font-size: 15px; text-align: center; margin: 50px auto;">
-        <%= @challenge.description %>
-      </div>
     <div style="padding: 12px 0px;">
       <%= image_tag("difficulty.png", size: "25x25")%>
                   <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
@@ -25,18 +16,6 @@
                     <div class="slider">
                       <div data-target="slider.difficulty" class="slider-value" style="width:<%= @challenge.default_difficulty * 10 %>%; height:5px; color:white;">.</div>
                     </div>
-    </div>
-    <div class="slider-numbers">
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
-      <p>9</p>
-      <p>10</p>
     </div>
     <div style="padding: 12px 0px;">
       <%= image_tag("world.png", size: "25x25")%>
@@ -46,23 +25,11 @@
                       <div data-target="slider.impact" class="slider-value" style="width:<%= @challenge.default_impact * 10 %>%; height:5px; color:white;">.</div>
                     </div>
     </div>
-    <div class="slider-numbers">
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
-      <p>9</p>
-      <p>10</p>
-    </div>
     <%= simple_form_for([@challenge, @group], remote: true) do |f| %>
     <div style="padding: 12px 0px;">
-      <label style="font-size: 15px; padding: 0px 0px 5px 10px;">How many weeks do you want to do the challenge?</label>
+      <label style="font-size: 15px;">How many weeks do you want to do the challenge?</label>
     </div>
-    <div>
+    <div style="width: 330px;">
       <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "click->slider#calculateImpact", id: @challenge.id, target: "slider.duration" }}, label: false %>
     </div>
     <div class="slider-numbers">
@@ -78,12 +45,13 @@
       <p>10</p>
     </div>
     <div style="padding: 12px 0px;">
-      <label style="font-size: 15px; padding: 0px 0px 5px 10px;">How many exceptions a week are allowed?</label>
+      <label style="font-size: 15px;">How many exceptions a week are allowed?</label>
     </div>
-    <div>
+    <div style="width: 330px;">
       <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white;", data: { action: "click->slider#calculateDifficulty", id: @challenge.id, target: "slider.exceptions" }}, label: false, min: 0, max: 7  %>
     </div>
     <div class="slider-numbers">
+      <p>0</p>
       <p>1</p>
       <p>2</p>
       <p>3</p>
@@ -92,7 +60,7 @@
       <p>6</p>
       <p>7</p>
     </div>
-      <div class="button button-large" style="margin: 1px auto;">
+      <div class="button button-large" style="margin: 60px auto;">
         <%= f.button :submit, input_html: { stlye:"color:white;" } %>
       </div>
     <% end %>

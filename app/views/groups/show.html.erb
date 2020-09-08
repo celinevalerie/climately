@@ -11,25 +11,25 @@
       </div>
         <% remaining_days = 0 %>
         <% if remaining_days == 0 %>
-              <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color:#E67E22; width: 300px; margin: 0px auto;" %>
+              <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
         <% end %>
       <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
-        <div class="card-body" style="border-right: 1px solid #E67E22; padding: 5px 10px">
-          <div style="font-size: 30px; color: #E67E22;">
+        <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+          <div style="font-size: 30px; color: #facc48;">
             <% "#{start_date = @group.created_at}" %>
             <% "#{end_date = start_date + (@group.duration).days}" %>
             <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
           </div>
             <p>Total days</p>
         </div>
-        <div class="card-body" style="border-right: 1px solid #E67E22; padding: 5px 10px">
-          <div style="font-size: 30px; color: #E67E22;">
+        <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+          <div style="font-size: 30px; color: #facc48;">
             <%= "+ #{@group.points}'000" %>
           </div>
           <p>Total points</p>
         </div>
         <div class="card-body">
-          <div style="font-size: 30px; color: #E67E22;">
+          <div style="font-size: 30px; color: #facc48;">
             <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
           </div>
           <p>Remaining days</p>
@@ -59,18 +59,6 @@
                     <div class="slider-value" style="width:<%= @group.challenge.default_difficulty * 10 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div class="slider-numbers">
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>5</p>
-    <p>6</p>
-    <p>7</p>
-    <p>8</p>
-    <p>9</p>
-    <p>10</p>
-  </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("world.png", size: "25x25")%>
                 <label style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
@@ -78,21 +66,9 @@
                     <div class="slider-value" style="width:<%= @group.challenge.default_impact * 10 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
-  <div class="slider-numbers">
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>5</p>
-    <p>6</p>
-    <p>7</p>
-    <p>8</p>
-    <p>9</p>
-    <p>10</p>
-  </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("duration.png", size: "25x25")%>
-                <label style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration</label>
+                <label style="font-size: 15px; padding: 0px 0px 5px 10px;">Duration in weeks</label>
                   <div class="slider">
                     <div class="slider-value" style="width:<%= @group.duration * 10 %>%; height:5px; color:white;">.</div>
                   </div>
@@ -111,12 +87,13 @@
   </div>
   <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
     <%= image_tag("hurdles.png", size: "25x25")%>
-                <label style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions</label>
+                <label style="font-size: 15px; padding: 0px 0px 5px 10px;">Exeptions per week</label>
                   <div class="slider">
                     <div class="slider-value" style="width:<%= @group.exceptions * 14 %>%; height:5px; color:white;">.</div>
                   </div>
   </div>
   <div class="slider-numbers">
+    <p>0</p>
     <p>1</p>
     <p>2</p>
     <p>3</p>
