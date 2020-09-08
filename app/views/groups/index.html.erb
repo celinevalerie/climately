@@ -3,9 +3,9 @@
 
 <div class="menu-container">
   <nav class="menu menu-pills d-flex align-items-center justify-content-around">
-    <%= link_to 'Invitations', groups_path(status: 'invited'), class: "menu-item menu-link #{@status == 'invited' ? 'active' : ''}"%>
+    <%= link_to 'Invited', groups_path(status: 'invited'), class: "menu-item menu-link #{@status == 'invited' ? 'active' : ''}"%>
     <%= link_to 'Active', groups_path(status: 'active'), class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}"%>
-    <%= link_to 'Completed', groups_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}"%>
+    <%= link_to 'Done', groups_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}"%>
     <%= link_to 'Failed', groups_path(status: 'failed'), class: "menu-item menu-link #{@status == 'failed' ? 'active' : ''}"%>
   </nav>
 </div>
@@ -61,38 +61,32 @@
 
                 <% if @status == "active"%>
                   <div class="button-container">
-                    <div class = "p-2 centered d-flex justify-content-center">
-                      <div class="pr-4 day-border-right">
+                    <div class = "mt-2 centered d-flex justify-content-center">
+                      <div>
                         <div class="days">
                           <% "#{start_date = usergroup.group.created_at}" %>
                           <% "#{end_date = start_date + (usergroup.group.duration).days}" %>
-                          <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
-                        </div>
-                          <p>Total days</p>
-                      </div>
-                      <div class="pl-4">
-                        <div class="days">
                           <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
                         </div>
                         <p>Days left</p>
                       </div>
                     </div>
                     <%= link_to(giveup_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true) do %>
-                      <div class="checkbox-secondary-long ml-auto mr-auto mb-3">
-                        <p class="mb-0">Cheated? End challenge now!</p>
+                      <div class="checkbox-secondary-long ml-auto mr-auto mb-4">
+                        <p class="mb-0">Give up!</p>
                       </div>
                     <% end %>
                   </div>
                 <% end %>
                 <% if @status == "completed"%>
-                  <div class="button-large-yellow ml-auto mr-auto points-button">
-                    <%= usergroup.group.points %> Points earned
+                  <div class="button button-high-yellow ml-auto mr-auto points-button">
+                    <%= usergroup.group.points %> points earned
                   </div>
                 <% end %>
                 <% if @status == "failed"%>
                   <div class="d-flex flex-column align-items-center">
                   <div class="button-large-grey ml-auto mr-auto points-button">
-                    <%= usergroup.group.points %> points missed
+                    Failed
                   </div>
                   </div>
                 <% end %>

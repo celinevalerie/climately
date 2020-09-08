@@ -77,11 +77,25 @@
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
+.button-high-yellow{
+  color: white;
+  background-color: $darkyellow;
+  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
 .button-large-grey {
   color: white;
   background-color: lightgrey;
   border-radius: 4px;
-  width: 180px;
+  width: 80px;
   height: 40px;
   font-size: 16px;
   display: flex;
