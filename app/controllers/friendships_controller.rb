@@ -7,6 +7,7 @@ class FriendshipsController < ApplicationController
       @nonfriends = User.global_search(params[:query])
     else
       @nonfriends = User.all - @friends
+      @nonfriends.delete(current_user)
     end
   end
 
