@@ -29,12 +29,15 @@
             <div class="row range card-range">
                 <% if @status == "invited"%>
                   <div class="button button-large ml-auto mr-auto">
-                    <%= link_to 'Accept', challenges_path %>
+                    <%= link_to 'Accept', accept_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true %>
+                  </div>
+                  <div class="button button-large-secondary ml-auto mr-auto">
+                    <%= link_to 'Decline', decline_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true %>
                   </div>
                 <% end %>
                 <% if @status == "active"%>
                   <div class="button button-large ml-auto mr-auto">
-                    <%= link_to 'Give up', challenges_path %>
+                    <%= link_to 'Give up', giveup_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true%>
                   </div>
                 <% end %>
                 <% if @status == "completed"%>
