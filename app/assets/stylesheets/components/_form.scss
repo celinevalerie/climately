@@ -134,3 +134,36 @@ font-size: 14px;
 .inputsize {
 	font-size: 10px;
 }
+
+.miniform {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+@include media-breakpoint-between(sm,md) {
+  .miniform {
+    margin-bottom: 20px;
+    padding-bottom: 5%;
+		padding-top: 5%;
+  }
+}
+
+@include media-breakpoint-between(md,lg) {
+  .miniform {
+    margin-bottom: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
+		padding-top: 5%;
+  }
+}
+
+@include media-breakpoint-between(lg,xl) {
+  .miniform {
+    margin-bottom: 20px;
+    padding-left: 29%;
+    padding-right: 29%;
+    padding-bottom: 5%;
+		padding-top: 5%;
+  }
+}
