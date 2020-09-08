@@ -6,29 +6,36 @@
 <% end %>
 
 <div class="banner-container">
-      <div class="button button-large" style="margin: 10px auto;">
-          <%= "+ #{@group.points}'000 points" %>
-      </div>
       <div>
-        <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
+        <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px; margin: 50px") %>
+      </div>
+        <% remaining_days = 0 %>
+        <% if remaining_days == 0 %>
+              <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color:#E67E22; width: 300px; margin: 0px auto;" %>
+        <% end %>
+      <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
+        <div class="card-body" style="border-right: 1px solid #E67E22; padding: 5px 10px">
+          <div style="font-size: 30px; color: #E67E22;">
+            <% "#{start_date = @group.created_at}" %>
+            <% "#{end_date = start_date + (@group.duration).days}" %>
+            <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
+          </div>
+            <p>Total days</p>
+        </div>
+        <div class="card-body" style="border-right: 1px solid #E67E22; padding: 5px 10px">
+          <div style="font-size: 30px; color: #E67E22;">
+            <%= "+ #{@group.points}'000" %>
+          </div>
+          <p>Total points</p>
+        </div>
+        <div class="card-body">
+          <div style="font-size: 30px; color: #E67E22;">
+            <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
+          </div>
+          <p>Remaining days</p>
+        </div>
       </div>
 </div>
-
-      <div class="button button-large" style="background-color:orange;">
-          <% "#{start_date = @group.created_at}" %>
-          <% "#{end_date = start_date + (@group.duration).days}" %>
-          <%= "Total days: #{total_days = (end_date - start_date) / 86400 * 7}"%>
-      </div>
-
-<div class="button button-large" style="background-color:orange;">
-      <%= "Remaining days: #{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
-</div>
-
-<% remaining_days = 0 %>
-
-<% if remaining_days == 0 %>
-      <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large" %>
-<% end %>
 
 <% if flash[:notice] %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert" style="height: 300px;">
