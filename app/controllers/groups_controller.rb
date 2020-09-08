@@ -60,6 +60,10 @@ class GroupsController < ApplicationController
   def completed
     @group = Group.find(params[:id])
     @group.update_attribute(:completed, 'true')
+    @group.user_groups.each do |user_group|
+      user_group.update_attribute(:status, 'completed')
+      user_group.save
+    end
     flash[:notice] = ""
     authorize @group
     redirect_to group_path(@group)

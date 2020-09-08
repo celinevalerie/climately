@@ -5,8 +5,8 @@
   
   .menu-item {
     font-size: 16px;
-    padding: 5px 20px; 
-    color: $darkgreen;
+    padding: 5px 18px; 
+    color: $lightgreen;
     border-radius: 4px;
   }
 
@@ -15,14 +15,14 @@
   }
   
   .menu-pills .menu-link.active {
-    background-color: $darkgreen;
+    background-color: $lightgreen;
     color: $light-gray;
     margin: 0px;
   }
 
   .menu-link:hover {
     text-decoration: none; 
-    color: $darkgreen;
+    color: $lightgreen;
     transform: scale(1.01) perspective(1px);
   }
 
@@ -33,12 +33,12 @@
 
   @include media-breakpoint-down(xs) {
     .menu-container {
-      width: 90vh; 
+      width: 95%; 
     }
   }
 
   @include media-breakpoint-between(sm,xl) {
     .menu-container {
-      width: 70vh;
+      width: 60%;
     }
   }

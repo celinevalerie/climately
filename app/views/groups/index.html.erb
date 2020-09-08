@@ -12,7 +12,7 @@
 
 <div class="container">
   <% if @usergroups.empty?%>
-    <p class="ml-auto mr-auto"> No <%= @status %> challenges yet</p>
+    <p class="centered"> No challenges with this status</p>
   <% else %>
     <% @usergroups.each do |usergroup| %>
       <div class="row">
@@ -28,7 +28,11 @@
                 <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
                 <div class="d-flex">
                   <% usergroup.group.users[0..3].each do |user|%>
+                    <% if @status == 'failed'%>
+                    <%= cl_image_tag(user.photo.key, class: "avatar-small", effect: "grayscale") %>
+                    <% else %>
                     <%= cl_image_tag(user.photo.key, class: "avatar-small") %>
+                    <% end %>
                   <% end %>
                   <% if usergroup.group.users.length > 3 %>
                     <div class="avatar-small bg-light d-flex justify-content-around align-items-center">
@@ -83,6 +87,13 @@
                 <% if @status == "completed"%>
                   <div class="button-large-yellow ml-auto mr-auto points-button">
                     <%= usergroup.group.points %> Points earned
+                  </div>
+                <% end %>
+                <% if @status == "failed"%>
+                  <div class="d-flex flex-column align-items-center">
+                  <div class="button-large-grey ml-auto mr-auto points-button">
+                    <%= usergroup.group.points %> points missed
+                  </div>
                   </div>
                 <% end %>
               </div>

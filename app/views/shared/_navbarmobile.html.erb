@@ -5,30 +5,45 @@
       <p>Home</p>
     </div>
   <% end %>
-  <%= link_to root_path, class: "footer-items" do %>
-    <div class="d-flex flex-column align-items-center">
-      <i class="fas fa-users"></i>
-      <p>Friends</p>
+  <% if user_signed_in? %>
+    <%= link_to profile_friendships_path(current_user), class: "footer-items" do %>
+      <div class="d-flex flex-column align-items-center">
+        <i class="fas fa-users"></i>
+        <p>Friends</p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path, class: "footer-items" do %>
+        <div class="d-flex flex-column align-items-center">
+        <i class="fas fa-users"></i>
+        <p>Friends</p>
+      </div>
+    <% end %>
+  <% end %>
+  <div data-controller="navbar">
+  <div data-action="mouseover->navbar#image mouseout->navbar#resetimage">
+    <%= link_to challenges_path, class: "footer-items d-flex flex-column align-items-center" do %>
+      <%= cl_image_tag "Layer_12_nwffji", size: "22x22" , data: {target: "navbar.link"} %>
+      <p>Challenges</p>
+    <% end %>
     </div>
-  <% end %>
-  <%= link_to challenges_path, class: "footer-items d-flex flex-column align-items-center" do %>
-    <%= cl_image_tag "Layer_12_nwffji", size: "22x22"%>
-    <p>Challenges</p>
-  <% end %>
+  </div>
+
   <%= link_to groups_path, class: "footer-items" do %>
     <div class="d-flex flex-column align-items-center">
       <i class="fas fa-chart-line"></i>
       <p>Dashboard</p>
     </div>
   <% end %>
+
   <% if user_signed_in? %>
     <%= link_to profile_path(current_user), class: "footer-items d-flex flex-column align-items-center" do %>
-      <%= cl_image_tag "blank-profile-picture-973460_640_fctahx", class: "profile-small"%>
+      <%= cl_image_tag current_user.photo.key, class: "profile-small"%>
       <p>Profile</p>
     <% end %>
   <% else %>
     <%= link_to new_user_session_path, class: "footer-items d-flex flex-column align-items-center" do %>
-      <%= cl_image_tag "blank-profile-picture-973460_640_fctahx", class: "profile-small"%>
+      <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "profile-small"%>
       <p>Login</p>
     <% end %>
   <% end %>

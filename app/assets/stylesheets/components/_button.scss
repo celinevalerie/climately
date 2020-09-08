@@ -77,6 +77,19 @@
   box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
 }
 
+.button-large-grey {
+  color: white;
+  background-color: lightgrey;
+  border-radius: 4px;
+  width: 180px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+
 
 .button a {
   color: white;
@@ -149,4 +162,25 @@
 
 .button-large-yellow input:hover {
   text-decoration: none;
+}
+
+.button-mobile-secondary{
+  color: $lightgreen;
+  background-color: white;
+  border-radius: 4px;
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(126,87,88,.1), 0 3px 6px rgba(0,0,0,.08);
+  margin-right: 10px;
+}
+
+.button-mobile-secondary a:hover {
+  text-decoration: none;
+}
+.button-mobile-secondary:hover {
+  transform: scale(1.01) perspective(1px);
 }
