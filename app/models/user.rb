@@ -49,8 +49,6 @@ class User < ApplicationRecord
       user.update(user_params)
     else
       user = User.new(user_params)
-      file = URI.open(auth.info.image)
-      user.photo.attach(io: file, filename: 'unnamed.jpeg', content_type: 'image/jpeg')
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.first_name = 'first name'
       user.last_name = 'last name'
