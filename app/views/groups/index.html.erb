@@ -12,33 +12,33 @@
 
 <div class="container">
   <% if @usergroups.empty?%>
-  <p class="ml-auto mr-auto"> No <%= @status %> challenges yet</p>
+    <p class="ml-auto mr-auto"> No <%= @status %> challenges yet</p>
   <% else %>
     <% @usergroups.each do |usergroup| %>
-    <div class="row">
-      <div class="col-12 px-2 mb-3">
-        <div class="card">
-          <div class="col card-col-img">
-            <%= cl_image_tag(usergroup.group.challenge.photo.key, class: "card-img") %>
-          </div>
-          <div class="col d-flex align-items-center justify-content-between mt-4">
-            <div class="card-body align-self-start mt-0 pt-0">
-              <p class="industrycard mb-2 pt-0"><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></p>
-              <p class="mb-0"> <%= usergroup.group.duration / 7 %> Weeks </p>
-              <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
-              <div class="d-flex">
-              <% usergroup.group.users[0..3].each do |user|%>
-                <%= cl_image_tag(user.photo.key, class: "avatar-small") %>
-              <% end %>
-              <% if usergroup.group.users.length > 3 %>
-              <div class="avatar-small bg-light d-flex justify-content-around align-items-center">
-                <p class="text-secondary">+<%= usergroup.group.users.length - 3 %></p>
-              </div>
-              <% end %>
-              </div>
+      <div class="row">
+        <div class="col-12 px-2 mb-3">
+          <div class="card <%= @status == 'completed' ? 'card-background' : ''%>">
+            <div class="col card-col-img">
+              <%= cl_image_tag(usergroup.group.challenge.photo.key, class: "card-img") %>
             </div>
-            <div class="button-container">
-                <% if @status == "invited"%>
+            <div class="col d-flex align-items-center justify-content-between">
+              <div class="card-body mt-0 pt-0">
+                <p class="industrycard mb-2 pt-0"><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></p>
+                <p class="mb-0"> <%= usergroup.group.duration / 7 %> Weeks </p>
+                <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
+                <div class="d-flex">
+                  <% usergroup.group.users[0..3].each do |user|%>
+                    <%= cl_image_tag(user.photo.key, class: "avatar-small") %>
+                  <% end %>
+                  <% if usergroup.group.users.length > 3 %>
+                    <div class="avatar-small bg-light d-flex justify-content-around align-items-center">
+                      <p class="text-secondary">+<%= usergroup.group.users.length - 3 %></p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% if @status == "invited"%>
+                <div class="button-container">
                   <p>Accept Invite?</p>
                   <div class="d-flex justify-content-around">
                     <%= link_to(accept_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true) do %>
@@ -52,14 +52,36 @@
                       </div>
                     <% end %>
                   </div>
+                </div>
                 <% end %>
+
                 <% if @status == "active"%>
-                  <div class="button button-large ml-auto mr-auto">
-                    <%= link_to 'Give up', giveup_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true%>
+                  <div class="button-container">
+                    <div class = "p-2 centered d-flex justify-content-center">
+                      <div class="pr-4 day-border-right">
+                        <div class="days">
+                          <% "#{start_date = usergroup.group.created_at}" %>
+                          <% "#{end_date = start_date + (usergroup.group.duration).days}" %>
+                          <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
+                        </div>
+                          <p>Total days</p>
+                      </div>
+                      <div class="pl-4">
+                        <div class="days">
+                          <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
+                        </div>
+                        <p>Days left</p>
+                      </div>
+                    </div>
+                    <%= link_to(giveup_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true) do %>
+                      <div class="checkbox-secondary-long ml-auto mr-auto mb-3">
+                        <p class="mb-0">Cheated? End challenge now!</p>
+                      </div>
+                    <% end %>
                   </div>
                 <% end %>
                 <% if @status == "completed"%>
-                  <div class="button-large-secondary ml-auto mr-auto">
+                  <div class="button-large-yellow ml-auto mr-auto points-button">
                     <%= usergroup.group.points %> Points earned
                   </div>
                 <% end %>
@@ -67,9 +89,7 @@
             </div>
           </div>
         </div>
-      </div>
       <% end %>
-      </div>
     <% end %>
-</div>
+  </div>
 
