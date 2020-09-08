@@ -214,6 +214,18 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 @challenge.photo.attach(io: file, filename: 'Group_48_bxx7ll.png', content_type: 'image/png')
 @challenge.save
 
+@challenge = Challenge.new(
+  name: 'Sustainable Cosmetics', 
+  description: "Do you know that nearly every cosmetic product icludes plastic. Polyethylene is one of the most commonly used microplastics in cosmetic products such as eyeliners, mascara, eye shadows, eyebrow pencils, lipsticks, face powders and foundations, as well as skin cleansers and skin care products. But there are alternatives! You can use natural cosmetics including materials made from ground fruit seeds, healing clay and jojoba oil, or water-soluble particles such as salt or sugar, generally combined with oils. This challenges is about using natural cosmetics. You can also mix your own natural cosmetics products with only natural products. Let's go!.",
+  category: 'Waste',
+  default_difficulty: 7,
+  default_impact: 7
+  )
+
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/Plastic2_zc3lmp.png')
+@challenge.photo.attach(io: file, filename: 'Plastic2_zc3lmp.png', content_type: 'image/png')
+@challenge.save
+
 @admin = User.new(
   email: 'admin@climately.io',
   password: '123456',
