@@ -36,13 +36,11 @@
     <%= render 'shared/navbardesktop' %>
     <%= render 'shared/headermobile'%>
     <%= render 'shared/flashes' %>
-    <div data-controller="typing">
         <div class="wrapper">
           <%= yield %>
         </div>
       <div class="clear"></div>
-      <%= render 'shared/navbarmobile' %>
-    </div>
+    <%= render 'shared/navbarmobile' %>
     <%= render 'shared/footer'%>
   </body>
 </html>
