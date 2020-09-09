@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   def show? 
-    return true
+    record.friends.include? (user) or user.admin?
   end
 
   def edit? 
