@@ -38,7 +38,11 @@
 
   <% if user_signed_in? %>
     <%= link_to profile_path(current_user), class: "footer-items d-flex flex-column align-items-center" do %>
-      <%= cl_image_tag current_user.photo.key, class: "profile-small"%>
+        <% if current_user.photo.present? %>
+          <%= cl_image_tag current_user.photo.key, class: "profile-small"%>
+        <% else %>
+          <%= cl_image_tag 'Group_52_ubhz2j.png', class: "profile-small", :gravity=>"faces", :crop=>"fill" %>
+        <% end %>
       <p>Profile</p>
     <% end %>
   <% else %>
