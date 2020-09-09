@@ -3,8 +3,10 @@
     <%= cl_image_tag("no-straws-white_esdvml") %>
   <% end %>
 
-  <h2 class="white mb-0"> Challenges </h2>
+  <h2 class="white mb-0"> <%= @navbartitle ? @navbartitle : "" %> </h2>
     <div class="button-mobile-secondary">
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>
 </div>
+ 
+<%# to change the title on the phone go to the controller of the page and put @navbartitle = "what we want" %>
