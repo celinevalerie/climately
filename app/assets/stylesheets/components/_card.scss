@@ -127,4 +127,12 @@ html {
   padding: 20px;
 }
 
+.challengesize {
+  font-size: 30px;
+} 
 
+@include media-breakpoint-down(xs) {
+  .challengesize  {
+		font-size: 20px;
+	}
+}
