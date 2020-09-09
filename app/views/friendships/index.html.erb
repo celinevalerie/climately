@@ -1,13 +1,4 @@
 <h1 class="page-title">Friends</h1>
-<p class="centered pt-3 pb-3">Invite or find friends and save the world together</p>
-
-  <div class="button button-large mr-auto ml-auto mb-4 mt-4">
-    <%= link_to 'Invite Friends', new_user_invitation_path %>
-  </div>
-
-<p class="centered pb-3 pt-3">Your Friends:</p>
-<div class="container">
-
 
 <div class="menu-container">
   <nav class="menu menu-pills">
@@ -50,8 +41,6 @@
 <% if @choice == 'add'%>
 <div class="container"> 
   <div class="miniform">
-    <p class="centered pb-3">Find people you know:</p>
-
     <%= form_tag profile_friendships_path(@user), method: :get do %>
     <div class="d-flex align-items-center">
       <%= text_field_tag :query,

@@ -5,8 +5,9 @@
   <%= image_tag "signup2.png", style: "width: 200px; " %>
 </div>
 
+<p class="centered"><strong><%=@challenge.name%></strong></p>
 <div style="text-align: center; margin: 20px; ">
-  <%= cl_image_tag( @challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
+  <%= cl_image_tag( @challenge.photo.key, style: "width: 100px; height: 100px; border-radius: 4px;") %>
 </div>
 
 <p class="centered">Invite Friends:</p>
