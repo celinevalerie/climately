@@ -4,7 +4,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def index?
-    return true
+    record.users.include?(user) or user.admin?
   end
 
   def new?
@@ -12,7 +12,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def completed?
-    return true
+    record.users.include?(user) or user.admin?
   end
 
   def create?
