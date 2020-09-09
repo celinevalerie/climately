@@ -1,12 +1,11 @@
-<h1 class="page-title pb-4"><%= @challenge.name %></h1>
-<h2 class="page-subtitle">Add your friends to this challenge</h2>
+<h2 class="centered mt-4"><%=@challenge.name%></h2>
 
 <div style="text-align: center; margin: 20px;">
   <%= image_tag "signup2.png", style: "width: 200px; " %>
 </div>
 
 <div style="text-align: center; margin: 20px; ">
-  <%= cl_image_tag( @challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
+  <%= cl_image_tag( @challenge.photo.key, style: "width: 100px; height: 100px; border-radius: 4px;") %>
 </div>
 
 <p class="centered">Invite Friends:</p>
