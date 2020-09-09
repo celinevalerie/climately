@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @navbartitle = "Dashboard"
     @groups = policy_scope(Group)
     if params.has_key?(:status)
       @usergroups = []

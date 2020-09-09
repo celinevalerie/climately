@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 
     def show
       set_user  
+      @navbartitle = "Profile"
       authorize @user
       @user_groups = @user.user_groups
       if params.has_key?(:status)

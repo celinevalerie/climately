@@ -5,6 +5,7 @@ class ChallengesController < ApplicationController
   end
 
   def index
+    @navbartitle = "Challenges"
     if params.has_key?(:category)
       @challenges = policy_scope(Challenge).where(category: params[:category])
       @category = params[:category]
