@@ -18,7 +18,7 @@ html {
 
 
 .card-body-friends p {
-  font-size: 15px;
+  font-size: 12px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -47,11 +47,16 @@ html {
   height: 120px;
 }
 
-.card-background {
-  background-image: url('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599580927/Group_46_dl7rco.png');
-  background-size: auto 110%; 
-  background-position: right;
-  background-repeat: no-repeat; 
+.friend-card {
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: auto;
+  max-width: 100%;
+  border-radius: 4px;
+  height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .card-col-img {
@@ -92,6 +97,12 @@ html {
 	}
 }
 
+@include media-breakpoint-between(md,xl) {
+  .friend-card {
+		width: 480px;
+	}
+}
+
 .friendavatar {
   width: 70px;
   height: 70px;
@@ -107,10 +118,13 @@ html {
 }
 
 .points {
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: bold;
   margin-left: auto;
   margin-bottom: auto;
   padding: 2%;
+  color: $darkyellow;
+  padding: 20px;
 }
 
 

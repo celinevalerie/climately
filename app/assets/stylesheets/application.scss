@@ -84,7 +84,10 @@ body {
 @include media-breakpoint-down(xs) {
   .clear { 
     clear: both; 
-    height: 8vh; 
+    height: 60px; 
   }
 }
 
+a:hover {
+  text-decoration: none;
+}

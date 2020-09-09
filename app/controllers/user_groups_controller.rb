@@ -7,6 +7,7 @@ class UserGroupsController < ApplicationController
   end
   
   def create 
+    session[:return_to] ||= request.referer
     @friend = User.find(params[:friend_id])
     @group = Group.find(params[:group_id])
 
@@ -14,7 +15,7 @@ class UserGroupsController < ApplicationController
     authorize @usergroup
     
     if @usergroup.save
-      redirect_to groups_path
+      redirect_to session.delete(:return_to)
     else 
       render :new
     end

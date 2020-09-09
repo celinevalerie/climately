@@ -1,7 +1,8 @@
 .menu {
     height: 5vh;
     font-weight: bold; 
-
+    display: flex;
+    justify-content: space-around;
   }
   
   .menu-item {

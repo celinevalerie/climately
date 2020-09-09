@@ -20,10 +20,11 @@
           <p><%= @user.email %></p>
         </div>
       </div>
-
+      <% if policy(@user).edit? %>
         <div class="button button-small" style="margin: 20px auto;">
-              <%= link_to "Edit", edit_profile_path(@user) %>
+          <%= link_to "Edit", edit_profile_path(@user) %>
         </div>
+      <% end %>
 
         <div class="menu-container">
           <nav class="menu menu-pills">
