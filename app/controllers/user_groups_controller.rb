@@ -16,7 +16,7 @@ class UserGroupsController < ApplicationController
 
     @challenges = []
     @friend.user_groups.each do |user_group|
-      if user_group.status = "active"
+      if user_group.status == "active"
         @challenges << user_group.group.challenge
       end
     end

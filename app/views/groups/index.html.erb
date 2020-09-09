@@ -24,7 +24,7 @@
             <div class="col d-flex align-items-center justify-content-between">
               <div class="card-body mt-0 pt-0">
                 <p class="industrycard mb-2 pt-0"><strong><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></strong></p>
-                <p class="mb-0"> <%= usergroup.group.duration / 7 %> Weeks </p>
+                <p class="mb-0"> <%= usergroup.group.duration %> Weeks </p>
                 <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
                 <div class="d-flex">
                   <% usergroup.group.users[0..3].each do |user|%>

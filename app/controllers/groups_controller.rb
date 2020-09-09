@@ -53,8 +53,9 @@ class GroupsController < ApplicationController
 
     @challenges = []
     current_user.user_groups.each do |user_group|
-      if user_group.status = "active"
+      if user_group.status == "active"
         @challenges << user_group.group.challenge
+      else
       end
     end
     if @challenges.include? (@challenge)
