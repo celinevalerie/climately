@@ -2,7 +2,15 @@ class FriendshipsController < ApplicationController
   def index
     @user = User.find(params[:profile_id])
     @friends = policy_scope(Friendship)
-    @friends = @user.friends.order(:points)
+    @friends = @user.friends.order(points: :desc)
+    @friends = @friends.to_a.push(current_user)
+
+    if params[:choice].present? 
+      @choice = params[:choice]
+    else
+      @choice = 'add'
+    end
+
     if params[:query].present?
       @nonfriends = User.global_search(params[:query])
     else
