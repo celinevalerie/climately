@@ -18,9 +18,9 @@
 .navbar {
   height: 8vh;
   min-height: 50px;
-  display: flex; 
+  display: flex;
   align-items: center;
-  background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
+  // background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
 }
 
 .nav-link {
@@ -30,7 +30,7 @@
 
 .active h1 {
   margin-left: 10px;
-  color: white;
+  color: #5ACCB3;
   font-weight: bolder;
   font-size: 24px;
 }
@@ -44,18 +44,18 @@
 }
 
 .nav-item {
-  padding: 0px 0px 0px 0px;
+  padding: 0px 30px 0px 30px;
   height: 20px;
 }
 
 .nav-links {
-  color: white;
+  color: #5ACCB3;
   font-size: 18px;
   margin: 0px 25px 0px 0px;
 }
 
 .nav-links:hover {
-  color: white;
+  color: #4AAA8F;
   opacity: 0.8;
   text-decoration: none;
 }
