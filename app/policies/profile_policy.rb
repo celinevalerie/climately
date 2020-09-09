@@ -1,7 +1,7 @@
 class ProfilePolicy < ApplicationPolicy
   
   def show? 
-    record.friends.include?(current_user) or user.admin?
+    record.friends.include? (user) or user.admin? or record == user
   end
 
   def edit?
