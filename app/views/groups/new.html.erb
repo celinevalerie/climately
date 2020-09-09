@@ -1,18 +1,16 @@
-<h1 class="page-title pb-4"><%= @challenge.name %></h1>
-<h2 class="page-subtitle">Customize your challenge</h2>
-
-<div style="text-align: center; margin: 20px;">
-  <%= image_tag "signup1.png", style: "width: 200px; " %>
-</div>
-
 <div class="banner-container" style="padding: 30px">
+      <h1 style="color: white;"><strong><%= @challenge.name%></strong></h1>
       <div style="font-size: 15px; text-align: center; margin: 30px; background: #facc48;color: white; border-radius: 4px; padding: 20px;">
         <%= @challenge.description %>
       </div>
 </div>
 
+      <div style="text-align: center; margin: 20px;">
+        <%= image_tag "signup1a.png", style: "width: 200px; margin-bottom: 20px;" %>
+      </div>
+
 <div data-controller="slider" class="container-icon">
-  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
+  <div style="padding: 12px 0px; width:300px; margin: 0px auto;">
     <div style="padding: 12px 0px;">
       <%= image_tag("difficulty.png", size: "25x25")%>
                   <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>

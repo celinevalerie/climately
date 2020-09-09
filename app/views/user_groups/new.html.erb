@@ -1,16 +1,17 @@
-<h2 class="centered mt-4"><%=@challenge.name%></h2>
-
-<div style="text-align: center; margin: 20px;">
-  <%= image_tag "signup2.png", style: "width: 200px; " %>
+<div class="banner-container" style="padding: 30px">
+      <h1 style="color: white;"><strong><%= @group.challenge.name%></strong></h1>
+      <div style="font-size: 15px; text-align: center; margin: 30px; background: #facc48;color: white; border-radius: 4px; padding: 20px;">
+        <%= @group.challenge.description %>
+      </div>
 </div>
 
-<div style="text-align: center; margin: 20px; ">
-  <%= cl_image_tag( @challenge.photo.key, style: "width: 100px; height: 100px; border-radius: 4px;") %>
-</div>
+      <div style="text-align: center; margin: 20px;">
+        <%= image_tag "signup2a.png", style: "width: 200px; margin-bottom: 20px" %>
+      </div>
 
-<p class="centered">Invite Friends:</p>
+<% if @friends.nil? == false%>
 <% @friends.each do |friend| %>
-<div class="col-12 px-2 mb-2">
+<div class="col-12 px-2 mb-2 mt-4">
   <div class="friend-card">
         <div class="card-col-pic d-flex">
           <% if friend.photo.present? %>
@@ -39,6 +40,8 @@
   </div>
 </div>
 <% end %>
+<% end %>
+
 
 <div class="button button-large" style="margin: 60px auto 10px auto;">
   <%= link_to "Save Challenge",groups_path %>
