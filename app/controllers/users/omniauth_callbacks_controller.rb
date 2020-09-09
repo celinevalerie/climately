@@ -21,6 +21,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in user, event: :authentication
         redirect_to social_profile_path(user)
       else 
+       user.first_name = "google"
+       user.last_name = "auth"
        sign_in_and_redirect user, event: :authentication
        set_flash_message(:notice, :success, kind: 'Google') if is_navigational_format?
       end
