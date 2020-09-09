@@ -11,7 +11,9 @@
 
     <%= simple_form_for [@group, @chatroom, @message ], url: group_chatroom_messages_path(@group, @chatroom), remote: true do |f| %>
       <div class="d-flex align-item-center">
-        <%= f.input :content, label: false, placeholder: "Message...", wrapper_html: { class: 'flex-grow-1 pr-3 form-control-message' } %>
+        <div data-action="click->typing#hideNavbar" class="flex-grow-1 pr-3 form-control-message">
+          <%= f.input :content, label: false, placeholder: "Message..." %>
+        </div>
         <%= f.button :submit, "Send", class: 'button button-small px-3' %>
       </div>
       <div class="cr-img">
