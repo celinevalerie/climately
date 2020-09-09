@@ -104,6 +104,14 @@ Rails.application.configure do
   # class timestamps to determine how long to wait before reading from the
   # replica.
   #
+    host = ENV['DEFAULT_URL_HOST'] ||
+    "#{ENV.fetch('HEROKU_APP_NAME')}.herokuapp.com"
+  # Set the correct protocol as SSL isn't configured in development or test.
+  protocol = Rails.application.config.force_ssl ? 'https' : 'http'
+  config.routes.default_url_options.merge!(
+    host: host,
+    protocol: protocol,
+  )
   # By default Rails will store a last write timestamp in the session. The
   # DatabaseSelector middleware is designed as such you can define your own
   # strategy for connection switching and pass that into the middleware through
