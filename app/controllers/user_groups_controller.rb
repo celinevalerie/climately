@@ -13,11 +13,23 @@ class UserGroupsController < ApplicationController
 
     @usergroup = UserGroup.new(user: @friend, group: @group, status: "invited")
     authorize @usergroup
-    
-    if @usergroup.save
-      redirect_to session.delete(:return_to)
-    else 
-      render :new
+
+    @challenges = []
+    @friend.user_groups.each do |user_group|
+      if user_group.status = "active"
+        @challenges << user_group.group.challenge
+      end
+    end
+
+    if @challenges.include? (@usergroup.group.challenge)
+      flash[:notice] = "Already doing challenge: #{@usergroup.group.challenge.name}"
+      redirect_to new_group_user_group_path(@usergroup.group)
+    else
+      if @usergroup.save
+        redirect_to new_group_user_group_path(@usergroup.group)
+      else 
+        render :new
+      end
     end
   end
 
