@@ -1,4 +1,7 @@
 Rails.application.configure do
+  config.serve_static_assets = true
+  config.assets.compile = true
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "www.climately.rocks" }
   # Settings specified here will take precedence over those in config/application.rb.
