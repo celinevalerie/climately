@@ -20,12 +20,13 @@
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
 
-        <div class="form-check mb-2 mr-sm-2">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox"> Remember me
-          </label>
+        <div class="form-check pl-0">
+          <div class="d-flex">
+            <input type="checkbox" value="lsRememberMe" id="rememberMe" class="mr-2">
+            <label for="rememberMe">Remember me</label>
+          </div>
         </div>
-          <%# <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label> %>
+          
       </div>
         
     <div class="pt-3">

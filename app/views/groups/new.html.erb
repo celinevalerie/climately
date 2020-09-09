@@ -33,7 +33,7 @@
     <div style="padding: 12px 0px;">
       <label style="font-size: 15px;">How many weeks do you want to do the challenge?</label>
     </div>
-    <div style="width: 330px;">
+    <div class="slider-form" style="width: 330px;">
       <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "click->slider#calculateImpact", id: @challenge.id, target: "slider.duration" }}, label: false %>
     </div>
     <div class="slider-numbers">
