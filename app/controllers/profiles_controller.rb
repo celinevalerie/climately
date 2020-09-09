@@ -1,17 +1,15 @@
 class ProfilesController < ApplicationController
 
     def show
-      set_user
-      @users_groups = @user.user_groups
-      @group = []
-      @users_groups.each do |users_group|
-        @group << users_group.group
-      end
+      set_user  
+      @user_groups = @user.user_groups
       if params.has_key?(:status)
-        @group = @group.delete_if {|t| t.completed == false}
-        @status = 'completed'
+        @user_groups.to_a
+        @user_groups = @user_groups.select {|usergroup| usergroup.status == params[:status] && usergroup.user == @user}
+        @status = params[:status]
       else
-        @group = @group.delete_if {|t| t.completed == true}
+        @user_groups.to_a
+        @user_groups = @user_groups.select {|usergroup| usergroup.status == 'active' && usergroup.user == @user}
         @status = 'active'
       end
     end

@@ -27,7 +27,7 @@
 
         <div class="menu-container">
           <nav class="menu menu-pills">
-            <%= link_to 'Active', profile_path, class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
+            <%= link_to 'Active', profile_path(status: 'active'), class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
             <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}", style: "width: 140px;"%>
           </nav>
         </div>
@@ -37,30 +37,30 @@
 
 <div class="container" style="margin: 50px auto">
   <div class="row">
-    <% @group.each do |group| %>
+    <% @user_groups.each do |usergroup| %>
       <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
         <div class="card profile-card">
           <div class="col card-col-img">
-            <%= cl_image_tag(group.challenge.photo.key, class: "card-img") %>
+            <%= cl_image_tag(usergroup.group.challenge.photo.key, class: "card-img") %>
           </div>
           <div class="col card-b">
             <div class="card-body">
-              <p class="card-title mb-0"><strong><%= link_to group.challenge.name, group_path(group) %></strong></p>
-              <p class="card-text"><%= group.challenge.description %></p>
+              <p class="card-title mb-0"><strong><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></strong></p>
+              <p class="card-text"><%= usergroup.group.challenge.description %></p>
             </div>
             <div class="row range card-range">
               <div class="col">
               <%= image_tag("difficulty.png", size: "17x14")%>
               <label for="exampleRangeDifficulty">Difficulty</label>
                 <div class="slider">
-                  <div class="slider-value" style="width:<%= group.challenge.default_difficulty * 10 %>%; height:5px; color:white;"></div>
+                  <div class="slider-value" style="width:<%= usergroup.group.challenge.default_difficulty * 10 %>%; height:5px; color:white;"></div>
                 </div>
               </div>
               <div class="col">
               <%= image_tag("world.png", size: "14x14")%>
               <label for="exampleRangeImpact">Impact</label>
                 <div class="slider">
-                  <div class="slider-value" style="width:<%= group.challenge.default_impact * 10 %>%; height:5px; color:white;"></div>
+                  <div class="slider-value" style="width:<%= usergroup.group.challenge.default_impact * 10 %>%; height:5px; color:white;"></div>
                 </div>
               </div>
           </div>
