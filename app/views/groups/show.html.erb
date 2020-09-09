@@ -9,9 +9,10 @@
         <% if remaining_days == 0 %>
               <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
         <% end %>
+      <div class="challengesize">
       <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
         <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
-          <div style="font-size: 30px; color: #facc48;">
+          <div style="color: #facc48;">
             <% "#{start_date = @group.created_at}" %>
             <% "#{end_date = start_date + (@group.duration).days}" %>
             <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
@@ -19,17 +20,18 @@
             <p>Total days</p>
         </div>
         <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
-          <div style="font-size: 30px; color: #facc48;">
+          <div style="color: #facc48;">
             <%= "+ #{@group.points}'000" %>
           </div>
           <p>Total points</p>
         </div>
         <div class="card-body">
-          <div style="font-size: 30px; color: #facc48;">
+          <div style="color: #facc48;">
             <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
           </div>
           <p>Remaining days</p>
         </div>
+      </div>
       </div>
 </div>
 
