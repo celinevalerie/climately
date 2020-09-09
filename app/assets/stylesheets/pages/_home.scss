@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 .hpcontainer {
   background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%), image-url("homepage2.png");
-  text-align: center;
 }
 
 .banner {
@@ -11,20 +10,65 @@
   align-items: center;
   background-size: cover;
   background-position: center;
+  text-align: center;
   h1 {
     color: $blackgreen;
     font-weight: bold;
     font-size: 45px;
   }
-  .hpdescription {
+
+}
+
+
+  @include media-breakpoint-down(xs) {
+    .header-display {
+    display: none;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .header-display2 {
+    display: none;
+    }
+  }
+
+
+.hpdescription {
     color: $blackgreen;
     opacity: .8;
     font-size: 25px;
     font-weight: lighter;
     margin-bottom: 30px;
-  }
 }
 
+.hpdescription2 {
+    color: $blackgreen;
+    opacity: .8;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+.hpdescription2-title {
+    color: $blackgreen;
+    opacity: .8;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.banner-quote {
+  background-image: url("banner-quote.png");
+  height: 300px;
+  text-align: center;
+  color:white;
+  background-size: cover;
+}
+.banner-quote p {
+  font-size: 22px;
+  padding: 100px 50px;
+}
 .hpbody p {
   font-size: 20px;
 }
@@ -36,6 +80,36 @@
 .hpicons {
   padding-top: 26%;
 }
+
+.text-box {
+  background-image: url("box-wave.png");
+  background-repeat: no-repeat;
+  padding: 40px;
+  width: 100%;
+  height: 500px;
+}
+
+.text-box-triangle {
+  background-image: url("box-triangle.png");
+  background-repeat: no-repeat;
+  padding: 40px 40px 40px 140px;
+  width: 100%;
+  height: 500px;
+}
+
+.tag-number {
+  background-color: $lightgreen;
+  color: white;
+  width:50px;
+  height: 50px;
+  text-align:center;
+  border-radius: 4px;
+  padding: 8px 0px;
+  font-size:25px;
+}
+
+
+
 
 .container-valueprops {
   position: relative;
@@ -60,6 +134,7 @@
 
 .finalchance p{
   font-size: 30px;
+  text-align: center;
 }
 
 .quote {
