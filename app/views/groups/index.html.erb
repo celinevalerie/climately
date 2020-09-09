@@ -17,13 +17,13 @@
     <% @usergroups.each do |usergroup| %>
       <div class="row">
         <div class="col-12 px-2 mb-3">
-          <div class="card <%= @status == 'completed' ? 'card-background' : ''%>">
+          <div class="card">
             <div class="col card-col-img">
               <%= cl_image_tag(usergroup.group.challenge.photo.key, class: "card-img") %>
             </div>
             <div class="col d-flex align-items-center justify-content-between">
               <div class="card-body mt-0 pt-0">
-                <p class="industrycard mb-2 pt-0"><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></p>
+                <p class="industrycard mb-2 pt-0"><strong><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></strong></p>
                 <p class="mb-0"> <%= usergroup.group.duration / 7 %> Weeks </p>
                 <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
                 <div class="d-flex">

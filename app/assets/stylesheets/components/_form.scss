@@ -35,7 +35,11 @@ font-size: 14px;
 }
 
 .form-control:focus {
-	border-color: $darkgreen;
+  border-color: $darkgreen;
+}
+
+.slider-form .form-group .form-control:focus {
+  background-color: $light-gray;
 }
 
 .signup-form {

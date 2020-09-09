@@ -1,32 +1,48 @@
-<h1 class="page-title pb-4"><%= @challenge.name %></h1>
-<h2 class="page-subtitle">Add your friends to this challenge</h2>
-
-<div style="text-align: center; margin: 20px;">
-  <%= image_tag "signup2.png", style: "width: 200px; " %>
+<div class="banner-container" style="padding: 30px">
+      <h1 style="color: white;"><strong><%= @group.challenge.name%></strong></h1>
+      <div style="font-size: 15px; text-align: center; margin: 30px; background: #facc48;color: white; border-radius: 4px; padding: 20px;">
+        <%= @group.challenge.description %>
+      </div>
 </div>
 
-<div style="text-align: center; margin: 20px; ">
-  <%= cl_image_tag( @challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px;") %>
-</div>
+      <div style="text-align: center; margin: 20px;">
+        <%= image_tag "signup2a.png", style: "width: 200px; margin-bottom: 20px" %>
+      </div>
 
+<% if @friends.nil? == false%>
 <% @friends.each do |friend| %>
-<div class="col-12 px-2 mb-5">
-  <div class="card">
+<div class="col-12 px-2 mb-2 mt-4">
+  <div class="friend-card">
         <div class="card-col-pic d-flex">
           <% if friend.photo.present? %>
-            <%= cl_image_tag(friend.photo.key, class: "friendavatar") %>
+            <%= cl_image_tag(friend.photo.key, class: "avatar") %>
           <% end %>
         </div>
-
+      <div class="col d-flex justify-content-between">
         <div class="card-b">
           <div class="card-body-friends">
             <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong>
             <p class="card-text"><%= friend.user_name %></p>
           </div>
         </div>
-        <div class="button button-small mr-4 d-flex flex-column align-items-left">
-          <%= link_to 'Invite', group_user_groups_path(@group, {:friend_id => friend.id}), method: :post %>
+        <div class="button-container">
+          <% if UserGroup.where("user_id = #{friend.id} and group_id = #{@group.id}").empty? %>
+            <div class="button button-small mr-4">
+              <%= link_to 'Invite', group_user_groups_path(@group, {:friend_id => friend.id}), method: :post, remote: :true %>
+            </div>
+          <% else %>
+            <div class="button button-small-secondary mr-4">
+              Invited
+            </div>
+          <% end %>
         </div>
+      </div>
   </div>
 </div>
 <% end %>
+<% end %>
+
+
+<div class="button button-large" style="margin: 60px auto 10px auto;">
+  <%= link_to "Save Challenge",groups_path %>
+</div>

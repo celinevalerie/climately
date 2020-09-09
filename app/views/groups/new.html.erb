@@ -1,18 +1,16 @@
-<h1 class="page-title pb-4"><%= @challenge.name %></h1>
-<h2 class="page-subtitle">Customize your challenge</h2>
-
-<div style="text-align: center; margin: 20px;">
-  <%= image_tag "signup1.png", style: "width: 200px; " %>
-</div>
-
 <div class="banner-container" style="padding: 30px">
+      <h1 style="color: white;"><strong><%= @challenge.name%></strong></h1>
       <div style="font-size: 15px; text-align: center; margin: 30px; background: #facc48;color: white; border-radius: 4px; padding: 20px;">
         <%= @challenge.description %>
       </div>
 </div>
 
+      <div style="text-align: center; margin: 20px;">
+        <%= image_tag "signup1a.png", style: "width: 200px; margin-bottom: 20px;" %>
+      </div>
+
 <div data-controller="slider" class="container-icon">
-  <div style="padding: 12px 0px; width:300px; margin: 10px auto;">
+  <div style="padding: 12px 0px; width:300px; margin: 0px auto;">
     <div style="padding: 12px 0px;">
       <%= image_tag("difficulty.png", size: "25x25")%>
                   <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
@@ -33,8 +31,8 @@
     <div style="padding: 12px 0px;">
       <label style="font-size: 15px;">How many weeks do you want to do the challenge?</label>
     </div>
-    <div style="width: 330px;">
-      <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "click->slider#calculateImpact", id: @challenge.id, target: "slider.duration" }}, label: false %>
+    <div class="slider-form" style="width: 330px;">
+      <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateImpact", id: @challenge.id, target: "slider.duration" }}, label: false %>
     </div>
     <div class="slider-numbers">
       <p>1</p>
@@ -52,7 +50,7 @@
       <label style="font-size: 15px;">How many exceptions a week are allowed?</label>
     </div>
     <div style="width: 330px;">
-      <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white;", data: { action: "click->slider#calculateDifficulty", id: @challenge.id, target: "slider.exceptions" }}, label: false, min: 0, max: 7  %>
+      <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateDifficulty", id: @challenge.id, target: "slider.exceptions" }}, label: false, min: 0, max: 7  %>
     </div>
     <div class="slider-numbers">
       <p>0</p>
@@ -64,8 +62,11 @@
       <p>6</p>
       <p>7</p>
     </div>
-      <div class="button button-large" style="margin: 60px auto;">
-        <%= f.button :submit, input_html: { stlye:"color:white;" } %>
+      <div class="button button-large" style="margin: 60px auto 10px auto;">
+        <%= f.button :submit, 'Add Friends >', input_html: { stlye:"color:white;" } %>
+      </div>
+       <div class="button button-large-secondary" style="margin: 0px auto;">
+        < Back to Challenges
       </div>
     <% end %>
   </div>

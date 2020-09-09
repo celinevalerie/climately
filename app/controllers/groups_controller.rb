@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @navbartitle = "Dashboard"
     @groups = policy_scope(Group)
     if params.has_key?(:status)
       @usergroups = []
@@ -49,12 +50,24 @@ class GroupsController < ApplicationController
     @group.points = @group.difficulty * @group.impact
     @users_group = UserGroup.new(group: @group, user: current_user, status: 'active')
     @users_group.group = @group
+
+    @challenges = []
+    current_user.user_groups.each do |user_group|
+      if user_group.status = "active"
+        @challenges << user_group.group.challenge
+      end
+    end
+    if @challenges.include? (@challenge)
+      flash[:notice] = "Already doing challenge: #{@challenge.name}"
+      redirect_to challenges_path
+    else
     if @group.save
       @users_group.save
       redirect_to new_group_user_group_path(@group)
     else
       render :new
     end
+  end
   end
 
   def completed

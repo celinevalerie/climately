@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
+  # def default_url_options
+  #   if Rails.env.production?
+  #     Rails.application.routes.default_url_options = { host: "www.climately.rocks", protocol: 'https' }
+  #   elsif Rails.env.development?
+  #     Rails.application.routes.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+  #   end
+  # end
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :user_name, :photo])

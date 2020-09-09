@@ -1,72 +1,74 @@
 <h1 class="page-title">Hi, <%= current_user.first_name %>!</h1>
 
 <div class="banner-container">
-      <div style="text-align: center">
-        <div style= "margin: 30px">
-          <% if @user.photo.present?%>
-            <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-large', style: "margin: 20px auto;"%>
-          <% else %>
-             <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-large" %>
-          <% end %>
-        </div>
+  <div style="text-align: center">
+    <% if @user.photo.present?%>
+      <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-profile-page', style: "margin: 20 auto;"%>
+    <% else %>
+        <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-profile-page" %>
+    <% end %>
 
-        <div class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
-          <%= link_to "#{@current_user.points}'000 points", root_path, style: "font-size:18px;" %>
+    <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
+      <p class="titlefontsize"><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
+
+      <div class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
+        <%= link_to "#{@current_user.points}'000 points", root_path, style: "font-size:18px;" %>
       </div>
 
-        <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
-          <p><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
-          <p><%= @user.user_name %></p>
-          <p><%= @user.email %></p>
-        </div>
+      <p class="profile-page-margin"><%= @user.user_name.capitalize %></p>
+      <p class="profile-page-margin"><%= @user.email %></p>
+    </div>
+  
+    <% if policy(@user).edit? %>
+      <div class="button button-small" style="margin: 20px auto;">
+        <%= link_to "Edit", edit_profile_path(@user) %>
       </div>
+    <% end %>
 
-        <div class="button button-small" style="margin: 20px auto;">
-              <%= link_to "Edit", edit_profile_path(@user) %>
-        </div>
-
-        <div class="menu-container">
-          <nav class="menu menu-pills">
-            <%= link_to 'Active', profile_path, class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
-            <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}", style: "width: 140px;"%>
-          </nav>
-        </div>
+    <div class="menu-container">
+      <nav class="menu menu-pills">
+        <%= link_to 'Active', profile_path(status: 'active'), class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
+        <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}", style: "width: 140px;"%>
+      </nav>
+    </div>
+  </div>
 </div>
 
 
-
-<div class="container" style="margin: 50px auto">
-  <div class="row">
-    <% @group.each do |group| %>
-      <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
-        <div class="card profile-card">
-          <div class="col card-col-img">
-            <%= cl_image_tag(group.challenge.photo.key, class: "card-img") %>
-          </div>
-          <div class="col card-b">
-            <div class="card-body">
-              <p class="card-title mb-0"><strong><%= link_to group.challenge.name, group_path(group) %></strong></p>
-              <p class="card-text"><%= group.challenge.description %></p>
+<div class="container">
+  <div class="card-profile">
+    <div class="row">
+      <% @user_groups.each do |usergroup| %>
+        <div class="col-12 col-md-12 col-xl-12 px-2 mb-3">
+          <div class="card profile-card">
+            <div class="col card-col-img">
+              <%= cl_image_tag(usergroup.group.challenge.photo.key, class: "card-img") %>
             </div>
-            <div class="row range card-range">
-              <div class="col">
-              <%= image_tag("difficulty.png", size: "17x14")%>
-              <label for="exampleRangeDifficulty">Difficulty</label>
-                <div class="slider">
-                  <div class="slider-value" style="width:<%= group.challenge.default_difficulty * 10 %>%; height:5px; color:white;"></div>
-                </div>
+            <div class="col card-b">
+              <div class="card-body">
+                <p class="card-title mb-0"><strong><%= link_to usergroup.group.challenge.name, group_path(usergroup.group) %></strong></p>
+                <p class="card-text"><%= usergroup.group.challenge.description %></p>
               </div>
-              <div class="col">
-              <%= image_tag("world.png", size: "14x14")%>
-              <label for="exampleRangeImpact">Impact</label>
-                <div class="slider">
-                  <div class="slider-value" style="width:<%= group.challenge.default_impact * 10 %>%; height:5px; color:white;"></div>
+              <div class="row range card-range">
+                <div class="col">
+                <%= image_tag("difficulty.png", size: "17x14")%>
+                <label for="exampleRangeDifficulty">Difficulty</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:<%= usergroup.group.challenge.default_difficulty * 10 %>%; height:5px; color:white;"></div>
+                  </div>
                 </div>
-              </div>
+                <div class="col">
+                <%= image_tag("world.png", size: "14x14")%>
+                <label for="exampleRangeImpact">Impact</label>
+                  <div class="slider">
+                    <div class="slider-value" style="width:<%= usergroup.group.challenge.default_impact * 10 %>%; height:5px; color:white;"></div>
+                  </div>
+                </div>
+            </div>
+          </div>
           </div>
         </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
