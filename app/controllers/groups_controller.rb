@@ -5,8 +5,7 @@ class GroupsController < ApplicationController
   start_date = @group.created_at
   end_date = start_date + (@group.duration).days
   @total_days = ((end_date - start_date) / 86400 * 7).round
-  @remaining_days = 0
-  #@remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
+  @remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
   @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
   end
 
