@@ -1,39 +1,56 @@
-<div class="banner-container">
+<div class="banner-container pt-5">
   <div style="text-align: center">
-    <% if @user.photo.present?%>
-      <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-profile-page', style: "margin: 20 auto;"%>
-    <% else %>
-        <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-profile-page" %>
-    <% end %>
+    <div class="profile-container">
+      <% if @user.photo.present?%>
+        <%= cl_image_tag @user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-profile-page', style: "margin: 20 auto;"%>
+      <% else %>
+          <%= cl_image_tag 'Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-profile-page" %>
+      <% end %>
 
-    <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
-      <p class="titlefontsize"><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
-
-      <div class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
-
-        <%= "#{@current_user.points} points"%>
+      <div style="list-style-type:none; font-style:$body-font; font-size: 12px;">
+        <p class="titlefontsize mb-0"><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
+        <p class="profile-page-margin mb-0"><%= @user.user_name.capitalize %></p>
+        <p class="profile-page-margin mn-0"><%= @user.email %></p>
       </div>
-
-      <p class="profile-page-margin"><%= @user.user_name.capitalize %></p>
-      <p class="profile-page-margin"><%= @user.email %></p>
+    
+      <% if policy(@user).edit? %>
+        <div class="button button-small" style="margin: 20px auto;">
+          <%= link_to "Edit", edit_profile_path(@user) %>
+        </div>
+      <% end %>
     </div>
-
-    <% if policy(@user).edit? %>
-      <div class="button button-small" style="margin: 20px auto;">
-        <%= link_to "Edit", edit_profile_path(@user) %>
+ </div>
+       <div class="challengesize">
+        <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
+          <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+            <div style="color: #facc48;">
+              <%= @user.points %>
+            </div>
+            <p>Points</p>
+          </div>
+          <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+            <div style="color: #facc48;">
+              <%= @user.friends.length %>
+            </div>
+            <p>Friends</p>
+          </div>
+          <div class="card-body">
+            <div style="color: #facc48;">
+              <%= @challenges %>
+            </div>
+            <p>Challenges</p>
+          </div>
+        </div>
       </div>
-    <% end %>
-
-    <div class="menu-container">
-      <nav class="menu menu-pills">
-        <%= link_to 'Active', profile_path(status: 'active'), class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
-        <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}", style: "width: 140px;"%>
-      </nav>
-    </div>
-  </div>
 </div>
 
-
+<div class="menu-container menu-container-profile">
+  <nav class="menu menu-pills">
+    <%= link_to 'Active', profile_path(status: 'active'), class: "menu-item menu-link #{@status == 'active' ? 'active' : ''}", style: "width: 140px;"%>
+    <%= link_to 'Completed', profile_path(status: 'completed'), class: "menu-item menu-link #{@status == 'completed' ? 'active' : ''}", style: "width: 140px;"%>
+  </nav>
+</div>
+ 
 <div class="container">
   <div class="card-profile">
     <div class="row">

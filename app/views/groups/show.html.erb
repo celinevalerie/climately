@@ -3,34 +3,34 @@
       <div>
         <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px; margin: 20px; box-shadow: 0 0 2px 2px white;") %>
       </div>
-        <% if @remaining_days == 0 && @user_group.first.status == "active" %>
-            <%= link_to "Click to confirm that you did it!", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
-        <% else %>
-            <div class="button button-small-secondary"  style="width: 200px; margin: 0px auto;">
-              <%= @user_group.first.status.capitalize %>
-            </div>
-        <% end %>
+      <% if @remaining_days == 0 && @user_group.first.status == "active" %>
+        <%= link_to "Click to confirm that you did it!", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
+      <% else %>
+        <div class="button button-small-secondary"  style="width: 200px; margin: 0px auto;">
+          <%= @user_group.first.status.capitalize %>
+        </div>
+      <% end %>
       <div class="challengesize">
-      <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
-        <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
-          <div style="color: #facc48;">
-            <%= @total_days %>
-          </div>
+        <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
+          <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+            <div style="color: #facc48;">
+              <%= @total_days %>
+            </div>
             <p>Total days</p>
-        </div>
-        <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
-          <div style="color: #facc48;">
-            <%= "+ #{@group.points}" %>
           </div>
-          <p>Total points</p>
-        </div>
-        <div class="card-body">
-          <div style="color: #facc48;">
-            <%= @remaining_days %>
+          <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
+            <div style="color: #facc48;">
+              <%= "+ #{@group.points}" %>
+            </div>
+            <p>Total points</p>
           </div>
-          <p>Remaining days</p>
+          <div class="card-body">
+            <div style="color: #facc48;">
+              <%= @remaining_days %>
+            </div>
+            <p>Remaining days</p>
+          </div>
         </div>
-      </div>
       </div>
 </div>
 
