@@ -36,16 +36,18 @@
 </div>
 
 <% if flash[:notice] %>
-  <div class="alert alert-dark alert-dismissible fade show" role="alert" style="height: 300px; padding: 20px; text-align: center;">
-    <%= image_tag("tick.png", size: "100x100")%>
-    <p>Congratulations</p>
-    <p>You made the world a better place</p>
-    <div class="button button-large" style="background-color: #facc48; margin: 20px auto;">
-          <%= "+ #{@group.points}'000 points" %>
+  <div class="popup">
+    <div class="alert alert-dark alert-dismissible fade show" role="alert" style="height: 300px; padding: 20px; text-align: center; background-color:White">
+      <%= image_tag("tick2.png", size: "100x100")%>
+      <p style="margin: 20px 5px 15px 20px">Congratulations</p>
+      <p>You made the world a better place</p>
+      <div class="button button-large" style="background-color: #facc48; margin: 20px auto;">
+            <%= "+ #{@group.points}'000 points" %>
+      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
 <% end %>
 
