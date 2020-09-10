@@ -2,11 +2,11 @@ class GroupsController < ApplicationController
   def show
     set_group
     authorize @group
-  start_date = @group.created_at
-  end_date = start_date + (@group.duration).days
-  @total_days = ((end_date - start_date) / 86400 * 7).round
-  @remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
-  @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
+    start_date = @group.created_at
+    end_date = start_date + (@group.duration).days
+    @total_days = ((end_date - start_date) / 86400 * 7).round
+    @remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
+    @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
   end
 
   def index

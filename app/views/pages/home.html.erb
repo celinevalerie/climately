@@ -2,7 +2,7 @@
   <div class="banner container">
     <div class="row">
       <div class="col-lg-6 col-sm-12" >
-        <%= image_tag "phone_challenges.png", style: "width: 100%; height: auto;"%>
+        <%= image_tag "phone_challenges.png", style: "width: 100%; height: auto; padding-top: 100px"%>
       </div>
       <div class="banner-content-text col-lg-6 col-sm-12">
         <h1>Climately</h1>
@@ -20,7 +20,26 @@
     <p>“Activism works. So what I’m telling you to do now, is to act. Because no one is too small to make a difference.”    ~ Greta Thunberg</p>
   </div>
 
-  <div class="container">
+    <div class="container">
+    <div class="d-flex" style="justify-content: space-around;">
+      <div class="row">
+          <div class="col-lg-6 col-sm-12 col-md-12">
+            <p class="tag-number" style="margin: 50px 0px 50px 0px;"><strong>1</strong></p>
+            <h1>Add a challenge</h1>
+            <p class="hpdescription" style="margin: 0px 0px 30px 0px;">Save the world on your couch!</p>
+            <%= image_tag("world.png", style: "height:200px;") %>
+          </div>
+          <div class="text-box col-lg-6 col-sm-12 col-md-12" style="margin:50px 0px">
+            <div style="width: 240px;">
+              <h2 class="hpdescription2-title"><strong>Challenge yourself!</strong><h2>
+              <p class="hpdescription2">All our challenges are calculated based on CO2 emissions. After every challenge you did, you help to save the world by reducing your carbon footprint. That is easy right?!</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
     <div class="hptitle">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -48,6 +67,7 @@
     <div class="container">
     <div class="d-flex" style="justify-content: space-around;">
       <div class="row">
+
           <div class="col-lg-6 col-sm-12 col-md-12">
             <p class="tag-number" style="margin: 50px 0px 50px 0px;"><strong>1</strong></p>
             <h1>Add a challenge</h1>
@@ -116,11 +136,20 @@
           <%= image_tag "phone_challenges2.png", style: "width: 100%; height: auto;"%>
         </div>
         <div class="col-lg-6 col-sm-12">
-          <h1>Join us!</h1>
-          <p class="hpdescription">And make the world a better place!</p>
-          <div class="button button-large mt-3 mb-3" style="margin: 20px auto;">
-              <%= link_to 'Sign In', root_path %>
-          </div>
+          <% if user_signed_in? == false %>
+            <h1>Join us</h1>
+            <p class="hpdescription">And make the world a better place!</p>
+            <div class="button button-large mt-3 mb-3" style="margin: 20px auto;">
+                <%= link_to 'Sign up', new_user_registration_path %>
+            </div>
+          <% end %>
+          <% if user_signed_in? == true %>
+            <h1>Add your friends</h1>
+            <p class="hpdescription">Get started and add your friends!</p>
+            <div class="button button-large mt-3 mb-3" style="margin: 20px auto;">
+                <%= link_to 'Add friends',  profile_friendships_path(current_user) %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
