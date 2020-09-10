@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
     @friends = @user.friends.order(points: :desc)
     @friends = @friends.to_a.push(current_user)
 
-    if params[:choice].present? 
+    if params[:choice].present?
       @choice = params[:choice]
     else
       @choice = 'add'
