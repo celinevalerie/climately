@@ -29,9 +29,13 @@
                 <div class="d-flex">
                   <% usergroup.group.users[0..3].each do |user|%>
                     <% if @status == 'failed'%>
+                    <% if user.photo.key.present?%>
                     <%= cl_image_tag(user.photo.key, class: "avatar-small", effect: "grayscale") %>
+                    <% end %>
                     <% else %>
+                    <% if user.photo.key.present?%>
                     <%= cl_image_tag(user.photo.key, class: "avatar-small") %>
+                    <% end %>
                     <% end %>
                   <% end %>
                   <% if usergroup.group.users.length > 3 %>
