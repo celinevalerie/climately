@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
   end_date = start_date + (@group.duration).days
   @total_days = ((end_date - start_date) / 86400 * 7).round
   @remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
+  if @group.challenge.name = "Go Vegetarian" 
+    @remaining_days = 0 
+  end
   @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
   end
 
