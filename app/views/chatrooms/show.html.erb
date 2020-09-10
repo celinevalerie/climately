@@ -1,5 +1,14 @@
-<h1 class="page-title">Chat</h1>
-<h2 class="page-subtitle">Let your friends know about temptations and failures.</h2>
+<h1 class="centered mt-4"><%= @group.challenge.name%></h1>
+
+<div class="centered">
+<% @group.users.each do |user|%>
+      <% if user.photo.present? %>
+        <%= cl_image_tag(user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar avatar-list')%>
+      <% else %>
+          <%= cl_image_tag('Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar avatar-list") %>
+      <% end %>
+<% end %>
+</div>
 
 <div class="chatroom">
   <div>
