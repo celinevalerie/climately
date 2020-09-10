@@ -105,9 +105,20 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/p
   default_difficulty: 4,
   default_impact: 5
 )
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/shopping_n13lct.png')
-@challenge8.photo.attach(io: file, filename: 'shopping_n13lct.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/clothes_tfjlre.png')
+@challenge8.photo.attach(io: file, filename: 'clothes_tfjlre.png', content_type: 'image/png')
 @challenge8.save
+
+@challenge9 = Challenge.new(
+  name: 'Eat local', 
+  description: 'Buying what locals have to offer helps the environment because that food didnt travel miles and miles ultil it get to your plate.',
+  category: 'Food',
+  default_difficulty: 4,
+  default_impact: 2
+)
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/Group_88_qirsoe.png')
+@challenge9.photo.attach(io: file, filename: 'Group_88_qirsoe.png', content_type: 'image/png')
+@challenge9.save
 
 @user1 = User.new(
   email: 'samira.eilinger@climately.io',
@@ -173,6 +184,77 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   @user6.photo.attach(io: file, filename: 'Flott2410.jpeg', content_type: 'image/jpeg')
 @user6.save
 
+
+@user7 = User.new(
+  email: 'megan.bailey@climately.io',
+  password: '123456',
+  first_name: 'Meg',
+  last_name: 'Bailey',
+  user_name: 'Megxana')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Megxana.jpeg')
+  @user7.photo.attach(io: file, filename: 'Megxana.jpeg', content_type: 'image/jpeg')
+@user7.save
+
+@user8 = User.new(
+  email: 'Cass.arola@climately.io',
+  password: '123456',
+  first_name: 'Cass',
+  last_name: 'Arola',
+  user_name: 'Cassarola')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Cassarola.jpeg')
+  @user8.photo.attach(io: file, filename: 'Cassarola.jpeg', content_type: 'image/jpeg')
+@user8.save
+
+@user9 = User.new(
+  email: 'leonor.brigas@climately.io',
+  password: '123456',
+  first_name: 'Leonor',
+  last_name: 'Brigas',
+  user_name: 'LeonorBrigas')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/LeonorBrigas.jpeg')
+  @user9.photo.attach(io: file, filename: 'LeonorBrigas.jpeg', content_type: 'image/jpeg')
+@user9.save
+
+@user10 = User.new(
+  email: 'barbara.rebelo@climately.io',
+  password: '123456',
+  first_name: 'Barbara',
+  last_name: 'Rebelo',
+  user_name: 'barbsrebelo')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/barbsrebelo.jpeg')
+  @user10.photo.attach(io: file, filename: 'barbsrebelo.jpeg', content_type: 'image/jpeg')
+@user10.save
+
+@user11 = User.new(
+  email: 'ross.buddie@climately.io',
+  password: '123456',
+  first_name: 'Ross',
+  last_name: 'Buddie',
+  user_name: 'rossme')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/rossme.jpeg')
+  @user11.photo.attach(io: file, filename: 'rossme.jpeg', content_type: 'image/jpeg')
+@user11.save
+
+@user12 = User.new(
+  email: 'lara.mills@climately.io',
+  password: '123456',
+  first_name: 'Lara',
+  last_name: 'Mills',
+  user_name: 'lkmills717')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/lkmills717.jpeg')
+  @user12.photo.attach(io: file, filename: 'lkmills717.jpeg', content_type: 'image/jpeg')
+@user12.save
+
+@user13 = User.new(
+  email: 'tiago.palhoca@climately.io',
+  password: '123456',
+  first_name: 'Tiago',
+  last_name: 'Palhoça',
+  user_name: 'Tiago-Palhoca')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Tiago-Palhoca.jpeg')
+  @user13.photo.attach(io: file, filename: 'Tiago-Palhoca.jpeg', content_type: 'image/jpeg')
+@user13.save
+
 @friendship = Friendship.new(
   user: @user1, 
   friend: @user2
@@ -208,6 +290,41 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   friend: @user3
 )
 @friendship.save
+
+@friendship = Friendship.new(
+  user: @user3, 
+  friend: @user5
+)
+
+@friendship = Friendship.new(
+  user: @user7, 
+  friend: @user9
+)
+
+@friendship = Friendship.new(
+  user: @user10, 
+  friend: @user13
+)
+
+@friendship = Friendship.new(
+  user: @user11, 
+  friend: @user12
+)
+
+@friendship = Friendship.new(
+  user: @user6, 
+  friend: @user7
+)
+
+@friendship = Friendship.new(
+  user: @user8, 
+  friend: @user9
+)
+
+@friendship = Friendship.new(
+  user: @user10, 
+  friend: @user5
+)
 
 @chatroom = Chatroom.create
 
