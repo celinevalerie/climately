@@ -12,13 +12,13 @@
       <p class="titlefontsize"><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
 
       <div class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
-        <%= link_to "#{@current_user.points}'000 points", root_path, style: "font-size:18px;" %>
+        <%= "#{@current_user.points} points"%>
       </div>
 
       <p class="profile-page-margin"><%= @user.user_name.capitalize %></p>
       <p class="profile-page-margin"><%= @user.email %></p>
     </div>
-  
+
     <% if policy(@user).edit? %>
       <div class="button button-small" style="margin: 20px auto;">
         <%= link_to "Edit", edit_profile_path(@user) %>
