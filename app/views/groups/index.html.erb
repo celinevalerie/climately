@@ -27,15 +27,19 @@
                 <p class="mb-0"> <%= usergroup.group.duration %> Weeks </p>
                 <p class="mb-0"> <%= usergroup.group.exceptions %> Exceptions </p>
                 <div class="d-flex">
-                  <% usergroup.group.users[0..3].each do |user|%>
+                  <% usergroup.group.users[0 ..3].each do |user|%>
                     <% if @status == 'failed'%>
-                    <% if user.photo.key.present?%>
-                    <%= cl_image_tag(user.photo.key, class: "avatar-small", effect: "grayscale") %>
-                    <% end %>
+                        <% if user.photo.present? %>
+                          <%= cl_image_tag(user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-small', style: "margin: 20 auto;", effect: "grayscale")%>
+                        <% else %>
+                            <%= cl_image_tag('Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-small", style: "margin: 20 auto;", effect: "grayscale") %>
+                        <% end %>
                     <% else %>
-                    <% if user.photo.key.present?%>
-                    <%= cl_image_tag(user.photo.key, class: "avatar-small") %>
-                    <% end %>
+                        <% if user.photo.present? %>
+                          <%= cl_image_tag(user.photo.key, :gravity=>"faces", :crop=>"fill", class: 'avatar-small', style: "margin: 20 auto;")%>
+                        <% else %>
+                            <%= cl_image_tag('Group_52_ubhz2j.png', :gravity=>"faces", :crop=>"fill", class: "avatar-small", style: "margin: 20 auto;") %>
+                        <% end %>
                     <% end %>
                   <% end %>
                   <% if usergroup.group.users.length > 3 %>
