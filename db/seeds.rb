@@ -177,31 +177,37 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   user: @user1, 
   friend: @user2
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user1
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user5
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user1, 
   friend: @user4
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user4
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user3
 )
+@friendship.save
 
 @chatroom = Chatroom.create
 
