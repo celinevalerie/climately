@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
       @navbartitle = "Profile"
       authorize @user
       @user_groups = @user.user_groups
+      @challenges = @user.user_groups.length
       if params.has_key?(:status)
         @user_groups.to_a
         @user_groups = @user_groups.select {|usergroup| usergroup.status == params[:status] && usergroup.user == @user}

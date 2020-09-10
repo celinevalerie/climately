@@ -10,6 +10,7 @@
     padding: 5px 12px; 
     color: $lightgreen;
     border-radius: 4px;
+    text-align: center;
   }
 
   .menu-item a:hover {
@@ -42,5 +43,6 @@
   @include media-breakpoint-between(sm,xl) {
     .menu-container {
       width: 60%;
+      max-width: 600px;
     }
   }
