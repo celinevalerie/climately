@@ -41,7 +41,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 @challenge2.save
 
 @challenge3 = Challenge.new(
-  name: 'Plastic-free Veggies', 
+  name: 'Plastic-free bags#', 
   description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated.  An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. That is equivalent to the amount of oil in our Strategic Oil Reserve. When used for bags, it is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
   category: 'Waste',
   default_difficulty: 5,
@@ -78,7 +78,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 
 @challenge6 = Challenge.new(
   name: 'Buy less, stop wasting', 
-  description: 'Each year one third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more concious about what you buy everytime you go to the groceries.',
+  description: 'Each year one-third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more conscious about what you buy every time you go to the groceries.',
   category: 'Food',
   default_difficulty: 3,
   default_impact: 4
@@ -89,7 +89,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/f
 
 @challenge7 = Challenge.new(
   name: 'Rest your phone', 
-  description: 'The energy consumption around the internet and everything we do in it can be really surprising! So leave you phone in your bag for 5 hours a day, go meet your friends, play a sport or get creative!',
+  description: 'The energy consumption through the Internet and everything we do online can be really surprising! So leave your phone in your bag for 5 hours a day, go meet your friends, play a sport, or get creative!',
   category: 'Waste',
   default_difficulty: 7,
   default_impact: 5
@@ -100,7 +100,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/p
 
 @challenge8 = Challenge.new(
   name: 'Conscious shopping', 
-  description: 'The fast fashion industry emits tons of CO2 emitions and taught us that we need more and more clothes. Our challenge is to stop buy from this shops and buy second hand instead!',
+  description: 'The fast fashion industry emits tons of CO2 emissions and taught us that we need more and more clothes. Our challenge is to stop buy from these shops and buy second hand instead!',
   category: 'Waste',
   default_difficulty: 4,
   default_impact: 5
