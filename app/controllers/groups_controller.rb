@@ -95,9 +95,8 @@ class GroupsController < ApplicationController
     current_user.save
 
     if current_user.save
-      flash[:notice] = ""
       authorize @group
-      redirect_to group_path(@group)
+      redirect_to group_path(@group, notice: "")
     end
   end
 
