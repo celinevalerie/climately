@@ -42,7 +42,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 
 @challenge3 = Challenge.new(
   name: 'Plastic-free bags', 
-  description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated.  An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. That is equivalent to the amount of oil in our Strategic Oil Reserve. When used for bags, it is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
+  description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated. An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. It is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
   category: 'Waste',
   default_difficulty: 5,
   default_impact: 3
