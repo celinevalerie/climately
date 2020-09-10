@@ -6,9 +6,9 @@
     width: 40px;
     margin: 0 10px;
   }
-  
+
   .header {
-    background: linear-gradient(270.59deg, #5ACCB3 0.23%, #4AAA8F 100%), #4AAA8F;
+    background: $lightgreen;
     display: flex;
     align-items: center;
     justify-content: space-between;
