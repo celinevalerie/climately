@@ -83,8 +83,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   default_difficulty: 3,
   default_impact: 4
 )
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/food_waste_vngd5d.png')
-@challenge6.photo.attach(io: file, filename: 'food_waste_vngd5d.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/food_ia2iif.png')
+@challenge6.photo.attach(io: file, filename: 'food_ia2iif.png', content_type: 'image/png')
 @challenge6.save
 
 @challenge7 = Challenge.new(
@@ -94,8 +94,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/f
   default_difficulty: 7,
   default_impact: 5
 )
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/phone_taxxcs.png')
-@challenge7.photo.attach(io: file, filename: 'phone_taxxcs.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/phone_1_wndqsp.png')
+@challenge7.photo.attach(io: file, filename: 'phone_1_wndqsp.png', content_type: 'image/png')
 @challenge7.save
 
 @challenge8 = Challenge.new(
@@ -105,8 +105,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/p
   default_difficulty: 4,
   default_impact: 5
 )
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/clothes_nuz0va.png')
-@challenge8.photo.attach(io: file, filename: 'clothes_nuz0va.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/shopping_n13lct.png')
+@challenge8.photo.attach(io: file, filename: 'shopping_n13lct.png', content_type: 'image/png')
 @challenge8.save
 
 @user1 = User.new(
@@ -203,7 +203,6 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/c
   friend: @user3
 )
 
-
 @chatroom = Chatroom.create
 
 @group1 = Group.new(
@@ -216,7 +215,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/c
   challenge: @challenge1,
   chatroom_id: @chatroom.id
   )
-@group1.created_at = "2020-08-20 00:00:00"
+@group1.created_at = "2020-08-10 00:00:00"
 @group1.save
 
 @chatroom = Chatroom.create
@@ -257,6 +256,19 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/c
   )
 @group4.created_at = "2020-02-01 00:00:00"
 @group4.save
+
+@group5 = Group.new(
+  completed: false,
+  difficulty: rand(2..10),
+  impact: rand(2..10),
+  duration: rand(1..10), 
+  exceptions: rand(1..7), 
+  points: rand(10..99)*10, 
+  challenge: @challenge5,
+  chatroom_id: @chatroom.id
+  )
+@group5.created_at = "2020-02-01 00:00:00"
+@group5.save
 
 @users_group = UserGroup.new(
   status: "active",
