@@ -76,6 +76,39 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 @challenge5.photo.attach(io: file, filename: 'Plastic2_zc3lmp.png', content_type: 'image/png')
 @challenge5.save
 
+@challenge6 = Challenge.new(
+  name: 'Buy less, stop wasting', 
+  description: 'Each year one third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more concious about what you buy everytime you go to the groceries.',
+  category: 'Food',
+  default_difficulty: 3,
+  default_impact: 4
+)
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/food_waste_vngd5d.png')
+@challenge6.photo.attach(io: file, filename: 'food_waste_vngd5d.png', content_type: 'image/png')
+@challenge6.save
+
+@challenge7 = Challenge.new(
+  name: 'Rest your phone', 
+  description: 'The energy consumption around the internet and everything we do in it can be really surprising! So leave you phone in your bag for 5 hours a day, go meet your friends, play a sport or get creative!',
+  category: 'Waste',
+  default_difficulty: 7,
+  default_impact: 5
+)
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/phone_taxxcs.png')
+@challenge7.photo.attach(io: file, filename: 'phone_taxxcs.png', content_type: 'image/png')
+@challenge7.save
+
+@challenge8 = Challenge.new(
+  name: 'Conscious shopping', 
+  description: 'The fast fashion industry emits tons of CO2 emitions and taught us that we need more and more clothes. Our challenge is to stop buy from this shops and buy second hand instead!',
+  category: 'Waste',
+  default_difficulty: 4,
+  default_impact: 5
+)
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599743604/clothes_nuz0va.png')
+@challenge8.photo.attach(io: file, filename: 'clothes_nuz0va.png', content_type: 'image/png')
+@challenge8.save
+
 @user1 = User.new(
   email: 'samira.eilinger@climately.io',
   password: '123456',
@@ -160,6 +193,16 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   friend: @user4
 )
 
+@friendship = Friendship.new(
+  user: @user2, 
+  friend: @user4
+)
+
+@friendship = Friendship.new(
+  user: @user2, 
+  friend: @user3
+)
+
 
 @chatroom = Chatroom.create
 
@@ -167,12 +210,13 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   completed: true,
   difficulty: rand(2..10),
   impact: rand(2..10),
-  duration: rand(1..84), 
+  duration: 3, 
   exceptions: rand(1..7), 
   points: rand(10..99)*10, 
   challenge: @challenge1,
   chatroom_id: @chatroom.id
   )
+@group1.created_at = "2020-08-20 00:00:00"
 @group1.save
 
 @chatroom = Chatroom.create
@@ -181,7 +225,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   completed: false,
   difficulty: rand(2..10),
   impact: rand(2..10),
-  duration: rand(1..84), 
+  duration: rand(1..10), 
   exceptions: rand(1..7), 
   points: rand(10..99)*10, 
   challenge: @challenge2,
@@ -193,10 +237,10 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   completed: false,
   difficulty: rand(2..10),
   impact: rand(2..10),
-  duration: rand(1..84), 
+  duration: rand(1..10), 
   exceptions: rand(1..7), 
   points: rand(10..99)*10, 
-  challenge: @challenge2,
+  challenge: @challenge3,
   chatroom_id: @chatroom.id
   )
 @group3.save
@@ -205,29 +249,79 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   completed: false,
   difficulty: rand(2..10),
   impact: rand(2..10),
-  duration: rand(1..84), 
+  duration: rand(1..10), 
   exceptions: rand(1..7), 
   points: rand(10..99)*10, 
-  challenge: @challenge2,
+  challenge: @challenge4,
   chatroom_id: @chatroom.id
   )
+@group4.created_at = "2020-02-01 00:00:00"
 @group4.save
 
-
 @users_group = UserGroup.new(
-  group: @group1,
-  user: @user1)
+  status: "active",
+  group: @group5,
+  user: @user2)
 @users_group.save
 
 @users_group = UserGroup.new(
+  status: "active",
+  group: @group5,
+  user: @user3)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: "active",
+  group: @group5,
+  user: @user4)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: "active",
+  group: @group5,
+  user: @user5)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: "active",
   group: @group2,
-  user: @user1)
+  user: @user2)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: "completed",
+  group: @group3,
+  user: @user2)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: "invited",
+  group: @group4,
+  user: @user2)
 @users_group.save
 
 @users_group = UserGroup.new(
   status: 'completed',
   group: @group4,
   user: @user2)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: 'completed',
+  group: @group5,
+  user: @user2)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: 'completed',
+  group: @group1,
+  user: @user3)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: 'completed',
+  group: @group5,
+  user: @user4)
 @users_group.save
 
 @users_group = UserGroup.new(
