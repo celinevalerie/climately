@@ -7,11 +7,32 @@
   </nav>
 </div>
 
-<% if @choice == 'show' %>
-  <div class="container">
+<div >
+  <div class="d-flex" style="justify-content: space-around; width: 300px; margin: 0px auto;">
+      <p style="color:#5ACCB3;padding-top: 50px; font-size: 30px;">2</p>
+      <p style="color:#facc48; font-size: 40px;">1</p>
+      <p style="color:#5ACCB3;padding-top: 50px; font-size: 30px;">3</p>
+    </div>
+</div>
 
-  
-    <% @friends.each do |friend| %>
+
+<% if @choice == 'show' %>
+  <div class="container" style="text-align: center;">
+    <div style="margin-top: -30px;">
+      <% @friends[1..1].each do |friend| %>
+        <%= cl_image_tag(friend.photo.key, class: "avatar-medium", style: "border: 2px solid #5ACCB3; box-shadow: 0 0 10px #5ACCB3; margin-right:-20px;") %>
+      <% end %>
+
+      <% @friends[0..0].each do |friend| %>
+        <%= cl_image_tag(friend.photo.key, class: "avatar-medium", style: "margin-bottom: 60px; border: 2px solid #facc48; box-shadow: 0 0 10px #facc48;") %>
+      <% end %>
+
+      <% @friends[2..2].each do |friend| %>
+        <%= cl_image_tag(friend.photo.key, class: "avatar-medium", style: "border: 2px solid #5ACCB3; box-shadow: 0 0 10px #5ACCB3; margin-left:-20px; position: relative; z-index:-1;") %>
+      <% end %>
+    </div>
+
+    <% @friends[0..2].each do |friend| %>
       <div class="col-12 px-2 mb-2">
         <%= link_to(profile_path(friend)) do %>
         <div class="friend-card">
@@ -23,7 +44,7 @@
               <div class="col d-flex justify-content-between align-items-center">
                 <div class="card-b">
                   <div class="card-body-friends">
-                    <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong> 
+                    <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong>
                     <p class="card-text"><%= friend.user_name %></p>
                   </div>
                 </div>
@@ -35,11 +56,36 @@
         <% end %>
       </div>
     <% end %>
-  </div>  
+
+    <% @friends[3..10].each do |friend| %>
+      <div class="col-12 px-2 mb-2">
+        <%= link_to(profile_path(friend)) do %>
+        <div class="friend-card">
+              <div class="card-col-pic d-flex">
+                <% if friend.photo.present? %>
+                  <%= cl_image_tag(friend.photo.key, class: "avatar") %>
+                <% end %>
+              </div>
+              <div class="col d-flex justify-content-between align-items-center">
+                <div class="card-b">
+                  <div class="card-body-friends">
+                    <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong>
+                    <p class="card-text"><%= friend.user_name %></p>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <div class="points"><%= friend.points %></div>
+                </div>
+              </div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <% if @choice == 'add'%>
-<div class="container"> 
+<div class="container">
   <div class="miniform">
     <%= form_tag profile_friendships_path(@user), method: :get do %>
     <div class="d-flex align-items-center">
@@ -63,11 +109,11 @@
             <%= cl_image_tag(friend.photo.key, class: "avatar") %>
           <% end %>
           </div>
-          
+
           <div class="col d-flex justify-content-between align-items-center">
             <div class="card-b">
               <div class="card-body-friends">
-                <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong> 
+                <p class="industrycard mb-0"><strong><%= friend.first_name %> <%= friend.last_name %></strong>
                 <p class="card-text"><%= friend.user_name %></p>
               </div>
             </div>
