@@ -3,8 +3,8 @@ class FriendshipsController < ApplicationController
     @navbartitle = "Friends"
     @user = User.find(params[:profile_id])
     @friends = policy_scope(Friendship)
-    @friends = @user.friends.order(points: :desc)
-    @friends = @friends.to_a.push(current_user)
+    @friends = @user.friends
+    @friends = @friends.to_a.push(current_user).sort_by{ |friend| friend.points }.reverse
 
     if params[:choice].present?
       @choice = params[:choice]

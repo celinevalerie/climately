@@ -19,7 +19,7 @@ User.delete_all
 
 @challenge1 = Challenge.new(
   name: 'Go Vegetarian', 
-  description: 'Environmental vegetarianism is the practice of vegetarianism motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Choosing a vegetarian diet will help you contribute to the reduction of pollution and you will also improve your health!.',
+  description: 'Environmental vegetarianism is the practice of vegetarianism motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Choosing a vegetarian diet will help you contribute to the reduction of pollution and you will also improve your health! ',
   category: 'Food',
   default_difficulty: 8,
   default_impact: 7
@@ -42,7 +42,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 
 @challenge3 = Challenge.new(
   name: 'Plastic-free bags', 
-  description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated.  An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. That is equivalent to the amount of oil in our Strategic Oil Reserve. When used for bags, it is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
+  description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated. An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. It is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
   category: 'Waste',
   default_difficulty: 5,
   default_impact: 3
@@ -78,7 +78,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 
 @challenge6 = Challenge.new(
   name: 'Buy less, stop wasting', 
-  description: 'Each year one-third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more conscious about what you buy every time you go to the groceries.',
+  description: 'Each year one-third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more conscious about what you buy every time you go to the groceries. A great idea would for example be to cook creative recipes out of the remaining ingredients you have in the fridge. Go for it!',
   category: 'Food',
   default_difficulty: 3,
   default_impact: 4
@@ -89,7 +89,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/f
 
 @challenge7 = Challenge.new(
   name: 'Rest your phone', 
-  description: 'The energy consumption through the Internet and everything we do online can be really surprising! So leave your phone in your bag for 5 hours a day, go meet your friends, play a sport, or get creative!',
+  description: 'The energy consumption through the Internet and everything we do online can be really surprising! Cell Phones use approximately 2 to 6 watts when charging, while a charger left plugged in without a phone will consume 0.1 to 0.5 of a watt. So leave your phone in your bag for 5 hours a day, go meet your friends, play a sport, or get creative !',
   category: 'Waste',
   default_difficulty: 7,
   default_impact: 5
@@ -100,14 +100,25 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/p
 
 @challenge8 = Challenge.new(
   name: 'Conscious shopping', 
-  description: 'The fast fashion industry emits tons of CO2 emissions and taught us that we need more and more clothes. Our challenge is to stop buy from these shops and buy second hand instead!',
+  description: 'The fast fashion industry emits tons of CO2 emissions and taught us that we need more and more clothes. But there are other ways to buy more sustainable clothes. Buying from brands that use natural products and produce in your region could be an option. Our challenge is to stop buy from fast-fashion shops and buy second hand or from sustainable brands instead!',
   category: 'Waste',
   default_difficulty: 4,
   default_impact: 5
 )
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/shopping_n13lct.png')
-@challenge8.photo.attach(io: file, filename: 'shopping_n13lct.png', content_type: 'image/png')
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/clothes_tfjlre.png')
+@challenge8.photo.attach(io: file, filename: 'clothes_tfjlre.png', content_type: 'image/png')
 @challenge8.save
+
+@challenge9 = Challenge.new(
+  name: 'Eat local', 
+  description: 'Buying what locals have to offer helps the environment because that food didnt travel miles and miles ultil it get to your plate.',
+  category: 'Food',
+  default_difficulty: 4,
+  default_impact: 2
+)
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/Group_88_qirsoe.png')
+@challenge9.photo.attach(io: file, filename: 'Group_88_qirsoe.png', content_type: 'image/png')
+@challenge9.save
 
 @user1 = User.new(
   email: 'samira.eilinger@climately.io',
@@ -173,34 +184,146 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   @user6.photo.attach(io: file, filename: 'Flott2410.jpeg', content_type: 'image/jpeg')
 @user6.save
 
+
+@user7 = User.new(
+  email: 'megan.bailey@climately.io',
+  password: '123456',
+  first_name: 'Meg',
+  last_name: 'Bailey',
+  user_name: 'Megxana')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Megxana.jpeg')
+  @user7.photo.attach(io: file, filename: 'Megxana.jpeg', content_type: 'image/jpeg')
+@user7.save
+
+@user8 = User.new(
+  email: 'Cass.arola@climately.io',
+  password: '123456',
+  first_name: 'Cass',
+  last_name: 'Arola',
+  user_name: 'Cassarola')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Cassarola.jpeg')
+  @user8.photo.attach(io: file, filename: 'Cassarola.jpeg', content_type: 'image/jpeg')
+@user8.save
+
+@user9 = User.new(
+  email: 'leonor.brigas@climately.io',
+  password: '123456',
+  first_name: 'Leonor',
+  last_name: 'Brigas',
+  user_name: 'LeonorBrigas')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/LeonorBrigas.jpeg')
+  @user9.photo.attach(io: file, filename: 'LeonorBrigas.jpeg', content_type: 'image/jpeg')
+@user9.save
+
+@user10 = User.new(
+  email: 'barbara.rebelo@climately.io',
+  password: '123456',
+  first_name: 'Barbara',
+  last_name: 'Rebelo',
+  user_name: 'barbsrebelo')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/barbsrebelo.jpeg')
+  @user10.photo.attach(io: file, filename: 'barbsrebelo.jpeg', content_type: 'image/jpeg')
+@user10.save
+
+@user11 = User.new(
+  email: 'ross.buddie@climately.io',
+  password: '123456',
+  first_name: 'Ross',
+  last_name: 'Buddie',
+  user_name: 'rossme')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/rossme.jpeg')
+  @user11.photo.attach(io: file, filename: 'rossme.jpeg', content_type: 'image/jpeg')
+@user11.save
+
+@user12 = User.new(
+  email: 'lara.mills@climately.io',
+  password: '123456',
+  first_name: 'Lara',
+  last_name: 'Mills',
+  user_name: 'lkmills717')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/lkmills717.jpeg')
+  @user12.photo.attach(io: file, filename: 'lkmills717.jpeg', content_type: 'image/jpeg')
+@user12.save
+
+@user13 = User.new(
+  email: 'tiago.palhoca@climately.io',
+  password: '123456',
+  first_name: 'Tiago',
+  last_name: 'Palhoça',
+  user_name: 'Tiago-Palhoca')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Tiago-Palhoca.jpeg')
+  @user13.photo.attach(io: file, filename: 'Tiago-Palhoca.jpeg', content_type: 'image/jpeg')
+@user13.save
+
 @friendship = Friendship.new(
   user: @user1, 
   friend: @user2
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user1
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user5
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user1, 
   friend: @user4
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user4
 )
+@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
   friend: @user3
+)
+@friendship.save
+
+@friendship = Friendship.new(
+  user: @user3, 
+  friend: @user5
+)
+
+@friendship = Friendship.new(
+  user: @user7, 
+  friend: @user9
+)
+
+@friendship = Friendship.new(
+  user: @user10, 
+  friend: @user13
+)
+
+@friendship = Friendship.new(
+  user: @user11, 
+  friend: @user12
+)
+
+@friendship = Friendship.new(
+  user: @user6, 
+  friend: @user7
+)
+
+@friendship = Friendship.new(
+  user: @user8, 
+  friend: @user9
+)
+
+@friendship = Friendship.new(
+  user: @user10, 
+  friend: @user5
 )
 
 @chatroom = Chatroom.create
