@@ -17,7 +17,7 @@ Chatroom.delete_all
 Challenge.delete_all
 User.delete_all
 
-@challenge = Challenge.new(
+@challenge1 = Challenge.new(
   name: 'Go Vegetarian', 
   description: 'Environmental vegetarianism is the practice of vegetarianism motivated by the desire to create a sustainable diet that avoids the negative environmental impact of meat production. Choosing a vegetarian diet will help you contribute to the reduction of pollution and you will also improve your health!.',
   category: 'Food',
@@ -26,159 +26,10 @@ User.delete_all
 )
 
 file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_47_igxyy4.png')
-@challenge.photo.attach(io: file, filename: 'Group_47_igxyy4.png', content_type: 'image/png')
+@challenge1.photo.attach(io: file, filename: 'Group_47_igxyy4.png', content_type: 'image/png')
+@challenge1.save
 
-@challenge.save
-
-@chatroom = Chatroom.create
-
-@group = Group.new(
-  completed: false,
-  difficulty: 10,
-  impact: 8,
-  duration: 21, 
-  exceptions: 2, 
-  points: 626, 
-  challenge: @challenge,
-  chatroom_id: @chatroom.id
-  )
-@group.save
-
-@chatroom = Chatroom.create
-
-@group1 = Group.new(
-  completed: false,
-  difficulty: 10,
-  impact: 8,
-  duration: 21, 
-  exceptions: 2, 
-  points: 626, 
-  challenge: @challenge,
-  chatroom_id: @chatroom.id
-  )
-@group.save
-
-@user1 = User.new(
-  email: 'samira.eilinger@climately.io',
-  password: '123456',
-  first_name: 'Samira',
-  last_name: 'Eilinger',
-  user_name: 'samirajil',
-  points: 200)
-  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-  @user1.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
-@user1.save
-
-
-@user2 = User.new(
-  email: 'celine.stalder@climately.io',
-  password: '123456',
-  first_name: 'Céline',
-  last_name: 'Stalder',
-  user_name: 'celinevalerie',
-  points: 400)
-  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-  @user2.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
-@user2.save
-
-@users_group = UserGroup.new(
-  group: @group,
-  user: @user1)
-@users_group.save
-
-@users_group = UserGroup.new(
-  group: @group1,
-  user: @user1)
-@users_group.save
-
-@users_group = UserGroup.new(
-  status: 'completed',
-  group: @group,
-  user: @user2)
-@users_group.save
-
-@friendship = Friendship.new(
-  user: @user1, 
-  friend: @user2
-)
-@friendship.save
-
-@friendship = Friendship.new(
-  user: @user2, 
-  friend: @user1
-)
-@friendship.save
-
-
-@challenge = Challenge.new(
-  name: 'Plastic Bottles', 
-  description: "Do you know that it takes 450 years until a plastic bottle decompose. Plastic bottles that don’t end up in landfills, end up polluting our oceans, killing our environment, injuring and killing marine animals. It's believed the Great Pacific Garbage patch covers a surface area of 1.6 million square kilometers which is three times the size of France. Help to safe the nature.",
-  category: 'Waste',
-  default_difficulty: 7,
-  default_impact: 7
-  )
-
-file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/Plastic2_zc3lmp.png')
-@challenge.photo.attach(io: file, filename: 'Plastic2_zc3lmp.png', content_type: 'image/png')
-@challenge.save
-
-@chatroom = Chatroom.create
-
-@group = Group.new(
-  completed: false,
-  difficulty: 7,
-  impact: 5,
-  duration: 14, 
-  exceptions: 2, 
-  points: 326, 
-  challenge: @challenge,
-  chatroom: @chatroom ) 
-@group.save
-
-@user1 = User.new(
-  email: 'mariana.toscana@climately.io',
-  password: '123456',
-  first_name: 'Mariana',
-  last_name: 'Toscano',
-  user_name: 'mariana',
-  points: 100)
-  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-  @user1.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
-@user1.save
-
-@user2 = User.new(
-  email: 'lena.schlage@climately.io',
-  password: '123456',
-  first_name: 'Lena',
-  last_name: 'Schlage',
-  user_name: 'lenajohanna',
-  points: 600)
-  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-  @user2.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
-@user2.save
-
-@users_group = UserGroup.new(
-  status: 'active',
-  group: @group,
-  user: @user1)
-@users_group.save
-
-@users_group = UserGroup.new(
-  group: @group,
-  user: @user2)
-@users_group.save
-
-@friendship = Friendship.new(
-  user: @user1, 
-  friend: @user2
-)
-
-@friendship = Friendship.new(
-  user: @user2, 
-  friend: @user1
-)
-
-@challenge = Challenge.new(
+@challenge2 = Challenge.new(
   name: 'No Cars', 
   description: 'Car emissions include several different chemicals and particulates that are produced when fuel is burned in an engine. Car pollution is one of the major causes of global warming. We have other possibilities, we could use our bikes and also stay fit. Using public transfer helps to fight against global warming. Let`s start! ',
   category: 'Mobility',
@@ -186,10 +37,10 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   default_impact: 6
   )
   file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Component_14_vcxgpw.png')
-  @challenge.photo.attach(io: file, filename: 'Component_14_vcxgpw.png', content_type: 'image/png')
-@challenge.save
+  @challenge2.photo.attach(io: file, filename: 'Component_14_vcxgpw.png', content_type: 'image/png')
+@challenge2.save
 
-@challenge = Challenge.new(
+@challenge3 = Challenge.new(
   name: 'Plastic-free Veggies', 
   description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated.  An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. That is equivalent to the amount of oil in our Strategic Oil Reserve. When used for bags, it is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
   category: 'Waste',
@@ -198,11 +49,10 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   )
 
   file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_49_uv8nre.png')
-  @challenge.photo.attach(io: file, filename: 'Group_49_uv8nre.png', content_type: 'image/png')
+  @challenge3.photo.attach(io: file, filename: 'Group_49_uv8nre.png', content_type: 'image/png')
+  @challenge3.save
 
-@challenge.save
-
-@challenge = Challenge.new(
+@challenge4 = Challenge.new(
   name: 'Go Vegan', 
   description: 'Did you know animal agriculture is responsible for more greenhouse gases than all the world’s transportation systems combined? Crazy right! You’ve probably heard that it takes a lot of water to produce meat. In actual fact, it takes 2,500 gallons to make just one pound of meat. On the other hand, it only takes 25 gallons of our valuable water to grow one pound of wheat. Let`s go vegan!.',
   category: 'Food',
@@ -211,17 +61,182 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
   )
 
 file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/Group_48_bxx7ll.png')
-@challenge.photo.attach(io: file, filename: 'Group_48_bxx7ll.png', content_type: 'image/png')
-@challenge.save
+@challenge4.photo.attach(io: file, filename: 'Group_48_bxx7ll.png', content_type: 'image/png')
+@challenge4.save
 
-@admin = User.new(
-  email: 'admin@climately.io',
+@challenge5 = Challenge.new(
+  name: 'Plastic Bottles', 
+  description: "Do you know that it takes 450 years until a plastic bottle decompose. Plastic bottles that don’t end up in landfills, end up polluting our oceans, killing our environment, injuring and killing marine animals. It's believed the Great Pacific Garbage patch covers a surface area of 1.6 million square kilometers which is three times the size of France. Help to safe the nature.",
+  category: 'Waste',
+  default_difficulty: 7,
+  default_impact: 7
+  )
+
+file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/Plastic2_zc3lmp.png')
+@challenge5.photo.attach(io: file, filename: 'Plastic2_zc3lmp.png', content_type: 'image/png')
+@challenge5.save
+
+@user1 = User.new(
+  email: 'samira.eilinger@climately.io',
   password: '123456',
-  first_name: 'Climately',
-  last_name: 'Admin',
-  user_name: 'climatelyadmin',
-  admin: true,
-  points: 100)
-  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
-  @admin.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
-@admin.save
+  first_name: 'Samira',
+  last_name: 'Eilinger',
+  user_name: 'samirajil',
+  points: rand(0..100)*10)
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/samirajil.jpeg')
+  @user1.photo.attach(io: file, filename: 'samirajil.jpeg', content_type: 'image/jpeg')
+@user1.save
+
+@user2 = User.new(
+  email: 'celine.stalder@student.unisg.ch',
+  password: '123456',
+  first_name: 'Céline',
+  last_name: 'Stalder',
+  user_name: 'celinevalerie',
+  points: rand(0..100)*10)
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/celinevalerie.jpeg')
+  @user2.photo.attach(io: file, filename: 'celinevalerie.jpeg', content_type: 'image/jpeg')
+@user2.save
+
+@user3 = User.new(
+  email: 'mariana.toscana@climately.io',
+  password: '123456',
+  first_name: 'Mariana',
+  last_name: 'Toscano',
+  user_name: 'mariana',
+  points: rand(0..100)*10)
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/MarianaToscano.jpeg')
+  @user3.photo.attach(io: file, filename: 'MarianaToscano.jpeg', content_type: 'image/jpeg')
+@user3.save
+
+@user4 = User.new(
+  email: 'lena.schlage@climately.io',
+  password: '123456',
+  first_name: 'Lena',
+  last_name: 'Schlage',
+  user_name: 'lenajohanna',
+  points: rand(0..100)*10)
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/wwnwn.jpeg')
+  @user4.photo.attach(io: file, filename: 'wwnwn.jpeg', content_type: 'image/jpeg')
+@user4.save
+
+@user5 = User.new(
+  email: 'sifan.xiao@climately.io',
+  password: '123456',
+  first_name: 'Sifan',
+  last_name: 'Xiao',
+  user_name: 'jakexiao')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/jakexiao.jpeg')
+  @user5.photo.attach(io: file, filename: 'jakexiao.jpeg', content_type: 'image/jpeg')
+@user5.save
+
+@user6 = User.new(
+  email: 'florian.ott@climately.io',
+  password: '123456',
+  first_name: 'Florian',
+  last_name: 'Ott',
+  user_name: 'Flott2410')
+  file = URI.open('https://kitt.lewagon.com/placeholder/users/Flott2410.jpeg')
+  @user6.photo.attach(io: file, filename: 'Flott2410.jpeg', content_type: 'image/jpeg')
+@user6.save
+
+@friendship = Friendship.new(
+  user: @user1, 
+  friend: @user2
+)
+
+@friendship = Friendship.new(
+  user: @user2, 
+  friend: @user1
+)
+
+@friendship = Friendship.new(
+  user: @user2, 
+  friend: @user5
+)
+
+@friendship = Friendship.new(
+  user: @user1, 
+  friend: @user4
+)
+
+
+@chatroom = Chatroom.create
+
+@group1 = Group.new(
+  completed: true,
+  difficulty: rand(2..10),
+  impact: rand(2..10),
+  duration: rand(1..84), 
+  exceptions: rand(1..7), 
+  points: rand(10..99)*10, 
+  challenge: @challenge1,
+  chatroom_id: @chatroom.id
+  )
+@group1.save
+
+@chatroom = Chatroom.create
+
+@group2 = Group.new(
+  completed: false,
+  difficulty: rand(2..10),
+  impact: rand(2..10),
+  duration: rand(1..84), 
+  exceptions: rand(1..7), 
+  points: rand(10..99)*10, 
+  challenge: @challenge2,
+  chatroom_id: @chatroom.id
+  )
+@group2.save
+
+@group3 = Group.new(
+  completed: false,
+  difficulty: rand(2..10),
+  impact: rand(2..10),
+  duration: rand(1..84), 
+  exceptions: rand(1..7), 
+  points: rand(10..99)*10, 
+  challenge: @challenge2,
+  chatroom_id: @chatroom.id
+  )
+@group3.save
+
+@group4 = Group.new(
+  completed: false,
+  difficulty: rand(2..10),
+  impact: rand(2..10),
+  duration: rand(1..84), 
+  exceptions: rand(1..7), 
+  points: rand(10..99)*10, 
+  challenge: @challenge2,
+  chatroom_id: @chatroom.id
+  )
+@group4.save
+
+
+@users_group = UserGroup.new(
+  group: @group1,
+  user: @user1)
+@users_group.save
+
+@users_group = UserGroup.new(
+  group: @group2,
+  user: @user1)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: 'completed',
+  group: @group4,
+  user: @user2)
+@users_group.save
+
+@users_group = UserGroup.new(
+  status: 'active',
+  group: @group5,
+  user: @user1)
+@users_group.save
+
+@users_group = UserGroup.new(
+  group: @group1,
+  user: @user2)
+@users_group.save
