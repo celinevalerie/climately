@@ -35,6 +35,9 @@ class GroupsController < ApplicationController
   def new
     @challenge = Challenge.find(params[:challenge_id])
     @group = Group.new
+    @impact = @challenge.default_impact.to_i
+    @difficulty = @challenge.default_impact.to_i
+    @group.impact = (@challenge.default_impact.to_i * @group.duration.to_i)
     authorize @group
   end
 
@@ -52,7 +55,7 @@ class GroupsController < ApplicationController
       @group.difficulty = @group.challenge.default_difficulty - @group.exceptions
     end
     @group.impact = (@group.challenge.default_impact * @group.duration)
-    @group.points = @group.difficulty * @group.impact
+    @group.points = @group.difficulty * @group.impact * 10
     @users_group = UserGroup.new(group: @group, user: current_user, status: 'active')
     @users_group.group = @group
 
@@ -74,6 +77,12 @@ class GroupsController < ApplicationController
       render :new
     end
   end
+  end
+
+  def calculate_points
+    @group.difficulty = @group.challenge.default_difficulty - @group.exceptions
+    @group.impact = (@group.challenge.default_impact * @group.duration)
+    @group.points = @group.difficulty * @group.impact * 10
   end
 
   def completed
@@ -99,6 +108,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:completed, :difficulty, :impact, :duration, :exceptions, :points)
+    params.require(:group).permit(:calculate_points, :completed, :difficulty, :impact, :duration, :exceptions, :points)
   end
 end

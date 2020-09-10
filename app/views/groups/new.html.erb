@@ -9,7 +9,12 @@
         <%= image_tag "signup1a.png", style: "width: 200px; margin-bottom: 20px;" %>
       </div>
 
+
+
 <div data-controller="slider" class="container-icon">
+  <div data-target="slider.points" class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
+        <%= "Move the slider!"%>
+  </div>
   <div style="padding: 12px 0px; width:300px; margin: 0px auto;">
     <div style="padding: 12px 0px;">
       <%= image_tag("difficulty.png", size: "25x25")%>
@@ -32,7 +37,7 @@
       <label style="font-size: 15px;">How many weeks do you want to do the challenge?</label>
     </div>
     <div class="slider-form" style="width: 330px;">
-      <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateImpact", id: @challenge.id, target: "slider.duration" }}, label: false %>
+      <%= f.input :duration, as: :range, input_html: { step: 1, min: 1, max: 10, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateImpact change->slider#calculatePoints", id: @challenge.id, target: "slider.duration" }}, label: false %>
     </div>
     <div class="slider-numbers">
       <p>1</p>
@@ -50,7 +55,7 @@
       <label style="font-size: 15px;">How many exceptions a week are allowed?</label>
     </div>
     <div style="width: 330px;">
-      <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateDifficulty", id: @challenge.id, target: "slider.exceptions" }}, label: false, min: 0, max: 7  %>
+      <%= f.input :exceptions, as: :range, input_html: { step: 1, min: 0, max: 7, class:"custom-range", style:"border: white;", data: { action: "change->slider#calculateDifficulty change->slider#calculatePoints", id: @challenge.id, target: "slider.exceptions" }}, label: false %>
     </div>
     <div class="slider-numbers">
       <p>0</p>
