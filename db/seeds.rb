@@ -232,6 +232,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   )
 @group2.save
 
+@chatroom = Chatroom.create
+
 @group3 = Group.new(
   completed: false,
   difficulty: rand(2..10),
@@ -243,6 +245,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   chatroom_id: @chatroom.id
   )
 @group3.save
+
+@chatroom = Chatroom.create
 
 @group4 = Group.new(
   completed: false,
@@ -256,6 +260,8 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/s
   )
 @group4.created_at = "2020-02-01 00:00:00"
 @group4.save
+
+@chatroom = Chatroom.create
 
 @group5 = Group.new(
   completed: false,

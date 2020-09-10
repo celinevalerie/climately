@@ -57,6 +57,10 @@
   margin-bottom: 5%;
 }
 
+.avatar-list {
+  margin-left: -10px;
+}
+
 @include media-breakpoint-down(md) {
   .avatar-profile-page  {
     width: 100px;
