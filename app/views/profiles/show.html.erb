@@ -1,5 +1,3 @@
-<h1 class="page-title">Hi, <%= current_user.first_name %>!</h1>
-
 <div class="banner-container">
   <div style="text-align: center">
     <% if @user.photo.present?%>
@@ -12,6 +10,7 @@
       <p class="titlefontsize"><strong> <%= @user.first_name %> <%= @user.last_name %></strong></p>
 
       <div class="button button-large button-flex" style="margin: 20px auto; background-color: #facc48; height: 60px;">
+
         <%= "#{@current_user.points} points"%>
       </div>
 

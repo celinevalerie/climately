@@ -2,6 +2,11 @@ class GroupsController < ApplicationController
   def show
     set_group
     authorize @group
+  start_date = @group.created_at
+  end_date = start_date + (@group.duration).days
+  @total_days = ((end_date - start_date) / 86400 * 7).round
+  @remaining_days = [((end_date - DateTime.now) / 86400 * 7).round, 0].max
+  @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
   end
 
   def index
@@ -82,14 +87,18 @@ class GroupsController < ApplicationController
 
   def completed
     @group = Group.find(params[:id])
-    @group.update_attribute(:completed, 'true')
-    @group.user_groups.each do |user_group|
-      user_group.update_attribute(:status, 'completed')
-      user_group.save
+    @group.update_attribute(:completed, true)
+    @user_group = UserGroup.where("group_id = #{@group.id} and user_id = #{current_user.id}").to_a
+    @user_group.first.status = "completed"
+    current_user.points += @group.points
+    @user_group.first.save
+    current_user.save
+
+    if current_user.save
+      flash[:notice] = ""
+      authorize @group
+      redirect_to group_path(@group)
     end
-    flash[:notice] = ""
-    authorize @group
-    redirect_to group_path(@group)
   end
 
   private

@@ -1,21 +1,20 @@
-<h1 class="page-title"> <%= @group.challenge.name %> </h1>
-<h2 class="page-subtitle">Your challenge lasts 2 more days</h2>
-
 <div class="banner-container">
+    <h1 style="color: white; padding-top: 20px;"><strong><%= @group.challenge.name%></strong></h1>
       <div>
-        <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px; margin: 50px") %>
+        <%= cl_image_tag(@group.challenge.photo.key, style: "width: 200px; height: 200px; border-radius: 4px; margin: 20px; box-shadow: 0 0 2px 2px white;") %>
       </div>
-        <% remaining_days = 0 %>
-        <% if remaining_days == 0 %>
-              <%= link_to "Confirm #{@group.duration * 7} days", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
+        <% if @remaining_days == 0 && @user_group.first.status == "active" %>
+            <%= link_to "Click to confirm that you did it!", completed_group_path(@group), method: :post, class: "button button-large", style: "background-color: #facc48; width: 300px; margin: 0px auto;" %>
+        <% else %>
+            <div class="button button-small-secondary"  style="width: 200px; margin: 0px auto;">
+              <%= @user_group.first.status.capitalize %>
+            </div>
         <% end %>
       <div class="challengesize">
       <div class="card" style="margin: 50px auto; border-radius: 4px; border-color: white">
         <div class="card-body" style="border-right: 1px solid #facc48; padding: 5px 10px">
           <div style="color: #facc48;">
-            <% "#{start_date = @group.created_at}" %>
-            <% "#{end_date = start_date + (@group.duration).days}" %>
-            <%= "#{total_days = ((end_date - start_date) / 86400 * 7).round}"%>
+            <%= @total_days %>
           </div>
             <p>Total days</p>
         </div>
@@ -27,7 +26,7 @@
         </div>
         <div class="card-body">
           <div style="color: #facc48;">
-            <%= "#{remaining_days = ((end_date - DateTime.now) / 86400 * 7).round}"%>
+            <%= @remaining_days %>
           </div>
           <p>Remaining days</p>
         </div>
@@ -36,16 +35,18 @@
 </div>
 
 <% if flash[:notice] %>
-  <div class="alert alert-dark alert-dismissible fade show" role="alert" style="height: 300px; padding: 20px; text-align: center;">
-    <%= image_tag("tick.png", size: "100x100")%>
-    <p>Congratulations</p>
-    <p>You made the world a better place</p>
-    <div class="button button-large" style="background-color: #facc48; margin: 20px auto;">
-          <%= "+ #{@group.points}'000 points" %>
+  <div class="popup">
+    <div class="alert alert-dark alert-dismissible fade show" role="alert" style="height: 300px; padding: 20px; text-align: center; background-color:White">
+      <%= image_tag("tick2.png", size: "100x100")%>
+      <p style="margin: 20px 5px 15px 20px">Congratulations</p>
+      <p>You made the world a better place</p>
+      <div class="button button-large" style="background-color: #facc48; margin: 20px auto;">
+            <%= "+ #{@group.points}'000 points" %>
+      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
 <% end %>
 
