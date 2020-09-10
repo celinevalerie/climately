@@ -80,15 +80,15 @@
                       </div>
                     </div>
                     <%= link_to(giveup_group_user_group_path(usergroup.group.id, usergroup), method: :post, remote: true) do %>
-                      <div class="checkbox-secondary-long ml-auto mr-auto mb-4">
+                      <div class="checkbox-long ml-auto mr-auto mb-4">
                         <p class="mb-0">Give up!</p>
                       </div>
                     <% end %>
                   </div>
                 <% end %>
                 <% if @status == "completed"%>
-                  <div class="button button-high-yellow ml-auto mr-auto points-button p-3">
-                  <p class="mb-0"><%= usergroup.group.points %> points earned</p>
+                  <div class="button button-small-yellow ml-auto mr-auto points-button p-3">
+                  <p class="mb-0">+<%= usergroup.group.points %></p>
                   </div>
                 <% end %>
                 <% if @status == "failed"%>
