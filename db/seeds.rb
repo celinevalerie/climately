@@ -126,7 +126,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/G
   first_name: 'Samira',
   last_name: 'Eilinger',
   user_name: 'samirajil',
-  points: rand(0..100)*10)
+  points: 0)
   file = URI.open('https://kitt.lewagon.com/placeholder/users/samirajil.jpeg')
   @user1.photo.attach(io: file, filename: 'samirajil.jpeg', content_type: 'image/jpeg')
 @user1.save
@@ -254,18 +254,6 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/G
   file = URI.open('https://kitt.lewagon.com/placeholder/users/Tiago-Palhoca.jpeg')
   @user13.photo.attach(io: file, filename: 'Tiago-Palhoca.jpeg', content_type: 'image/jpeg')
 @user13.save
-
-@friendship = Friendship.new(
-  user: @user1, 
-  friend: @user2
-)
-@friendship.save
-
-@friendship = Friendship.new(
-  user: @user2, 
-  friend: @user1
-)
-@friendship.save
 
 @friendship = Friendship.new(
   user: @user2, 
