@@ -41,7 +41,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228470/G
 @challenge2.save
 
 @challenge3 = Challenge.new(
-  name: 'Plastic-free bags', 
+  name: 'No plastic bags', 
   description: 'Habitat destruction, fossil fuel emissions, and plastic pollution are some of the ways that plastic bags and climate change cannot be separated. An estimated 12 million barrels of oil are used to manufacture the 30 million plastic bags that Americans use each year. It is a wasteful and unnecessary way to deplete our oil supply and contribute to CO2 build-up in our atmosphere.',
   category: 'Waste',
   default_difficulty: 5,
@@ -77,7 +77,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599228471/P
 @challenge5.save
 
 @challenge6 = Challenge.new(
-  name: 'Buy less, stop wasting', 
+  name: 'Stop Food Waste', 
   description: 'Each year one-third of the world food production is wasted, and this is one of the major problems of global warming. You can do your part and be more conscious about what you buy every time you go to the groceries. A great idea would for example be to cook creative recipes out of the remaining ingredients you have in the fridge. Go for it!',
   category: 'Food',
   default_difficulty: 3,
@@ -100,7 +100,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599747067/p
 
 @challenge8 = Challenge.new(
   name: 'Conscious shopping', 
-  description: 'The fast fashion industry emits tons of CO2 emissions and taught us that we need more and more clothes. But there are other ways to buy more sustainable clothes. Buying from brands that use natural products and produce in your region could be an option. Our challenge is to stop buy from fast-fashion shops and buy second hand or from sustainable brands instead!',
+  description: 'The fast fashion industry emits tons of CO2 emissions and taught us that we need more and more clothes. But there are other ways to be fashionable. Buying from brands that use natural products and produce in your region could be an option. Our challenge is to stop buy from fast-fashion shops and buy second hand or from sustainable brands instead!',
   category: 'Waste',
   default_difficulty: 4,
   default_impact: 5
@@ -111,7 +111,7 @@ file = URI.open('https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599754455/c
 
 @challenge9 = Challenge.new(
   name: 'Eat local', 
-  description: 'Buying what locals have to offer helps the environment because that food didnt travel miles and miles ultil it get to your plate.',
+  description: 'Buying what locals have to offer helps the environment because that food didnt travel miles and miles until it got to your plate. Go to the farmers market and buy local fruits and vegetable, instead of buying produce from around the world.',
   category: 'Food',
   default_difficulty: 4,
   default_impact: 2
