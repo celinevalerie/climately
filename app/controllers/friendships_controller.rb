@@ -5,7 +5,6 @@ class FriendshipsController < ApplicationController
     @friends = policy_scope(Friendship)
     @friends = @user.friends
     @friends = @friends.to_a.push(current_user).sort_by{ |friend| friend.points }.reverse
-
     if params[:choice].present?
       @choice = params[:choice]
     else

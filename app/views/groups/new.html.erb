@@ -19,7 +19,7 @@
     <div style="padding: 12px 0px;">
       <%= image_tag("difficulty.png", size: "25x25")%>
                   <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Difficulty</label>
-                    <p class="slider-description">The difficulty depends on the exceptions you set.</p>
+                    <p class="slider-description">Depends on the exceptions you set.</p>
                     <div class="slider">
                       <div data-target="slider.difficulty" class="slider-value" style="width:<%= @challenge.default_difficulty * 10 %>%; height:5px; color:white;">.</div>
                     </div>
@@ -27,7 +27,7 @@
     <div style="padding: 12px 0px;">
       <%= image_tag("world.png", size: "25x25")%>
                   <label for="exampleRangeDifficulty" style="font-size: 15px; padding: 0px 0px 5px 10px;">Impact</label>
-                    <p class="slider-description">Depends on the amount of weeks you stick to the challenge.</p>
+                    <p class="slider-description">Depends on the duration of the challenge.</p>
                     <div class="slider">
                       <div data-target="slider.impact" class="slider-value" style="width:<%= @challenge.default_impact * 10 %>%; height:5px; color:white;">.</div>
                     </div>
@@ -71,7 +71,7 @@
         <%= f.button :submit, 'Add Friends >', input_html: { stlye:"color:white;" } %>
       </div>
        <div class="button button-large-secondary" style="margin: 0px auto;">
-        < Back to Challenges
+        <%= link_to "< Challenges", challenges_path %>
       </div>
     <% end %>
   </div>
