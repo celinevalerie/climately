@@ -1,8 +1,4 @@
 // Specific CSS for your home-page
-.hpcontainer {
-  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%), image-url("homepage2.png");
-}
-
 .banner {
   height: 100vh;
   display: flex;
@@ -16,7 +12,6 @@
     font-weight: bold;
     font-size: 45px;
   }
-
 }
 
 
@@ -60,14 +55,15 @@
 
 .banner-quote {
   background-image: url(https://res.cloudinary.com/dpdwv3yz1/image/upload/v1599723836/Group_67_wtnmtt.png);
-  height: 300px;
+  max-height: 300px;
   text-align: center;
   color:white;
   background-size: cover;
+  padding: 50px;
 }
 .banner-quote p {
   font-size: 22px;
-  padding: 100px 50px;
+  padding: 60px 50px;
 }
 .hpbody p {
   font-size: 20px;
@@ -180,3 +176,7 @@
 // @include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
 //   padding: 20px;
 // }
+
+.push-header {
+  min-height: 20px;
+}

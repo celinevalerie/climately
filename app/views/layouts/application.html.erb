@@ -33,14 +33,15 @@
   </head>
 
   <body>
+  <div class="page-container">
     <%= render 'shared/navbardesktop' %>
      <%= render 'shared/headermobile'%>
     <%= render 'shared/flashes' %>
         <div class="wrapper">
           <%= yield %>
         </div>
-      <div class="clear"></div>
-    <%= render 'shared/navbarmobile' %>
     <%= render 'shared/footer'%>
+    <%= render 'shared/navbarmobile' %>
+    </div>
   </body>
 </html>

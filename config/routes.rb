@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'friendship/index'
   get 'friend/index'
   devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' },
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
