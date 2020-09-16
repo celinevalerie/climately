@@ -72,22 +72,24 @@ body {
   }
 }
 
-
-
-@include media-breakpoint-up(xs) {
-  .clear { 
-    clear: both; 
-    height: 12vh; 
-  }
-}
-
-@include media-breakpoint-down(xs) {
-  .clear { 
-    clear: both; 
-    height: 80px; 
-  }
-}
-
 a:hover {
   text-decoration: none;
 }
+
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  }
+
+  @include media-breakpoint-up(xs) {
+    .wrapper {
+      padding-bottom: 20px;
+    }
+  }
+  
+  @include media-breakpoint-down(xs) {
+    .wrapper { 
+      padding-bottom: 80px; 
+    }
+  } 
