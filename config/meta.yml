@@ -1,5 +1,5 @@
 meta_product_name: "Climately"
 meta_title: "Saving the world is fun!"
 meta_description: "A web app that allows people to challenge their friends to work on their sustainable habits together."
-meta_image: "tag.jpg" # should exist in `app/assets/images/`
+meta_image: "logometa.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
