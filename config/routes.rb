@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :profiles, only: [:index, :show, :edit, :update] do
+  resources :profiles, only: [:index, :show, :edit, :update, :destroy] do
     member do
       get 'social'
     end
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :challenges, only: [:show, :index] do
-    resources :groups, only: [:new, :create]
+    resources :groups, only: [:new, :create, :edit, :update]
   end
 
   resources :groups, only: [:show, :index] do
@@ -34,6 +34,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
