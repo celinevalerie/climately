@@ -91,13 +91,15 @@
 </div>
 
 <div class="container">
-    <% @nonfriends[0..5].each do |friend| %>
+    <% @nonfriends.each do |friend| %>
       <div class="col-12 px-2 mb-2">
         <div class="friend-card">
           <div class="card-col-pic d-flex">
-          <% if friend.photo.present? %>
-            <%= cl_image_tag(friend.photo.key, class: "avatar") %>
-          <% end %>
+            <% if friend.photo.present? %>
+              <%= cl_image_tag(friend.photo.key, class: "avatar") %>
+            <% else %>
+              <%= cl_image_tag('Group_52_ubhz2j.png', class: "avatar") %>
+            <% end %>
           </div>
 
           <div class="col d-flex justify-content-between align-items-center">

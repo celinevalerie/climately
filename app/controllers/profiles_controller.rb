@@ -41,6 +41,11 @@ class ProfilesController < ApplicationController
       end
     end
 
+    def destroy
+      set_user
+      @user.destroy
+    end
+
     private
 
     def set_user

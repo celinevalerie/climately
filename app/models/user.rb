@@ -2,9 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :user_groups
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :groups, through: :user_groups
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :invitations, class_name: self.to_s, as: :invited_by
   has_one_attached :photo
